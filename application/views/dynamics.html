@@ -20,10 +20,6 @@
 		padding-top: 0.5%;
 	}
 	
-	#scoll_image{
-		margin-top: 2%;
-		margin-bottom: 2%;
-	}
 	.img_sidebar{
 		margin-bottom: 6%;
 	}
@@ -35,14 +31,6 @@
 	#box_bar{
 		margin-top: 2%;
 		margin-bottom: 2%;
-	}
-	.mid_bar{
-		background-color: #999999;
-		color: #FFFFFF;
-	}
-	.mid_bar div{
-		background-color: #3896A7;
-		padding: 1%;
 	}
 	.moments{
 		margin-top: 3%; 
@@ -76,14 +64,10 @@
 		font-size: 0.9em;
 	}
 	.follow{
-		
+		background-color: #AAAAAA;
 	}
 	.unfollow{
-		
-	}
-	.koushui{
-		margin-bottom: 2%;
-		margin-top: 2%;
+		background-color: #777777;
 	}
 	.user_type{
 		margin:2%;
@@ -99,12 +83,24 @@
 	{
 		.modal-dialog{width:20% !important;}
 	}
+	.navbar{
+		border: 0px !important;
+	}
+	.navbar-default{
+		background-color: #333333 !important;
+	}
+	.navbar-nav>li>a{
+		color:white !important;
+	}
+	.active_bar{
+		background-color: #dd0044 !important;
+	}
 </style>
 
 
 <html lang="zh-Hans">
 <head>
-	<title>南开圈主页</title>
+	<title>动态圈</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -122,9 +118,9 @@
 			<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511075414&di=ca076c81de934db3ef3d6cc4f2f4c98b&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F16%2F60%2F92%2F38t58PICG7B_1024.jpg" width="100%">
 		</div>
 	</div>
-	
-	
-	
+
+
+
 	<!-- 注册框（Modal） -->
 	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -210,9 +206,6 @@
 		</div>
 	</div>
 	</div>
-	
-	
-	
 
 	<div class="container">
 		<div class="row" id="box_bar">
@@ -226,81 +219,30 @@
 				<img src="http://pic60.nipic.com/file/20150303/12216461_110913232000_2.jpg" width="100%">
 			</div>
 		</div>
-		<div class="mid_bar row">
-			<div class="col-md-1 col-md-offset-1 col-xs-3">近期作品
-			</div>
-		</div>
-		
-		
-	<!--	
-		<div class="container" id="scoll_image">
-			<div class="row">
-				<div id="carousel-example-generic" class="carousel slide col-md-6 col-md-offset-3 col-xs-12" data-ride="carousel">
-
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-					</ol>
-		
-					<div class="carousel-inner" role="listbox">
-						<div class="item active">
-							<img src="http://pic.qiantucdn.com/58pic/17/90/02/55a75a439a0ca_1024.jpg" width="100%"  alt="F1">
-						<div class="carousel-caption">
-						...
-						</div>
-						</div>
-						<div class="item">
-							<img src="http://pic.qiantucdn.com/58pic/17/90/02/55a75a439a0ca_1024.jpg" width="100%" alt="F1">
-						<div class="carousel-caption">
-							...
-						</div>
-						</div>
-						<div class="item">
-							<img src="http://pic.qiantucdn.com/58pic/17/90/02/55a75a439a0ca_1024.jpg" width="100%" alt="F1">
-						<div class="carousel-caption">
-							...
-						</div>
-						</div>
-					</div>
-
-					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span>
-					<span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span>
-					<span class="sr-only">Next</span>
-					</a>
-				</div>	
-			</div>
-		</div>
-		
-		-->
-		
-		
-		<div class="koushui row">
-			<div class="col-md-2 col-md-offset-3 col-xs-4">
-				<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510578320385&di=c7123f59e559e727c4b1a387739ebbc1&imgtype=0&src=http%3A%2F%2Fp1.img.cctvpic.com%2F20120724%2Fimages%2F1343136891166_1343136891166_r.jpg" width="100%">
-			</div>
-			<div class="col-md-2 col-xs-4">
-				<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510578320385&di=c7123f59e559e727c4b1a387739ebbc1&imgtype=0&src=http%3A%2F%2Fp1.img.cctvpic.com%2F20120724%2Fimages%2F1343136891166_1343136891166_r.jpg" width="100%">
-			</div>
-			<div class="col-md-2 col-xs-4">
-				<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510578320385&di=c7123f59e559e727c4b1a387739ebbc1&imgtype=0&src=http%3A%2F%2Fp1.img.cctvpic.com%2F20120724%2Fimages%2F1343136891166_1343136891166_r.jpg" width="100%">
-			</div>
-		</div>
-		
-		
-		<div class="mid_bar row">
-			<div class="col-md-1 col-md-offset-1 col-xs-3 ">今日南开
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 col-xs-12">
+				<nav class="navbar navbar-default" role="navigation"> 
+ 					<ul class="nav navbar-nav"> 
+  						<li class="active_bar"><a href="">热门动态</a></li> 
+  						<li><a href="">最新动态</a></li> 
+  						<li><a href="">我的订阅</a></li>
+ 					</ul> 
+ 	 
+ 				<div> 
+ 					<form class="navbar-form navbar-left" role="search"> 
+						<div class="form-group"> 
+  							<input type="text" class="form-control" placeholder="INANKAI"> 
+  						</div> 
+  					<button type="submit" class="btn btn-default">搜索</button> 
+ 					</form> 
+ 				</div>
+ 				</nav>
 			</div>
 		</div>
 	</div>
-	</div>
-	
-	
-	<!--热门-->
+
+
+		<!--热门-->
 	<div class="moments container">
 		<div class="row">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-12 col-sm-10 col-sm-offset-1">
@@ -397,15 +339,18 @@
 		</ul>
 	</div>
 	</div>
-	
-	
+
+
+
+
+
 	<footer class="container-fluid" id="foot">
 		<div class="row" style="padding:2%;">
 			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
-				<p>关于我们</p>
-				<p>联系我们</p>
-				<p>开发团队</p>
-				<p>其他作品</p>
+				<p><a href="">关于我们</a></p>
+				<p><a href="">联系我们</a></p>
+				<p><a href="">开发团队</a></p>
+				<p><a href="">其他作品</a></p>
 			</div>
 			<div  class="col-md-2 col-xs-6">
 				<img id="qr_code" src="http://www.sdciq.gov.cn/jiningciq/zwpd/tzgg/201708/W020170809566596875096.gif" > 
@@ -413,22 +358,31 @@
 		</div>
 	</footer>
 	
+
 </body>
-
-
 <script type="text/javascript">
 	$(document).ready(function(){  
     var img = $("#qr_code");  
 	var h = $("#foot_words").outerHeight(); 
+	
 	var w = 70;
     img.css({height:h},{width:w});  
     });
 	$(".follow").click(function(){
-		$("button.follow").css("background-color","#AAAAAA");
-		$("button.follow").text("已关注");
+		//$("button.follow").css("background-color","#AAAAAA");
+		$(".follow").toggleClass("unfollow");
 	});
 	$("#regist_jump").click(function(){
 		$("#loginModal").modal("hide");
 		$("registerModal").modal("show");
 	})
+	$("nav>ul>li").each(function(i,element){
+        element.onclick=function(){
+            $(this).addClass("active_bar").siblings().removeClass('active');
+        }
+    });
 </script>
+
+</html>
+	
+
