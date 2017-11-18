@@ -10,12 +10,13 @@
 		text-decoration: none;
 	}
 	#foot{
-		background-color: #000000;
+		background-color: rgb(59,48,52);
 		color: #ffffff;
 	}
 	#foot a{
 		color:#ffffff !important;
 	}
+
 </style>
 <html lang="zh-Hans">
 <head>
@@ -26,17 +27,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid ">
 		<div class="row" id="head_bar">
-			<a class="col-sm-4 col-md-2 col-xs-6" href="" style="text-align: left;">我的南开inankai</a>	
+			<a class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">我的南开inankai</a>	
 			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;">登录</a>	
-			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;">注册</a>
-			
+			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;">注册</a>	
 		</div>
 	</div>
 
+	<div style="height: 500px">
+	</div>
 
-	<footer class="container-fluid navbar-fixed-bottom" id="foot">
+	<footer class="container-fluid" id="foot">
 		<div class="row" style="padding:2%;">
 			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
 				<p><a href="">关于我们</a></p>
@@ -50,6 +52,7 @@
 		</div>
 	</footer>
 </body>
+
 <script type="text/javascript">
 	$(document).ready(function(){  
     var img = $("#qr_code");  

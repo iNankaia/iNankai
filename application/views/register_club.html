@@ -9,7 +9,7 @@
 </style>
 <html lang="zh-Hans">
 <head>
-	<title>个人用户注册</title>
+	<title>社团用户注册</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-xs-12">
 				<div class="form-horizontal" role="form" >
-					<fieldset><legend>个人用户注册</legend></fieldset>
+					<fieldset><legend>社团用户注册</legend></fieldset>
 
 						<div class="form-group has-feedback">				
                				<label for="username">用户名</label>
@@ -50,7 +50,7 @@
                				<label for="passwordConfirm">确认密码</label>
                 			<div class="input-group">
                     			<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                    		<input id="passwordConfirm" class="form-control" placeholder="请再次输入密码" maxlength="20" type="password">
+                    			<input id="passwordConfirm" class="form-control" placeholder="请再次输入密码" maxlength="20" type="password">
                 			</div>
                				<span style="color:red;display: none;" class="tips"></span>
                 			<span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -58,7 +58,7 @@
             			</div>	
 
             			<div class="form-group has-feedback">
-                			<label for="email">邮箱</label>
+                			<label for="email">社团邮箱</label>
                 			<div class="input-group">
                     			<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
                     			<input id="email" class="form-control" placeholder="请输入邮箱" type="email">
@@ -68,14 +68,56 @@
                 			<span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
            				</div>
 						
+
+
+            			<div class="form-group has-feedback">
+            				<label for="club_name">社团名称</label>
+            				<div class="input-group">
+            					<span class="input-group-addon"><span class="glyphicon glyphicon-flag"></span></span>
+            					<input id="clubName" class="form-control" placeholder="请输入社团名称" type="text" maxlength="20">
+            				</div>
+            				<span style="color:red;display: none;" class="tips"></span>
+                			<span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                			<span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            			</div>
+
+
+						<div class="form-group has-feedback">
+            				<label for="invite_code">邀请码</label>
+            				<div class="input-group">
+            					<span class="input-group-addon"><span class="glyphicon glyphicon-bullhorn"></span></span>
+            					<input id="inviteCode" class="form-control" placeholder="请输入邀请码" type="text">
+            				</div>
+            				<span style="color:red;display: none;" class="tips"></span>
+                			<span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                			<span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            			</div>
+
+
+            			<div class="form-group">
+            				<label for="club_intro">社团简介</label>
+            				<div class="input-group">
+            					<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+            					<textarea class="form-control" id="clubIntro" rows="3" placeholder="请输入20-100字的社团简介" minlength="20" maxlength="100"></textarea>
+            				</div>
+            				<span style="color:red;display: none;" class="tips"></span>
+                			<span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                			<span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            			</div>
+
+
+
 						<div class="form-group">
                 			<input class="form-control btn btn-primary" id="submit" value="注册" type="submit">
             			</div>
+
 
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 	<footer class="container-fluid" id="foot">
 		<div class="row" style="padding:2%;">
 			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
@@ -92,13 +134,12 @@
 </body>
 
 <script type="text/javascript">
-	$(document).ready(function(){  
+$(document).ready(function(){  
     var img = $("#qr_code");  
 	var h = $("#foot_words").outerHeight(); 	
 	var w = 70;
     img.css({height:h},{width:w});  
-    });
-
+});
 
 
 var regUsername = /^[a-zA-Z_][a-zA-Z0-9_]{4,19}$/;
@@ -107,8 +148,8 @@ var regPasswordAlpha = /[a-zA-Z]/;
 var regPasswordNum = /[0-9]/;
 var regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 var password;
-var check = [false, false, false, false];
-
+var check = [false, false, false, false, false, false];
+var check_textarea = false;
 //校验成功函数
 function success(Obj, counter) {
     Obj.parent().parent().removeClass('has-error').addClass('has-success');
@@ -179,6 +220,43 @@ $('.container').find('input').eq(3).change(function(){
     }
 });
 
+
+//社团名校验（查重）
+$('.container').find('input').eq(4).change(function(){
+	if(1){
+		success($(this),4);
+	}else{
+		fail($(this),4, '该社团已存在');
+	}
+});
+
+
+//邀请码检验
+$('.container').find('input').eq(5).change(function(){
+	if(1){
+		success($(this),5);
+	}else{
+		fail($(this),5, '邀请码错误');
+	}
+});
+
+
+//社团简介校验
+$('.container').find('textarea').eq(0).change(function(){
+	if($(this).val().length<20 || $(this).val().length>100){
+		$(this).parent().parent().removeClass('has-success').addClass('has-error');
+		$('.tips').eq(6).text("请输入20-100字简介").show(); 	
+		check_textarea = false;
+	}
+	else{
+		$(this).parent().parent().removeClass('has-error').addClass('has-success');
+		$('.tips').eq(6).hide();
+		check_textarea = true;
+	}
+});
+
+
+
 //提交表单
 $('#submit').click(function(e) {
     if (!check.every(function(value) {
@@ -187,13 +265,14 @@ $('#submit').click(function(e) {
         e.preventDefault();
         for (key in check) {
             if (!check[key]) {
-                $('.container').find('input').eq(key).parent().parent().removeClass('has-success').addClass('has-error')
+                $('.container').find('input').eq(key).parent().parent().removeClass('has-success').addClass('has-error');
             }
         }
+        if(!check_textarea)
+        	$('.container').find('textarea').eq(0).parent().parent().removeClass('has-success').addClass('has-error');
     }
     else{
     	alert("注册成功，请到邮箱确认！");
     }
 });
-
 </script>

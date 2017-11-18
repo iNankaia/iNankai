@@ -8,7 +8,7 @@
 		text-align: left !important;
 	}
 	#foot{
-		background-color: #000000;
+		background-color: rgb(59,48,52);
 		color: #ffffff;
 	}
 	#foot a{
@@ -93,7 +93,24 @@
 		color:white !important;
 	}
 	.active_bar{
-		background-color: #dd0044 !important;
+		background-image: url(./img/主页设计_16.jpg) !important;
+	}
+	#myTab{
+		background-color: rgb(59,48,52);
+		border-bottom: 0px;
+	}
+	#myTab a{
+		color: #FFFFFF;
+	}
+	#myTab>li:active{
+		background-image: url(./img/主页设计_16.jpg) !important;
+		border-bottom: 0px;
+	} 
+	.nav-tabs>li{
+		margin-bottom: 0px !important;
+	}
+	.nav-tabs>li:active{
+		border-bottom: 0px !important;
 	}
 </style>
 
@@ -109,13 +126,13 @@
 <body>
 	<div class="container-fluid">
 		<div class="row" id="head_bar">
-			<a class="col-sm-4 col-md-2 col-xs-6" href="" style="text-align: left;">我的南开inankai</a>	
+			<a class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">我的南开inankai</a>	
 			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;">登录</a>	
 			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;">注册</a>
 			
 		</div>
 		<div class="row">
-			<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511075414&di=ca076c81de934db3ef3d6cc4f2f4c98b&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F16%2F60%2F92%2F38t58PICG7B_1024.jpg" width="100%">
+			<img src="./img/主页设计_02.jpg" width="100%">
 		</div>
 	</div>
 
@@ -210,18 +227,18 @@
 	<div class="container">
 		<div class="row" id="box_bar">
 			<div class="col-md-2 col-md-offset-3 col-xs-4" >
-				<img src="http://pic60.nipic.com/file/20150303/12216461_110913232000_2.jpg" width="100%">
+				<img src="./img/主页设计_05.jpg" width="100%">
 			</div>
 			<div class="col-md-2 col-xs-4">
-				<img src="http://pic60.nipic.com/file/20150303/12216461_110913232000_2.jpg" width="100%">
+				<img src="./img/主页设计_07.jpg" width="100%">
 			</div>
 			<div class="col-md-2 col-xs-4">
-				<img src="http://pic60.nipic.com/file/20150303/12216461_110913232000_2.jpg" width="100%">
+				<img src="./img/主页设计_09.jpg" width="100%">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-xs-12">
-				<nav class="navbar navbar-default" role="navigation"> 
+				<!--nav class="navbar navbar-default" role="navigation"> 
  					<ul class="nav navbar-nav"> 
   						<li class="active_bar"><a href="">热门动态</a></li> 
   						<li><a href="">最新动态</a></li> 
@@ -236,7 +253,12 @@
   					<button type="submit" class="btn btn-default">搜索</button> 
  					</form> 
  				</div>
- 				</nav>
+ 				</nav-->
+ 				<ul id="myTab" class="nav nav-tabs">
+    				<li class="active"><a href="" data-toggle="tab">热门动态</a></li>
+   					<li><a href="#ios" data-toggle="tab">最新动态</a></li>
+    				<li><a href="" data-toggle="tab">我的订阅</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -344,7 +366,7 @@
 
 
 
-	<footer class="container-fluid navbar-fixed-bottom" id="foot">
+	<footer class="container-fluid" id="foot">
 		<div class="row" style="padding:2%;">
 			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
 				<p><a href="">关于我们</a></p>
