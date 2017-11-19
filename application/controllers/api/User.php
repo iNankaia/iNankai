@@ -68,6 +68,7 @@ class User extends CI_Controller {
      * 登录
      */
     public function signin() {
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!这里应该要根据帐号类型返回不同状态码给前端
       $account = $this->input->post('account');
       $password = $this->input->post('password');
       // 检查是否缺少参数
@@ -181,7 +182,29 @@ class User extends CI_Controller {
         echo $this->myecho(100, '取消关注成功', '');
       }
     }
-
+    /**
+     * 用户修改密码(user league通用)
+     */
+    public function modifypass() {
+      $old_pass = $this->input->post('old_pass');
+      $new_pass = $this->input->post('new_pass');
+      if (!isset($old_pass) || !isset($new_pass)) {
+        echo $this->myecho(-1, '缺少参数', '');
+        return;
+      }
+      $res = $this->user->modifypass($old_pass, $new_pass);
+      if ($res['flag'] === -1) {
+        echo $this->myecho(-6, '帐号未登录', '');
+      } else if ($res['flag'] === -2) {
+        echo $this->myecho(-4, '帐号不存在', '');
+      } else if ($res['flag'] === -3) {
+        echo $this->myecho(-16, '旧密码错误', '');
+      } else if ($res['flag'] === -4) {
+        echo $this->myecho(-17, '密码修改失败', '');
+      } else {
+        echo $this->myecho(100, '密码修改成功', '');
+      }
+    }
   }
 
 ?>
