@@ -1,4 +1,8 @@
 <style type="text/css">
+    body{
+        min-height:100%;
+        position:relative;
+    }
 	#head_bar{
 		background-color: rgb(255,47,83);
 		padding-bottom: 0.5%;
@@ -12,11 +16,16 @@
 	#foot{
 		background-color: rgb(59,48,52);
 		color: #ffffff;
+		position:absolute;
+		bottom:0;
+		width:100%;
 	}
 	#foot a{
 		color:#ffffff !important;
 	}
-
+    .container{
+        padding-bottom: 170px;
+    }
 </style>
 <html lang="zh-Hans">
 <head>
@@ -35,7 +44,7 @@
 		</div>
 	</div>
 
-	<div style="height: 500px">
+	<div class="container">
 	</div>
 
 	<footer class="container-fluid" id="foot">
