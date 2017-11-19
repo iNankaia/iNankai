@@ -224,5 +224,39 @@ class User_model extends CI_Model {
       }
       return array('flag' => 1);
     }
+    /**
+     * 用户修改密码
+     * @param old_pass 用户旧密码
+     * @param new_pass 用户新密码
+     * @return -1: 帐号未登录; -2: 帐号不存在 -3: 旧密码错误; -4: 密码修改失败; 1: 密码修改成功
+     */
+    public function modifypass($old_pass='', $new_pass='') {
+      if (!$this->session->has_userdata('uid')) {
+        return array('flag' => -1);
+      }
+      $uid = $this->session->uid;
+      // 找到该用户
+      $sql = 'select * from login_info where user_id = '.$this->db->escape($uid);
+      $res = $this->db->query($sql);
+      if ($res->num_rows() === 0) {
+        return array('flag' => -2);
+      }
+      foreach ($res->result() as $row) {
+        $correct_password = $row->user_password;
+        $salt = $row->user_salt;
+      }
+      $temp_pass = hash('sha256', $old_pass.$salt);
+      if ($temp_pass !== $correct_password) {
+        return array('flag' => -3);
+      }
+      $password = hash('sha256', $new_pass.$salt);
+      $sql = 'update login_info set user_password = '.$this->db->escape($password);
+      $res = $this->db->query($sql);
+      if ($this->db->affected_rows() === 0) {
+        return array('flag' => -4);
+      } else {
+        return array('flag' => 1);
+      }      
+    }
   }
 ?>
