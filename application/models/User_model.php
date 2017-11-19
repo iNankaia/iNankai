@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class User_model extends CI_Controller {
+class User_model extends CI_Model {
     public function __construct(){
       parent::__construct();
       $this->load->database();
@@ -9,35 +9,51 @@ class User_model extends CI_Controller {
     public function index() {
        
     }
-    
+    /**
+     * 检查username是否已被使用
+     * @param username　用户名
+     * @return -1: 已被使用; 1: 未被使用
+     */
+    public function checkname($username='') {
+      $sql = 'select * from user_info where user_name = '.$this->db->escape($username);
+      $res = $this->db->query($sql);
+      if ($res->num_rows() > 0) {
+        return array('flag' => -1);
+      } else {
+        return array('flag' => 1);
+      }
+    }
     /**
      * 用户注册
      * @param username 用户昵称
      * @param password 用户密码
      * @param email 用户注册用邮箱
-     * @return -1: 帐号已存在；-2: 插入数据库失败； 1: 插入数据库成功
+     * @return -1: 帐号已存在；-2: 插入数据库失败；-3: 用户名已存在； 1: 插入数据库成功
      */
     public function signup($username='', $password='', $email='') {
       // 先检查是否已经存在该帐号
+      if ($this->checkname($username)['flag'] === -1) {
+        return array('flag' => -3);
+      }
       $sql = 'select * from login_info where user_email = '.$this->db->escape($email);
       $res = $this->db->query($sql);
       if ($res->num_rows() > 0) {
         // 已经存在该帐号
         return array('flag' => -1);
       }
+      // 为用户生成id
+      $uid = md5($email);
       // 随机生成长度为4的盐，并将密码进行sha256哈希
       $salt = strval(rand(pow(10, 3), pow(10, 4) - 1));
       $password = hash('sha256', $password.$salt);
       // 将数据存入数据存入数据库中
-      $id = rand(pow(10, 3), pow(10, 4) - 1);
-      $sql = 'insert into login_info values('.$this->db->escape($id).','.$this->db->escape($username).','
+      $sql = 'insert into login_info values('.$this->db->escape($uid).','.$this->db->escape($username).','
         .$this->db->escape($password).','.$this->db->escape(date('Y-m-d H:i:s', time()))
-        .','.$this->db->escape($salt).','.$this->db->escape($email).')';
+        .','.$this->db->escape($salt).','.$this->db->escape($email).','.$this->db->escape(0).','.$this->db->escape(0).')';
       $res = $this->db->query($sql);
       $headicon = '/hehe.jpg';
-      $sql = 'insert into user_info values('.$this->db->escape($id).','.$this->db->escape($username).','
-      .$this->db->escape($username).','.$this->db->escape(1)
-      .','.$this->db->escape($headicon).','.$this->db->escape(date('Y-m-d H:i:s', time())).')';
+      $sql = 'insert into user_info values('.$this->db->escape($uid).','.$this->db->escape($username).','
+      .$this->db->escape($username).','.$this->db->escape($headicon).','.$this->db->escape(date('Y-m-d H:i:s', time())).')';
       $res = $this->db->query($sql);
       if ($this->db->affected_rows() > 0) {
         // 插入成功
@@ -49,15 +65,15 @@ class User_model extends CI_Controller {
     }
     /**
      * 用户登录
-     * @param email 用户登录邮箱
+     * @param account 用户登录帐号(邮箱或者username)
      * @param password 用户登录密码
      * @return -1: 帐号不存在; -2: 密码错误; 1: 登录成功
      */
-    public function signin($email='', $password='') {
+    public function signin($account='', $password='') {
       // 先检查是否存在该用户
-      $sql = 'select * from login_info where user_email = '.$this->db->escape($email);
+      $sql = 'select * from login_info where user_email = '.$this->db->escape($account).' or user_name = '.$this->db->escape($account);
       $res = $this->db->query($sql);
-      if ($res->num_rows() == 0) {
+      if ($res->num_rows() === 0) {
         // 不存在该帐号
         return array('flag' => -1);
       }
@@ -68,7 +84,7 @@ class User_model extends CI_Controller {
         $uid = $row->user_id;
       }
       $temp_password = hash('sha256', $password.$salt);
-      if (substr($temp_password, 0, 20) !== $correct_password) {
+      if ($temp_password !== $correct_password) {
         // 密码错误
         return array('flag' => -2);
       }
@@ -104,7 +120,7 @@ class User_model extends CI_Controller {
         foreach ($res->result() as $row) {
           $data = array(
             'portrait' => $row->user_portrait,
-            'name' => $row->user_name,
+            'name' => $row->user_nickname,
             'signup_time' =>$row->user_signup_time
           );
         }
@@ -115,16 +131,98 @@ class User_model extends CI_Controller {
     }
     /**
      * 修改用户信息
-     * @param new_name 用户新名称
+     * @param new_nick 用户新名称
      * @param new_potrait 用户新头像
-     * @return -1: 未登录
+     * @return -1: 未登录; -2: 修改失败; 1: 修改成功
      */
-    public function modifyinfo($new_name='', $new_potrait='') {
-      if ($this->session->has_userdata('uid')) {
+    public function modifyinfo($new_nick='', $new_potrait='') {
+      if (!$this->session->has_userdata('uid')) {
         return array('flag' => -1);
       }
       $uid = $this->session->uid;
-      // $sql = 'update '
+      $sql = 'update user_info set user_nickname = '.$this->db->escape($new_nick)
+      .',user_portrait = '.$this->db->escape($new_potrait).' where user_id = '
+      .$this->db->escape($uid);
+      $res = $this->db->query($sql);
+      if ($this->db->affected_rows() === 0) {
+        return array('flag' => -2);
+      } else {
+        return array('flag' => 1);
+      }
+    }
+    /**
+     * 用户添加关注社团
+     * @param lid 社团id
+     * @return -1: 用户未登录; -2: 不存在该社团; -3: 用户已经关注社团; -4: 关注失败; 1: 关注成功
+     */
+    public function addattention($lid='') {
+      if (!$this->session->has_userdata('uid')) {
+        return array('flag' => -1);
+      }
+      $uid = $this->session->uid;
+      // 检查是否存在该社团
+      $sql = 'select * from club_user_info where user_id = '.$this->db->escape($lid);
+      $res = $this->db->query($sql);
+      if ($res->num_rows() === 0) {
+        return array('flag' => -2);
+      }
+      // 检查该用户是否已经已经关注该社团
+      $sql = 'select * from subscribe where subscriber_user_id = '.$this->db->escape($uid).' and subscribed_user_id = '.$this->db->escape($lid);
+      $res = $this->db->query($sql);
+      if ($res->num_rows() > 0) {
+        return array('flag' => -3);
+      }
+      // 涉及到的表有club_user_info，subscribe
+      $sql = 'update club_user_info set club_sub_count = club_sub_count + 1 where user_id = '.$this->db->escape($lid);
+      $this->db->query($sql);
+      if ($this->db->affected_rows() === 0) {
+        return array('flag' => -4);
+      }
+      $sql = 'insert into subscribe values('.$this->db->escape($uid).','.$this->db->escape($lid).')';
+      $this->db->query($sql);
+      if ($this->db->affected_rows() === 0) {
+        $sql = 'update club_user_info set club_sub_count = club_sub_count - 1 where user_id = '.$this->db->escape($lid);
+        $this->db->query($sql);
+        return array('flag' => -4);
+      }
+      return array('flag' => 1);
+    }
+    /**
+     * 用户取消关注社团
+     * @param lid 社团id
+     * @return -1: 用户未登录; -2: 不存在该社团; -3: 用户没有关注该社团; -4: 取消失败; 1: 取消关注成功
+     */
+    public function cancelattention($lid='') {
+      if (!$this->session->has_userdata('uid')) {
+        return array('flag' => -1);
+      }
+      $uid = $this->session->uid;
+      // 检查是否存在该社团
+      $sql = 'select * from club_user_info where user_id = '.$this->db->escape($lid);
+      $res = $this->db->query($sql);
+      if ($res->num_rows() === 0) {
+        return array('flag' => -2);
+      }
+      // 检查该用户是否已经已经关注该社团
+      $sql = 'select * from subscribe where subscriber_user_id = '.$this->db->escape($uid).' and subscribed_user_id = '.$this->db->escape($lid);
+      $res = $this->db->query($sql);
+      if ($res->num_rows() === 0) {
+        return array('flag' => -3);
+      }
+      // 涉及到的表有club_user_info，subscribe
+      $sql = 'update club_user_info set club_sub_count = club_sub_count - 1 where user_id = '.$this->db->escape($lid);
+      $this->db->query($sql);
+      if ($this->db->affected_rows() === 0) {
+        return array('flag' => -4);
+      }
+      $sql = 'delete from subscribe where subscriber_user_id = '.$this->db->escape($uid).' and subscribed_user_id = '.$this->db->escape($lid).')';
+      $this->db->query($sql);
+      if ($this->db->affected_rows() === 0) {
+        $sql = 'update club_user_info set club_sub_count = club_sub_count ＋ 1 where user_id = '.$this->db->escape($lid);
+        $this->db->query($sql);
+        return array('flag' => -4);
+      }
+      return array('flag' => 1);
     }
   }
 ?>

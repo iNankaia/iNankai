@@ -27,6 +27,21 @@ class User extends CI_Controller {
       return urldecode(json_encode($this->getInfo($flag, $content, $extra)));
     }
     /**
+     * 检查username是否重复
+     */
+    public function checkname() {
+      $username = $this->input->post('username');
+      if (!isset($username)) {
+        echo $this->myecho(-1, '缺少参数', '');
+      }
+      $res = $this->user->checkname($username);
+      if ($res['flag'] === -1) {
+        echo $this->myecho(-9, '用户名已存在', '');
+      } else {
+        echo $this->myecho(100, '用户名未被使用', '');
+      }
+    }
+    /**
      * 注册
      */
     public function signup() {
@@ -38,12 +53,13 @@ class User extends CI_Controller {
         echo $this->myecho(-1, '缺少参数', '');
         return;
       }
-      //
       $res = $this->user->signup($username, $password, $email);
       if ($res['flag'] === -1) {
         echo $this->myecho(-2, '帐号已存在', '');
       } else if ($res['flag'] === -2) {
         echo $this->myecho(-3, '注册失败', '');
+      } else if ($res['flag'] === -3) {
+        echo $this->myecho(-9, '用户名已存在', '');
       } else {
         echo $this->myecho(100, '注册成功', '');
       }
@@ -52,14 +68,14 @@ class User extends CI_Controller {
      * 登录
      */
     public function signin() {
-      $email = $this->input->post('email');
+      $account = $this->input->post('account');
       $password = $this->input->post('password');
       // 检查是否缺少参数
-      if (!isset($email) || !isset($password)) {
+      if (!isset($account) || !isset($password)) {
         echo $this->myecho(-1, '缺少参数', '');
         return;
       }
-      $res = $this->user->signin($email, $password);
+      $res = $this->user->signin($account, $password);
       if ($res['flag'] === -1) {
         echo $this->myecho(-4, '帐号不存在', '');
       } else if ($res['flag'] === -2) {
@@ -97,15 +113,75 @@ class User extends CI_Controller {
      * 修改用户信息
      */
     public function modifyinfo() {
-      $new_name = $this->input->post('new_name');
+      $new_nick = $this->input->post('new_nick');
       $new_portrait = $this->input->post('new_portrait');
-      if (!isset($new_name) || !isset($new_portrait)) {
+      if (!isset($new_nick) || !isset($new_portrait)) {
         echo $this->myecho(-1, '缺少参数', '');
         return;
       }
-      $res = $this->user->modifyinfo($new_name, $new_portrait);
-      
+      $res = $this->user->modifyinfo($new_nick, $new_portrait);
+      if ($res['flag'] === -1) {
+        // 未登录
+        echo $this->myecho(-6, '用户未登录', '');
+      } else if ($res['flag'] === -2) {
+        echo $this->myecho(-7, '信息修改失败', '');
+      } else {
+        echo $this->myecho(100, '信息修改成功', '');
+      }
     }
+    /**
+     * 用户关注社团
+     */
+    public function addattention() {
+      $lid = $this->input->post('lid');
+      if (!isset($lid)) {
+        echo $this->myecho(-1, '缺少参数', '');
+        return;
+      }
+      $res = $this->user->addattention($lid);
+      if ($res['flag'] === -1) {
+        // 用户未登录
+        echo $this->myecho(-6, '用户未登录', '');
+      } else if ($res['flag'] === -2) {
+        // 不存在该社团
+        echo $this->myecho(-10, '社团不存在', '');
+      } else if ($res['flag'] === -3) {
+        // 用户已经关注社团
+        echo $this->myecho(-11, '用户已经关注社团', '');
+      } else if ($res['flag'] === -4) {
+        // 关注失败
+        echo $this->myecho(-12, '用户关注社团失败', '');
+      } else {
+        echo $this->myecho(100, '关注成功', '');
+      }
+    }
+    /**
+     * 用户取消关注社团
+     */
+    public function cancelattention() {
+      $lid = $this->input->post('lid');
+      if (!isset($lid)) {
+        echo $this->myecho(-1, '缺少参数', '');
+        return;
+      }
+      $res = $this->user->cancelattention($lid);
+      if ($res['flag'] === -1) {
+        // 用户未登录
+        echo $this->myecho(-6, '用户未登录', '');
+      } else if ($res['flag'] === -2) {
+        // 不存在该社团
+        echo $this->myecho(-10, '社团不存在', '');
+      } else if ($res['flag'] === -3) {
+        // 用户没有关注该社团
+        echo $this->myecho(-13, '用户没有关注该社团', '');
+      } else if ($res['flag'] === -4) {
+        // 取消关注失败
+        echo $this->myecho(-14, '用户取消关注社团失败', '');
+      } else {
+        echo $this->myecho(100, '取消关注成功', '');
+      }
+    }
+
   }
 
 ?>
