@@ -33,7 +33,7 @@
 				<form class="form-horizontal" role="form" >
 					<fieldset><legend>社团用户注册</legend></fieldset>
 
-						<div class="form-group has-feedback">				
+						<!--div class="form-group has-feedback">				
                				<label for="username">用户名</label>
                 			<div class="input-group">
                     			<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
@@ -43,7 +43,19 @@
                 			<span style="color:red;display: none;" class="tips"></span>
                 			<span style="display: none;" class=" glyphicon glyphicon-remove form-control-feedback"></span>
                 			<span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
-            			</div>
+            			</div-->
+
+
+                        <div class="form-group has-feedback">
+                            <label for="clubName">社团名称</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-flag"></span></span>
+                                <input id="clubName" class="form-control" placeholder="请输入社团名称" type="text" maxlength="20">
+                            </div>
+                            <span style="color:red;display: none;" class="tips"></span>
+                            <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                            <span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        </div>
 
             			<div class="form-group has-feedback">
                 			<label for="password">密码</label>
@@ -81,16 +93,7 @@
 						
 
 
-            			<div class="form-group has-feedback">
-            				<label for="clubName">社团名称</label>
-            				<div class="input-group">
-            					<span class="input-group-addon"><span class="glyphicon glyphicon-flag"></span></span>
-            					<input id="clubName" class="form-control" placeholder="请输入社团名称" type="text" maxlength="20">
-            				</div>
-            				<span style="color:red;display: none;" class="tips"></span>
-                			<span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
-                			<span style="display: none;" class="glyphicon glyphicon-ok form-control-feedback"></span>
-            			</div>
+
 
 
 						<div class="form-group has-feedback">
@@ -159,7 +162,7 @@ var regPasswordAlpha = /[a-zA-Z]/;
 var regPasswordNum = /[0-9]/;
 var regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 var password;
-var check = [false, false, false, false, false, false];
+var check = [false, false, false, false, false];
 var check_textarea = false;
 //校验成功函数
 function success(Obj, counter) {
@@ -181,7 +184,7 @@ function fail(Obj, counter, msg) {
 }
 
 
-$('.container').find('input').eq(0).change(function() {
+/*$('.container').find('input').eq(0).change(function() {
     if (regUsername.test($(this).val())) {
         success($(this), 0);
     } else if ($(this).val().length < 5) {
@@ -190,6 +193,7 @@ $('.container').find('input').eq(0).change(function() {
         fail($(this), 0, '用户名只能为英文数字和下划线,且不能以数字开头');
     }
 });
+*/
 
 
 function atLeastTwo(password) {
@@ -199,6 +203,16 @@ function atLeastTwo(password) {
     return a + b + c;
 
 }
+
+
+//社团名校验（查重）
+$('.container').find('input').eq(0).change(function(){
+    if(1){
+        success($(this),0);
+    }else{
+        fail($(this),0, '该社团已存在');
+    }
+});
 
 $('.container').find('input').eq(1).change(function() {
     password = $(this).val();
@@ -232,22 +246,15 @@ $('.container').find('input').eq(3).change(function(){
 });
 
 
-//社团名校验（查重）
+
+
+
+//邀请码检验
 $('.container').find('input').eq(4).change(function(){
 	if(1){
 		success($(this),4);
 	}else{
-		fail($(this),4, '该社团已存在');
-	}
-});
-
-
-//邀请码检验
-$('.container').find('input').eq(5).change(function(){
-	if(1){
-		success($(this),5);
-	}else{
-		fail($(this),5, '邀请码错误');
+		fail($(this),4, '邀请码错误');
 	}
 });
 
@@ -256,21 +263,20 @@ $('.container').find('input').eq(5).change(function(){
 $('.container').find('textarea').eq(0).change(function(){
 	if($(this).val().length<20 || $(this).val().length>100){
 		$(this).parent().parent().removeClass('has-success').addClass('has-error');
-		$('.tips').eq(6).text("请输入20-100字简介").show(); 	
+		$('.tips').eq(5).text("请输入20-100字简介").show(); 	
 		check_textarea = false;
 	}
 	else{
 		$(this).parent().parent().removeClass('has-error').addClass('has-success');
-		$('.tips').eq(6).hide();
+		$('.tips').eq(5).hide();
 		check_textarea = true;
 	}
 });
 
-var username = '';
+var clubName = '';
 var password = '';
 var repassword = '';
 var email = '';
-var clubName = '';
 var inviteCode = '';
 var clubIntro = '';
 
@@ -299,11 +305,10 @@ $('#submit').click(function(e) {
         $.post(
             "<?php echo site_url('') ?>",
             {
-                'username':username,
+                'clubName':clubName,
                 'password':password,
                 'email':email,
-                'inviteCode':inviteCode,
-                'clubName':clubName,
+                'inviteCode':inviteCode,            
                 'clubIntro':clubIntro
             },
             function (data){
