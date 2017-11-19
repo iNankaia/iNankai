@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<style type="text/css">
+	*{
+		text-align: center;
+		align: center;
+	}
+	input{
+		text-align: left !important;
+	}
+	#foot{
+		background-color: #000000;
+		color: #ffffff;
+	}
+	#foot a{
+		color:#ffffff !important;
+	}
+	#head_bar{
+		background-color: rgb(255,47,83);
+		padding-bottom: 0.5%;
+		padding-top: 0.5%;
+	}
+	
+	#scoll_image{
+		margin-top: 2%;
+		margin-bottom: 2%;
+	}
+	.img_sidebar{
+		margin-bottom: 6%;
+	}
+	#head_bar a{
+		color: #000000 !important;
+		font-size: 1.2em !important;
+		text-decoration: none;
+	}
+	#box_bar{
+		margin-top: 2%;
+		margin-bottom: 2%;
+	}
+	.mid_bar{
+		background-color: #999999;
+		color: #FFFFFF;
+	}
+	.mid_bar div{
+		background-color: #3896A7;
+		padding: 1%;
+	}
+	.media-body *{
+		text-align: left;
+		align: left;
+	}
+	.time_before{
+		color: #CCCCCC;
+	}
+	.moments_tag{
+		color: #AAAAAA;
+	}
+	.moments_title{
+		font-size: 1.3em;
+		text-align: left;
+	}
+	.contents{
+		text-align: left;
+		padding-top: 2%;
+	}
+	.moments_content{
+		text-align: left;
+	}
+	.view_more{
+		margin-left: 3%;
+		color: rgb(255,0,0) !important;
+	}
+	.location{
+		font-size: 0.9em;
+	}
+	.follow{
+		
+	}
+	.unfollow{
+		
+	}
+	.koushui{
+		margin-bottom: 2%;
+		margin-top: 2%;
+	}
+	.user_type{
+		margin:2%;
+	}
+	@media(min-width: @screen-sm-min){
+		.modal-dialog{width: 40% !important;}
+	}
+	@media(min-width: @screen-md-min)
+	{
+		.modal-dialog{width: 30% !important;}
+	}
+	@media(min-width: @screen-lg-min)
+	{
+		.modal-dialog{width:20% !important;}
+	}
+	#intro{
+		color:	#CDC8B1;
+		font-style: italic;
+		font-size: 10px;
+		border-color: #EE9A00;
+		border-width: 2px !important;
+		margin-right:30%;
+		margin-left: 30%;
+		text-align: left !important;
+	}
+	.content{
+		margin-left: 30%;
+		text-align: left;
+	}
+	.active_bar{
+		background-color: #dd0044 !important;
+	}
+	.background{
+		background-color: 	#F0F0F0!important;
+
+	}
+	.background2{
+		background-color: #F7F7F7 !important;
+		margin-right: 20%;
+	}
+	
+	.navbar{
+		border: 0px !important;
+	}
+	.navbar-default{
+		background-color: #333333 !important;
+	}
+	.navbar-nav>li>a{
+		color:white !important;
+	}
+	.active_bar{
+		background-image: url(./img/主页设计_16.jpg) !important;
+	}
+	#myTab{
+		background-color: rgb(59,48,52);
+		border-bottom: 0px;
+	}
+	#myTab a{
+		color: #FFFFFF;
+	}
+	#cal{
+		background-color:  rgb(59,48,52);
+		color:#ffffff;
+		
+	}
+	#hcal{
+		display: block;
+	}
+
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a:focus{
+		color: #fff !important;
+    	background-image: url(./img/主页设计_16.jpg) !important;
+  		border: 0px !important;
+	}
+	.nav-tabs > li > a:hover{
+		color: #fff;
+		background-color: rgb(59,48,52)!important; 
+	}
+	.nav-tabs > li {
+ 		margin-bottom: 0px !important;
+	}
+	.nav-tabs > li > a {
+  		margin-right: 0px !important;
+  		border: 0px !important;
+  		border-radius: 10000px !important;
+  		border-radius: 0 !important;
+	}
+	.btn{
+		border-radius: 8px !important;
+	}
+
+</style>
+
+<html lang="zh-Hans">
+<head>
+	<title>个人主页</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row" id="head_bar">
+			<a class="col-sm-4 col-md-2 col-xs-6" href="" style="text-align: left;">我的南开inankai</a>	
+			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;">登录</a>	
+			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;">注册</a>
+			
+		</div>
+
+	</div>
+	
+	
+	
+	<!-- 注册框（Modal） -->
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					注册
+				</h4>
+			</div>
+			
+<div class="modal-body ">
+				<a class="user_type" title="个人" href=""><img src="http://cdn.duitang.com/uploads/blog/201411/18/20141118153107_QuHGU.thumb.700_0.jpeg" width="40%"></a>
+				<a class="user_type" title="社团" href=""><img src="http://cdn.duitang.com/uploads/blog/201411/18/20141118153107_QuHGU.thumb.700_0.jpeg" width="40%"></a>
+			</div>
+		
+		</div>
+	</div>
+	</div>
+	
+	
+	<!-- 登录框（Modal） -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h3 class="modal-title" id="myModalLabel">
+					登录
+				</h3>
+			</div>
+			<div class="modal-body">
+				<form class="form" role="form" action="">
+					<div class="form-group">
+						<input class="form-control input-lg" type="text" placeholder="用户名" id="username"></input>
+					</div>
+					<div class="form-group">
+						<input class="form-control input-lg" type="password" placeholder="密码" id="password"></input>
+					</div>
+					<div class="form-group pull-left">
+						<div class="checkbox">
+							<label><input type="checkbox">请记住我</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">登录</button>
+						<div style="padding: 2%;">
+							<span class="pull-left"><a href="">找回密码</a></span>
+							<a id="regist_jump" class="pull-right" href="">注册</a>
+						</div>
+					</div>
+					
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	</div>
+
+
+<!--热门-->
+
+
+<div class="container background">
+		<div class="row">			
+			<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3595215093,2749499673&fm=27&gp=0.jpg" width="100%" height=200px;>
+		</div>
+		<div class="row" style="background-color: #ffffff;">
+			<div class="col-md-12">
+			<br/>
+			</div>
+		</div>
+		<div class="row">
+			<ul class="media-list col-md-12 col-md-offset-0 col-xs-12 col-sm-12 col-sm-offset-0">
+			<li class="media">
+				<a class="media-left media-middle">
+				<img class="media-object" src="http://img4.duitang.com/uploads/item/201312/05/20131205172415_wJhjH.thumb.600_0.jpeg"  alt="头像" style="border-radius: 55%; margin-top: 7px; margin-left: 5px;" width="120px">
+				</a>
+				
+				<div class="media-body">
+					
+					<h3 style="margin-left: 5px">昵称
+
+					<a href="">
+					<span  ><span class="glyphicon glyphicon-edit" style="font-size: 15px;"></span></span></a>
+					</h3>
+					<div class="briefintro">
+						<p style="margin-left: 3px;">个人介绍：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+						<p style="margin-left: 3px;">所在院系：xxxxxxxxxxx</p>
+						
+					</div>
+				</div>
+			</li>
+			</ul>
+		</div>	
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-md-offset-0 col-xs-12" style="margin-left: 0px; padding:0px;">
+				<ul id="myTab" class="nav nav-tabs">
+    				<li class="active"><a href="" data-toggle="tab">我的收藏</a></li>
+   					<li><a href="" data-toggle="tab">我的关注</a></li>
+    				<li><a href="" data-toggle="tab">我的消息</a></li>
+    				
+          			<div class="pull-right" style="margin-top: 10px;margin-right: 5px;">
+          				<li><a href="" data-toggle="tab"><span class="glyphicon glyphicon-plus-sign"></span></a>
+    					<a href="" >我的日程</a></li>
+
+    				</div>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-xs-8" style="background-color: 	#F0F0F0;">
+			<p>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+			</p>
+		</div>
+		<div class="col-md-4 col-xs-4" style="background-color: #D4D4D4;">
+			<p>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+<footer class="container-fluid" id="foot">
+	<div class="row" style="padding:2%;">
+		<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
+			<p>关于我们</p>
+			<p>联系我们</p>
+			<p>开发团队</p>
+			<p>其他作品</p>
+		</div>
+		<div  class="col-md-2 col-xs-6">
+			<img id="qr_code" src="http://www.sdciq.gov.cn/jiningciq/zwpd/tzgg/201708/W020170809566596875096.gif" > 
+		<div>
+	</div>
+</footer>
+	
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function(){  
+    var img = $("#qr_code");  
+	var h = $("#foot_words").outerHeight(); 
+	var w = 70;
+    img.css({height:h},{width:w});  
+    var th = $('#myTab').outerHeight();
+    $('#cal').css({height:th});
+    //$('#hcal').css({line-height:th});
+
+    });
+	$(".follow").click(function(){
+		$("button.follow").css("background-color","#AAAAAA");
+		$("button.follow").text("已关注");
+	});
+	$("#regist_jump").click(function(){
+		$("#loginModal").modal("hide");
+		$("registerModal").modal("show");
+	})
+</script>
