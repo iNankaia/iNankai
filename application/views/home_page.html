@@ -4,7 +4,6 @@
 		text-align: center;
 		align: center;
 		font-family: Helvetica,"PingFang SC";
-    }
 	}
 	input{
 		text-align: left !important;
@@ -22,30 +21,19 @@
 		padding-top: 0.5%;
 	}
 	
-	#scoll_image{
-		margin-top: 2%;
-		margin-bottom: 2%;
-	}
 	.img_sidebar{
 		margin-bottom: 6%;
 	}
 	#head_bar a{
 		color: #ffffff !important;
-		font-size: 1.2em !important;
+		font-size: 1.1em !important;
 		text-decoration: none;
 	}
 	#box_bar{
 		margin-top: 2%;
 		margin-bottom: 2%;
 	}
-	.mid_bar{
-		background-color: rgb(59,48, 52);
-		color: #FFFFFF;
-	}
-	.mid_bar div{
-		background-color: #3896A7;
-		padding: 1%;
-	}
+
 	.moments{
 		padding-top: 3%; 
 		padding-left: 2% !important;
@@ -140,9 +128,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
 </head>
 <body>
-	<div class="container-fluid ">
-		<div class="row" id="head_bar">
-			<a class="col-sm-4 col-md-2 col-xs-6" href="" style="text-align: left;">我的南开inankai</a>	
+	<div class="container-fluid ">		
+		
+		<div class=" navbar-fixed-top row" id="head_bar">
+			<a class="col-sm-4 col-md-2 col-xs-6" href="" style="text-align: center;">我的南开inankai</a>	
 			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="">登录</a>	
 			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>
 			
@@ -237,10 +226,7 @@
 		</div>
 	</div>
 	<div class="container-fluid recentWork">
-		<!--div class="mid_bar row">
-			<div class="col-md-1 col-md-offset-1 col-xs-3 mid_mid">近期作品
-			</div>
-		</div-->
+
 		<h3><strong style="color: #3b3033;">近期作品</strong></h3>
 		<h4 style="color: #9d9d9d;">Recent Works</h4>
 		<div class="row" id="box_bar">
@@ -255,10 +241,6 @@
 			</div>
 		</div>	
 		
-		<!--div class="mid_bar row">
-			<div class="col-md-1 col-md-offset-1 col-xs-3 mid_mid">今日南开
-			</div>
-		</div-->
 	</div>
 	</div>
 	
@@ -371,7 +353,7 @@
 	
 	</div>
 	
-	
+	<!--img src="./img/head1.png" width="100%"-->
 	<footer class="container-fluid" id="foot">
 		<div class="row" style="padding:2%;">
 			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
@@ -381,7 +363,7 @@
 				<p>其他作品</p>
 			</div>
 			<div  class="col-md-2 col-xs-6">
-				<img id="qr_code" src="http://www.sdciq.gov.cn/jiningciq/zwpd/tzgg/201708/W020170809566596875096.gif" > 
+				<img id="qr_code" src="./img/qr_code.jpg" > 
 			<div>
 		</div>
 	</footer>

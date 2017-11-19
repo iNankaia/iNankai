@@ -3,6 +3,7 @@
 	*{
 		text-align: center;
 		align: center;
+		font-family: Helvetica,"PingFang SC";
 	}
 	input{
 		text-align: left !important;
@@ -15,7 +16,7 @@
 		color:#ffffff !important;
 	}
 	#head_bar{
-		background-color: rgb(255,47,83);
+		background-image: url(./img/head.png);
 		padding-bottom: 0.5%;
 		padding-top: 0.5%;
 	}
@@ -25,7 +26,7 @@
 	}
 	#head_bar a{
 		color: #ffffff !important;
-		font-size: 1.2em !important;
+		font-size: 1.1em !important;
 		text-decoration: none;
 	}
 	#box_bar{
@@ -33,7 +34,12 @@
 		margin-bottom: 2%;
 	}
 	.moments{
-		margin-top: 3%; 
+		padding-top: 3%; 
+		padding-left: 2% !important;
+		padding-right:2% !important;
+		background-color: #fff;
+		border-color:#ff0000;
+		border:1px solid;
 	}
 	.media-body *{
 		text-align: left;
@@ -137,8 +143,8 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row" id="head_bar">
-			<a class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">我的南开inankai</a>	
+		<div class="row navbar-fixed-top" id="head_bar">
+			<a class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: center;">我的南开inankai</a>	
 			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="">登录</a>	
 			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>
 			
@@ -238,14 +244,14 @@
 
 	<div class="container">
 		<div class="row" id="box_bar">
-			<div class="col-md-2 col-md-offset-3 col-xs-4" >
-				<img src="./img/主页设计_05.jpg" width="100%">
+			<div class="col-md-3 col-md-offset-1 col-xs-4" >
+				<img src="./img/动态圈.png" width="100%">
 			</div>
-			<div class="col-md-2 col-xs-4">
-				<img src="./img/主页设计_07.jpg" width="100%">
+			<div class="col-md-3 col-xs-4">
+				<img src="./img/爱南开.png" width="100%">
 			</div>
-			<div class="col-md-2 col-xs-4">
-				<img src="./img/主页设计_09.jpg" width="100%">
+			<div class="col-md-3 col-xs-4">
+				<img src="./img/个人页.png" width="100%">
 			</div>
 		</div>
 		<div class="row">
@@ -277,16 +283,16 @@
 
 
 		<!--热门-->
-	<div class="moments container">
+	<div class="container" style="margin-top: 5%">
 		<div class="row">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-12 col-sm-10 col-sm-offset-1">
-			<li class="media">
+			<li class="media moments ">
 				<a class="media-left">
 				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
                  alt="头像" width="60px">
 				</a>
 				<div class="media-body">
-					<h3 class="media-heading">我的南开inankai</h3>
+					<h4 class="media-heading">我的南开inankai</h4>
 					<div>
 						<span class="time_before">x分钟前</span> 
 						<span class="moments_tag">活动通知</span>
@@ -301,7 +307,7 @@
 				</div> 	
 				<div class="media">
 					<a class="media-left media-middle">
-						<span class="glyphicon glyphicon-plus plus"></span>
+						<img class="media-object" src="./img/一键添加按钮.png" width="20px">
 					</a>
 					<div class="media-body">
 						<p class="location">2018年4月25日 14:00-18:00</p>
@@ -309,15 +315,15 @@
 					</div>			
 				</div>
 				</div>
-			</li>
+			</li>	
 
-			<li class="media">
+			<li class="media moments ">
 				<a class="media-left">
 				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
                  alt="头像" width="60px">
 				</a>
 				<div class="media-body">
-					<h3 class="media-heading">我的南开inankai</h3>
+					<h4 class="media-heading">我的南开inankai</h4>
 					<div>
 						<span class="time_before">x分钟前</span> 
 						<span class="moments_tag">活动通知</span>
@@ -332,7 +338,7 @@
 				</div> 	
 				<div class="media">
 					<a class="media-left media-middle">
-						<span class="glyphicon glyphicon-plus plus"></span>
+						<img class="media-object" src="./img/一键添加按钮.png" width="20px">
 					</a>
 					<div class="media-body">
 						<p class="location">2018年4月25日 14:00-18:00</p>
@@ -340,15 +346,16 @@
 					</div>			
 				</div>
 				</div>
-			</li>
+			</li>	
 
-			<li class="media">
+
+			<li class="media moments ">
 				<a class="media-left">
 				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
                  alt="头像" width="60px">
 				</a>
 				<div class="media-body">
-					<h3 class="media-heading">我的南开inankai</h3>
+					<h4 class="media-heading">我的南开inankai</h4>
 					<div>
 						<span class="time_before">x分钟前</span> 
 						<span class="moments_tag">活动通知</span>
@@ -363,7 +370,7 @@
 				</div> 	
 				<div class="media">
 					<a class="media-left media-middle">
-						<span class="glyphicon glyphicon-plus plus"></span>
+						<img class="media-object" src="./img/一键添加按钮.png" width="20px">
 					</a>
 					<div class="media-body">
 						<p class="location">2018年4月25日 14:00-18:00</p>
@@ -371,7 +378,7 @@
 					</div>			
 				</div>
 				</div>
-			</li>
+			</li>	
 		</ul>
 	</div>
 	</div>
@@ -389,7 +396,7 @@
 				<p><a href="">其他作品</a></p>
 			</div>
 			<div  class="col-md-2 col-xs-6">
-				<img id="qr_code" src="http://www.sdciq.gov.cn/jiningciq/zwpd/tzgg/201708/W020170809566596875096.gif" > 
+				<img id="qr_code" src="./img/qr_code.jpg" > 
 			<div>
 		</div>
 	</footer>
