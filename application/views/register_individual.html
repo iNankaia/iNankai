@@ -30,7 +30,7 @@
 	<div class="container" >
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-xs-12">
-				<div class="form-horizontal" role="form" >
+				<form class="form-horizontal" role="form" >
 					<fieldset><legend>个人用户注册</legend></fieldset>
 
 						<div class="form-group has-feedback">				
@@ -83,7 +83,7 @@
                 			<input class="form-control btn btn-primary" id="submit" value="注册" type="submit">
             			</div>
 
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -192,6 +192,11 @@ $('.container').find('input').eq(3).change(function(){
     }
 });
 
+var username = '';
+var password = '';
+var repassword = '';
+var email = '';
+
 //提交表单
 $('#submit').click(function(e) {
     if (!check.every(function(value) {
@@ -205,8 +210,30 @@ $('#submit').click(function(e) {
         }
     }
     else{
-    	alert("注册成功，请到邮箱确认！");
-    }
+        /*
+        username = $('#username').val();
+        password = $('#password').val();
+        email = $('#email').val();
+        $.post(
+            "<?php echo site_url('') ?>",
+            {
+                'username':username,
+                'password':password,
+                'email':email
+            },
+            function (data){
+                if(data == "fail")
+                    alert("出现错误");
+                if(data == "success"){
+                    alert("注册成功，请到邮箱确认！");
+                    window.location.href="<?php echo site_url('') ?>";
+                }
+            },
+            "json"
+            );
+            */
+           alert("注册成功，请到邮箱确认！");
+        }
 });
 
 </script>

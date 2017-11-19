@@ -30,7 +30,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-xs-12">
-				<div class="form-horizontal" role="form" >
+				<form class="form-horizontal" role="form" >
 					<fieldset><legend>社团用户注册</legend></fieldset>
 
 						<div class="form-group has-feedback">				
@@ -82,7 +82,7 @@
 
 
             			<div class="form-group has-feedback">
-            				<label for="club_name">社团名称</label>
+            				<label for="clubName">社团名称</label>
             				<div class="input-group">
             					<span class="input-group-addon"><span class="glyphicon glyphicon-flag"></span></span>
             					<input id="clubName" class="form-control" placeholder="请输入社团名称" type="text" maxlength="20">
@@ -94,7 +94,7 @@
 
 
 						<div class="form-group has-feedback">
-            				<label for="invite_code">邀请码</label>
+            				<label for="inviteCode">邀请码</label>
             				<div class="input-group">
             					<span class="input-group-addon"><span class="glyphicon glyphicon-bullhorn"></span></span>
             					<input id="inviteCode" class="form-control" placeholder="请输入邀请码" type="text">
@@ -106,7 +106,7 @@
 
 
             			<div class="form-group">
-            				<label for="club_intro">社团简介</label>
+            				<label for="clubIntro">社团简介</label>
             				<div class="input-group">
             					<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
             					<textarea class="form-control" id="clubIntro" rows="3" placeholder="请输入20-100字的社团简介" minlength="20" maxlength="100"></textarea>
@@ -123,7 +123,7 @@
             			</div>
 
 
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -266,7 +266,13 @@ $('.container').find('textarea').eq(0).change(function(){
 	}
 });
 
-
+var username = '';
+var password = '';
+var repassword = '';
+var email = '';
+var clubName = '';
+var inviteCode = '';
+var clubIntro = '';
 
 //提交表单
 $('#submit').click(function(e) {
@@ -283,7 +289,35 @@ $('#submit').click(function(e) {
         	$('.container').find('textarea').eq(0).parent().parent().removeClass('has-success').addClass('has-error');
     }
     else{
-    	alert("注册成功，请到邮箱确认！");
-    }
+        /*
+        username = $('#username').val();
+        password = $('#password').val();
+        email = $('#email').val();
+        inviteCode = $('#inviteCode').val();
+        clubName = $('#clubName').val();
+        clubIntro = $('#clubIntro').val();
+        $.post(
+            "<?php echo site_url('') ?>",
+            {
+                'username':username,
+                'password':password,
+                'email':email,
+                'inviteCode':inviteCode,
+                'clubName':clubName,
+                'clubIntro':clubIntro
+            },
+            function (data){
+                if(data == "fail")
+                    alert("出现错误");
+                if(data == "success"){
+                    alert("注册成功，请到邮箱确认！");
+                    window.location.href="<?php echo site_url('') ?>";
+                }
+            },
+            "json"
+            );
+        */
+           alert("注册成功，请到邮箱确认！");
+        }
 });
 </script>
