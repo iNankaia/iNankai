@@ -65,9 +65,8 @@
 	.moments_content{
 		text-align: left;
 	}
-	.view_more{
-		margin-left: 3%;
-		color: rgb(255,0,0) !important;
+	.view_more a{
+		color: rgb(163,59,56) !important;
 	}
 	.location{
 		font-size: 0.9em;
@@ -131,7 +130,15 @@
   		border-radius: 0 !important;
 	}
 	.btn{
-		border-radius: 8px !important;
+		border-radius: 0.8em !important;
+	}
+	.func_title{
+		color:rgb(255,67,73);
+		font-size: 1.5em;
+	}
+	.detail{
+		margin-top: 0px !important;
+		padding-bottom: 1%;
 	}
 </style>
 
@@ -147,8 +154,10 @@
 <body>
 	<div class="container-fluid">
 		<div class="row navbar-fixed-top" id="head_bar">
-			<a class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: center;">我的南开inankai</a>	
-			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="">登录</a>	
+			<div class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">
+				<img src="./img/logo.png" id="logo">
+				<a>我的南开inankai</a></div>	
+			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="" id="login">登录</a>	
 			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>
 			
 		</div>
@@ -246,16 +255,24 @@
 	</div>
 
 	<div class="container">
-		<div class="row" id="box_bar">
-			<div class="col-md-3 col-md-offset-1 col-xs-4" >
-				<img src="./img/动态圈.png" width="100%">
+		<div class=" row" id="box_bar">
+			<div class="col-md-2 col-md-offset-3 col-xs-4">
+				<img src="./img/动态圈2.png" width="30%">
 			</div>
-			<div class="col-md-3 col-xs-4">
-				<img src="./img/爱南开.png" width="100%">
+			<div class="col-md-2  col-xs-4">
+				<img src="./img/爱南开2.png" width="30%">
 			</div>
-			<div class="col-md-3 col-xs-4">
-				<img src="./img/个人页.png" width="100%">
+			<div class="col-md-2  col-xs-4">
+				<img src="./img/个人页2.png" width="33%">
 			</div>
+		</div>
+		<div class="row">
+			<span class="col-md-2 col-md-offset-3 col-xs-4 func_title">动态圈
+			</span>
+			<span class="col-md-2 col-xs-4 func_title">爱南开
+			</span>
+			<span class="col-md-2 col-xs-4 func_title">个人页
+			</span>
 		</div>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-xs-12">
@@ -286,7 +303,7 @@
 
 
 		<!--热门-->
-	<div class="container" style="margin-top: 5%">
+	<div class="container-fluid">
 		<div class="row">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-12 col-sm-10 col-sm-offset-1">
 			<li class="media moments ">
@@ -308,13 +325,13 @@
 					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
 					<span class="view_more"><a href="">展开全文</a></span>
 				</div> 	
-				<div class="media">
-					<a class="media-left media-middle">
-						<img class="media-object" src="./img/一键添加按钮.png" width="20px">
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
 					</a>
-					<div class="media-body">
-						<p class="location">2018年4月25日 14:00-18:00</p>
-						<p class="location">八里台校区东方艺术大量</p>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
@@ -339,13 +356,13 @@
 					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
 					<span class="view_more"><a href="">展开全文</a></span>
 				</div> 	
-				<div class="media">
-					<a class="media-left media-middle">
-						<img class="media-object" src="./img/一键添加按钮.png" width="20px">
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
 					</a>
-					<div class="media-body">
-						<p class="location">2018年4月25日 14:00-18:00</p>
-						<p class="location">八里台校区东方艺术大量</p>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
@@ -371,13 +388,13 @@
 					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
 					<span class="view_more"><a href="">展开全文</a></span>
 				</div> 	
-				<div class="media">
-					<a class="media-left media-middle">
-						<img class="media-object" src="./img/一键添加按钮.png" width="20px">
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
 					</a>
-					<div class="media-body">
-						<p class="location">2018年4月25日 14:00-18:00</p>
-						<p class="location">八里台校区东方艺术大量</p>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
@@ -412,6 +429,7 @@
 	var h = $("#foot_words").outerHeight(); 	
 	var w = 70;
     img.css({height:h},{width:w});  
+    $("#logo").css("width",$("#login").outerHeight());
     });
 	$(".follow").click(function(){
 		//$("button.follow").css("background-color","#AAAAAA");

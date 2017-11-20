@@ -11,6 +11,7 @@
         background: linear-gradient(to bottom right, rgba(254,73,66,0.6) , rgba(254,26,103,0.6)); 
 		padding-bottom: 0.6%;
 		padding-top: 0.6%;
+		padding-left: 3%;
 	}
 	#head_bar a{
 		color: #ffffff !important;
@@ -30,6 +31,9 @@
     .container{
         padding-bottom: 170px;
     }
+    #logo{
+
+    }
 </style>
 <html lang="zh-Hans">
 <head>
@@ -42,8 +46,11 @@
 <body>
 	<div class="container-fluid ">
 		<div class="navbar-fixed-top row" id="head_bar">
-			<a class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: center;">我的南开inankai</a>	
-			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="">登录</a>	
+			
+			<div class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">
+				<img src="./img/logo.png" id="logo">
+				<a>我的南开inankai</a></div>	
+			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" id="login" href="">登录</a>	
 			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>	
 		</div>
 	</div>
@@ -72,5 +79,6 @@
 	var h = $("#foot_words").outerHeight(); 	
 	var w = 70;
     img.css({height:h},{width:w});  
+    $("#logo").css("width",$("#login").outerHeight());
     });
 </script>
