@@ -58,7 +58,7 @@
 		font-weight: bold!important;
 	}
 	.inter{
-		margin-right:8%; 
+		margin-right:5%; 
 	}
 
 	.moments{
@@ -158,11 +158,20 @@
 		color:#ffffff !important;
 	}
     .container{
-        padding-bottom: 170px;
+       
     }
     #logo{
 
     }
+    .sideimg{width:45%;}
+
+    @media (min-width: 768px) {
+		.sideimg{width:55% !important;}
+    }
+    @media (min-width: 992px) {
+		.sideimg{width:20% !important;}
+    }
+
 </style>
 <html lang="zh-Hans">
 <head>
@@ -182,13 +191,13 @@
 				
 			<div class="col-sm-1 col-sm-offset-6 col-md-offset-8 sol-md-1 col-xs-3" style="padding-right: 5px;">
 				<img src="./img/个人页2.png"  id="person" >
-				<a>Hi,xxx  |</a>
+				<span>Hi, </span><a id="nickname">xxx  |</a>
 			</div>			
 			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;padding-left: 0px;"   id="login"href="">退出</a>	
 		</div>
 	</div>
 
-	<div style="background-color:#DCDCDC;padding-bottom: 0%;">
+	<div class="container-fluid" style="background-color:#DCDCDC; margin-bottom: 2%">
 		<div align="center">
 			<img class="portrait" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"  id="portrait">
 		</div>
@@ -208,23 +217,37 @@
 				<p style="text-align: left!important">所在院系：xxxxxxxxxxxxxxxxxx</p>
 			</div>
 		</div>
-		<br/><br/>
-		<hr/>
 	</div>
-<div id="tab">	
+<!--div id="tab">	
 		<div class="row">
 			<div class="col-md-10 col-md-offset-3 col-xs-12">
 				<ul id="myTab" class="nav nav-tabs">
-    				<li class="active inter on"><a   href="" data-toggle="tab">我的收藏</a></li>
-   					<li  class="inter off" ><a href="" data-toggle="tab">我的关注</a></li>
-    				<li  class="inter off" ><a href="" data-toggle="tab">我的消息</a></li>
-    				<li  class="inter off" ><a href="" data-toggle="tab">我的日程</a></li>
+    				<li class="active inter on"><a href="#collection" data-toggle="tab">我的收藏</a></li>
+   					<li  class="inter off" ><a href="#subscribe" data-toggle="tab">我的关注</a></li>
+    				<li  class="inter off" ><a href="#message" data-toggle="tab">我的消息</a></li>
+    				<li  class="inter off" ><a href="#schedule" data-toggle="tab">我的日程</a></li>
 				</ul>
 			</div>
 		</div>
-	
+</div-->	
 
-<div class="showblock"><!--我的收藏-->
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1 col-xs-12">
+			<ul id="myTab" class="nav nav-tabs">
+    			<li class="active inter on"><a href="#collection" data-toggle="tab">我的收藏</a></li>
+   				<li  class="inter off" ><a href="#subscribe" data-toggle="tab">我的关注</a></li>
+    			<li  class="inter off" ><a href="#message" data-toggle="tab">我的消息</a></li>
+    			<li  class="inter off" ><a href="#schedule" data-toggle="tab">我的日程</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div id="myTabContent" class="tab-content">
+	<div class="tab-pane fade in active" id="collection">
+	<div class="showblock"><!--我的收藏-->
 	<div class="container-fluid hfunction" style="padding-top: 1%;">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
 			<li class="media moments ">
@@ -314,19 +337,22 @@
 		</ul>
 		<div class="col-md-2 col-xs-2 col-sm-1">
 			<div class="row icon3">
-				<img src="./img/动态圈圆.png" width=20%>
+				<img class="sideimg" src="./img/动态圈圆.png" >
 			</div>
 			<div class="row icon3">
-				<img src="./img/nk.png" width=20%>
+				<img class="sideimg" src="./img/nk.png" >
 			</div>
 			<div class="row icon3">
-				<img src="./img/person.png" width=20%>
+				<img class="sideimg" src="./img/person.png" >
 			</div>
 		</div>		
 	</div>
-</div><!--我的收藏-->
+	</div><!--我的收藏-->
+	</div>
 
-	<div ><!--我的关注-->
+	<div class="tab-pane fade" id="subscribe">
+
+		<div class="container-fluid"><!--我的关注-->
 		<div class="row media" style="margin-bottom: 10px; margin-top: 10px;">
 			<div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
 				<img  src="./img/粉色竖条.png" style="height:20px;">
@@ -449,17 +475,13 @@
 			<div class="row icon3">
 				<img src="./img/person.png" width=20%>
 			</div>
-		</div>
-		
+		</div>		
+	</div><!--我的关注-->
+	</div>
 
-		
-</div><!--我的关注-->
+	<div class="tab-pane fade" id="message">
 
-<div class="row">
-</div>
-
-<h4>下面是我的消息</h4>
-<div><!--我的消息-->
+	<div class="container-fluid" style="padding-top: 1%"><!--我的消息-->
 	<div class="col-md-2 col-xs-3">
 		<div class="row icon3 " >
 			<img src="./img/信封圆浅粉.png" width=20%;>
@@ -468,7 +490,7 @@
 			<img src="./img/@圆深粉.png" width=20%;>
 		</div>
 	</div>
-	<div >
+	<div>
 		<ul class="media-list col-md-8  col-xs-10 col-sm-10 " style="padding:0px;">
 		<!--<div id="commu" class="moments media">-->
 		<li class="moments media">
@@ -492,13 +514,17 @@
 					<img src="./img/@标.png" width="17px;" style="margin-right: 2px;">
 				</div>
 				<br/>
-			
-				<div class="reply" style="background-color: #F8F8FF;margin-top: 2px;">
-					<p style="color:#DCDCDC;">我要回复。。。。。。。</p>
-				</div>
-				<div class="pull-right">
-					<button style="background-color:#ff6666;margin-top: 8px;color:#fff;border-radius: 5px;">发表</button>
-				</div>
+				<form role="form">
+  					<div class="form-group">
+    					<textarea class="form-control" rows="3"></textarea>
+  					</div>
+  					<div class="form-group pull-right">
+                		<input class="form-control btn-default-xs btn-primary" value="发表" type="submit">
+            		</div>
+
+				</form> 
+				
+
 				<br/>
 				<br/>
 				<div>
@@ -568,14 +594,21 @@
 			</div>
 		</div>
 	</div>
-</div><!--我的消息-->
+	</div><!--我的消息-->
+	</div>
 
-<div class="row">
+	<div class="tab-pane fade" id="schedule"><!--我的日程-->
+
+	</div>
+
 </div>
 
-<div><!--我的日程-->
 
-</div>
+
+
+
+
+
 
 <!--
 <footer class="container-fluid" id="foot">
@@ -605,6 +638,9 @@
     $("#gender").css("height",$("#name").outerHeight());
     $("#null").css("width",$("#word").outerHeight());
     });
+	$(function () {
+		$('#myTab li:eq(1) a').tab('show');
+	});
 </script>
 <!--
 <script type="text/javascript">
