@@ -106,6 +106,30 @@
 	.icon3{
 		margin-bottom: 10%;
 	}
+
+	#tab{
+		
+	}
+	.on{
+		background-image: url(./img/主页设计_16.jpg) !important;
+		color:#000000;
+		font-weight: bold!important;
+	}
+	.showblock{
+		display:block;
+	}
+	.hideblock{
+		display: none; 	
+	}
+	.contents{
+		margin-bottom: 20px;
+		
+	}
+	.page{
+		text-align: center;
+		text-color: #FF3030;
+
+	}
 	#foot{
 		background-color: rgb(59,48,52);
 		color: #ffffff;
@@ -152,10 +176,10 @@
 		<div align="center">
 			<img class="portrait" src="C:\Users\hp\Pictures\萌宠\2861.jpg"  id="portrait">
 		</div>
-		<div class="row">
+		<div class="row" style="margin-top:2px;">
 			<span id="name">昵称</span>
 
-			<img  style="margin-left=5%"   src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3565832165,3602134082&fm=27&gp=0.jpg" border="2" width="10px" id="gender">
+			<img  style="margin-left=5%"   src="./img/男.png" border="2" width="10px" id="gender">
 			<a style="background-color: #FFF8DC;" href="">编辑资料</a>
 		</div>
 	
@@ -170,20 +194,21 @@
 		</div>
 		<br/><br/>
 		<hr/>
-		
+	</div>
+<div id="tab">	
 		<div class="row">
 			<div class="col-md-10 col-md-offset-3 col-xs-12">
 				<ul id="myTab" class="nav nav-tabs">
-    				<li class="active inter"><a   href="" data-toggle="tab">我的收藏</a></li>
-   					<li  class="inter" ><a href="" data-toggle="tab">我的关注</a></li>
-    				<li  class="inter" ><a href="" data-toggle="tab">我的消息</a></li>
-    				<li  class="inter" ><a href="" data-toggle="tab">我的日程</a></li>
+    				<li class="active inter on"><a   href="" data-toggle="tab">我的收藏</a></li>
+   					<li  class="inter off" ><a href="" data-toggle="tab">我的关注</a></li>
+    				<li  class="inter off" ><a href="" data-toggle="tab">我的消息</a></li>
+    				<li  class="inter off" ><a href="" data-toggle="tab">我的日程</a></li>
 				</ul>
 			</div>
 		</div>
-	</div>
+	
 
-
+	<div class="showblock">
 	<div class="container-fluid hfunction" style="padding-top: 1%;">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
 			<li class="media moments ">
@@ -273,13 +298,13 @@
 		</ul>
 		<div class="col-md-2 col-xs-2 col-sm-1">
 			<div class="row icon3">
-				<img src="./img/动态圈2.png" width=20%>
+				<img src="./img/动态圈圆.png" width=20%>
 			</div>
 			<div class="row icon3">
-				<img src="./img/爱南开2.png" width=20%>
+				<img src="./img/nk.png" width=20%>
 			</div>
 			<div class="row icon3">
-				<img src="./img/个人页2.png" width=20%>
+				<img src="./img/person.png" width=20%>
 			</div>
 		</div>
 
@@ -293,10 +318,161 @@
 		<br/>
 		<br/>
 		<br/>
+		</div>
 	</div>
 
+	<div ><!--我的关注-->
+		<div class="row media" style="margin-bottom: 10px; margin-top: 10px;">
+			<div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
+				<img  src="./img/粉色竖条.png" style="height:20px;">
+				<span id="word">近期访问</span>
+			</div>
+		</div>
+
+		<div>
+		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
+
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>											
+					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
+					<div class="contents">							
+						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
+					</div> 	
+				
+				</div>
+			</li>	
 
 
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>											
+					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
+					<div class="contents">							
+						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
+					</div> 	
+				
+				</div>
+			</li>
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>											
+					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
+					<div class="contents">							
+						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
+					</div> 					
+				</div>
+			</li>
+			<div class="row " style="margin-bottom: 10px;margin-top: 10px;">
+				<div class="col-md-2 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
+					<img  src="./img/粉色竖条.png" style="height:20px;">
+					<span id="word">全部关注</span>
+				</div>
+			</div>
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>											
+					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
+					<div class="contents">							
+						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
+					</div> 					
+				</div>
+			</li>
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>											
+					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
+					<div class="contents">							
+						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
+					</div> 					
+				</div>
+			</li>
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>											
+					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
+					<div class="contents">							
+						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
+					</div> 					
+				</div>
+			</li>
+
+			<div class="page">
+			<a href="" style="padding-right: 5px;">首页</a>
+			<a href="" style="padding-right: 5px;">1</a>
+			<a href="" style="padding-right: 5px;">2</a>
+			<a href="" style="padding-right: 5px;">...</a>
+			<a href="" style="padding-right: 5px;">下一页</a>
+			<a href="" style="padding-right: 5px;">尾页</a>
+		</div>		
+		</ul>
+		
+
+
+		</div>
+		<div class="col-md-2 col-xs-2 col-sm-1">
+			<div class="row icon3">
+				<img src="./img/动态圈圆.png" width=20%>
+			</div>
+			<div class="row icon3">
+				<img src="./img/nk.png" width=20%>
+			</div>
+			<div class="row icon3">
+				<img src="./img/person.png" width=20%>
+			</div>
+		</div>
+		
+
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+</div><!--我的关注-->
+<div class="row">
+</div>
+<h4>下面是我的消息</h4>
+<div ><!--我的消息-->
+	<div class="col-md-2">
+		<div class="row icon3 " style="text-align:  right">
+			<img src="./img/信封圆浅粉.png" width=20%;>
+		</div>
+		<div class="row icon3" style="text-align: right;">
+			<img src="./img/@圆深粉.png" width=20%;>
+		</div>
+	</div>
+</div>
+<div class="hideblock">
+	<span>我的日程的内容</span>
+</div>
+</div>
+<!--
 <footer class="container-fluid" id="foot">
 		<div class="row" style="padding:2%;">
 			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
@@ -311,7 +487,7 @@
 		</div>
 	</footer>
 </body>
-
+-->
 <script type="text/javascript">
 	$(document).ready(function(){  
     var img = $("#qr_code");  
@@ -319,6 +495,29 @@
 	var w = 70;
     img.css({height:h},{width:w});  
     $("#logo").css("width",$("#login").outerHeight());
-     $("#gender").css("width",$("#name").outerHeight());
+    $("#gender").css("width",$("#name").outerHeight());
+    $("#null").css("width",$("#word").outerHeight());
     });
 </script>
+<!--
+<script type="text/javascript">
+    // JS实现选项卡切换
+    window.onload = function(){
+    var myTab = document.getElementById("tab");    //整个div
+    var myUl = myTab.getElementsByTagName("ul")[0];//一个节点
+    var myLi = myUl.getElementsByTagName("li");    //数组
+    var myDiv = myTab.getElementsByTagName("div"); //数组
+ 
+    for(var i = 0; i<myLi.length;i++){
+        myLi[i].index = i;
+        myLi[i].onclick = function(){
+            for(var j = 0; j < myLi.length; j++){
+                myLi[j].className="off";
+                myDiv[j].className = "hideblock";
+            }
+            this.className = "active";
+            myDiv[this.index].className = "showblock";
+        }
+      }
+    }
+    </script>-->
