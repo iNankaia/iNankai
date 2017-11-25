@@ -51,8 +51,9 @@
 	.navbar{
 		border: 0px !important;
 	}
-	.active_bar{
-		background-image: url(./img/主页设计_16.jpg) !important;
+	.active-bar{
+		background:none;
+		background-image: url(./img/粉色横杠.png) !important;
 		color:#000000;
 		font-weight: bold!important;
 	}
@@ -95,12 +96,14 @@
 		text-align: left;
 	}
 	.hfunction{
-		background-color: #efefef;
 		padding-top:5%;
 		padding-bottom: 5%;
 	}	
 	.btn{
 		border-radius: 0.8em !important;
+	}
+	.plus{
+		font-size: 1.5em;
 	}
 
 	.icon3{
@@ -111,7 +114,7 @@
 		
 	}
 	.on{
-		background-image: url(./img/主页设计_16.jpg) !important;
+		background-image: url(./img/粉色横杠.png) !important;
 		color:#000000;
 		font-weight: bold!important;
 	}
@@ -129,6 +132,20 @@
 		text-align: center;
 		text-color: #FF3030;
 
+	}
+	.at{
+		color:#00CDCD;
+	}
+	.at2{
+		color:#696969;
+		font-size: 10px;
+	}
+	.theme{
+
+	}
+	.reply{
+		border-color: #F8F8FF;
+		border:1px solid ;
 	}
 	#foot{
 		background-color: rgb(59,48,52);
@@ -174,7 +191,7 @@
 
 	<div style="background-color:#DCDCDC;padding-bottom: 0%;">
 		<div align="center">
-			<img class="portrait" src="C:\Users\hp\Pictures\萌宠\2861.jpg"  id="portrait">
+			<img class="portrait" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"  id="portrait">
 		</div>
 		<div class="row" style="margin-top:2px;">
 			<span id="name">昵称</span>
@@ -412,7 +429,7 @@
 				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
                  alt="头像" width="60px">
 				</a>
-				<div class="media-body">
+				<div  class="media-body">
 					<h4 class="media-heading">我的南开inankai</h4>											
 					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
 					<div class="contents">							
@@ -421,14 +438,14 @@
 				</div>
 			</li>
 
-			<div class="page">
-			<a href="" style="padding-right: 5px;">首页</a>
-			<a href="" style="padding-right: 5px;">1</a>
-			<a href="" style="padding-right: 5px;">2</a>
-			<a href="" style="padding-right: 5px;">...</a>
-			<a href="" style="padding-right: 5px;">下一页</a>
-			<a href="" style="padding-right: 5px;">尾页</a>
-		</div>		
+			<div class="page" style="margin-top: 10px;font-color:#FF6347;">
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">首页</u></a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">1</a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">2</a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">...</a>
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">下一页</u></a>
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">尾页</u></a>
+			</div>		
 		</ul>
 		
 
@@ -455,23 +472,129 @@
 		<br/>
 		<br/>
 </div><!--我的关注-->
+
 <div class="row">
 </div>
+
 <h4>下面是我的消息</h4>
-<div ><!--我的消息-->
-	<div class="col-md-2">
-		<div class="row icon3 " style="text-align:  right">
+<div><!--我的消息-->
+	<div class="col-md-2 col-xs-3">
+		<div class="row icon3 " >
 			<img src="./img/信封圆浅粉.png" width=20%;>
 		</div>
-		<div class="row icon3" style="text-align: right;">
+		<div class="row icon3" >
 			<img src="./img/@圆深粉.png" width=20%;>
 		</div>
 	</div>
+	<div >
+		<ul class="media-list col-md-8  col-xs-10 col-sm-10 " style="padding:0px;">
+		<!--<div id="commu" class="moments media">-->
+		<li class="moments media">
+			<a class="media-left" href="">
+			<img class="media-object"  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg" alt="头像" width="40px;"></a>
+			<div class="media-body">
+				<div class="media-heading">			
+					<span id="name1" class=" pull-left" >大野智 : </span>
+					<span class="at pull-left">@</span>
+					<span id="name2" class="at pull-left" style="margin-right: 2px;">二宫和也</span>
+					<span class="pull-left">nino今天来聚餐吗？我请。</span>
+				</div>	
+				<br/>
+				<div>
+					<span class="at2 pull-left">@提到的主题 ：</span>
+					<u class="at2">"inankai产品发布会。   ‘掌’握我南开"</u>
+				</div>
+				<div class="pull-right">
+					<img src="./img/图片标.png" width="20px;" style="margin-right: 6px;">
+					<img src="./img/笑脸标.png" width="18px;" style="margin-right: 2px;">
+					<img src="./img/@标.png" width="17px;" style="margin-right: 2px;">
+				</div>
+				<br/>
+			
+				<div class="reply" style="background-color: #F8F8FF;margin-top: 2px;">
+					<p style="color:#DCDCDC;">我要回复。。。。。。。</p>
+				</div>
+				<div class="pull-right">
+					<button style="background-image:url(./img/发表框.png) ;margin-top: 8px;color:#fff;border-radius: 5px;">发表</button>
+				</div>
+				<br/>
+				<br/>
+				<div>
+					<a href=""><u class="pull-right at2" style="margin-top: 5px;margin-bottom: 5px;">收起回复</u></a>
+				</div>
+			</div>
+		</li>
+		<li class="moments media">
+			<a class="media-left" href="">
+			<img class="media-object"  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg" alt="头像" width="40px;"></a>
+			<div class="media-body">
+				<div class="media-heading">			
+					<span id="name1" class=" pull-left" >大野智 : </span>
+					<span class="at pull-left">@</span>
+					<span id="name2" class="at pull-left" style="margin-right: 2px;">二宫和也</span>
+					<span class="pull-left">nino今天来聚餐吗？我请。</span>
+				</div>	
+				<br/>
+				<div>
+					<span class="at2 pull-left">@提到的主题 ：</span>
+					<u class="at2">"inankai产品发布会。   ‘掌’握我南开"</u>
+				</div>
+				<div>
+					<a href=""><u class="pull-right at2" style="margin-top: 5px;margin-bottom: 5px;">展开回复</u></a>
+				</div>
+			</div>
+		</li>
+		<li class="moments media">
+			<a class="media-left" href="">
+			<img class="media-object"  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg" alt="头像" width="40px;"></a>
+			<div class="media-body">
+				<div class="media-heading">			
+					<span id="name1" class=" pull-left" >大野智 : </span>
+					<span class="at pull-left">@</span>
+					<span id="name2" class="at pull-left" style="margin-right: 2px;">二宫和也</span>
+					<span class="pull-left">nino今天来聚餐吗？我请。</span>
+				</div>	
+				<br/>
+				<div>
+					<span class="at2 pull-left">@提到的主题 ：</span>
+					<u class="at2">"inankai产品发布会。   ‘掌’握我南开"</u>
+				</div>											
+				<div>
+					<a href=""><u class="pull-right at2" style="margin-top: 5px;margin-bottom: 5px;">展开回复</u></a>
+				</div>
+			</div>
+		</li>
+		<div class="page" style="margin-top: 10px;font-color:#FF6347;">
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">首页</u></a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">1</a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">2</a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">...</a>
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">下一页</u></a>
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">尾页</u></a>
+			</div>	
+		</ul>
+
+		<div class="col-md-2 col-xs-2 col-sm-1">
+			<div class="row icon3">
+				<img src="./img/动态圈圆.png" width=20%;>
+			</div>
+			<div class="row icon3">
+				<img src="./img/nk.png" width=20%;>
+			</div>
+			<div class="row icon3">
+				<img src="./img/person.png" width=20%;>
+			</div>
+		</div>
+	</div>
+</div><!--我的消息-->
+
+<div class="row">
 </div>
-<div class="hideblock">
-	<span>我的日程的内容</span>
+
+<div><!--我的日程-->
+
 </div>
-</div>
+
 <!--
 <footer class="container-fluid" id="foot">
 		<div class="row" style="padding:2%;">
