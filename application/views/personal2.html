@@ -180,12 +180,11 @@
 				<img src="./img/logo.png" id="logo">
 				<a>我的南开inankai</a></div>
 				
-			<div class="col-sm-1 col-sm-offset-6 col-md-offset-7 sol-md-1 col-xs-3" >
-				<!--<img src="./img/个人页2.png"  id="person" >-->
-				<a>Hi,xxx |</a></div>
-			<!--
-			<a class="col-sm-1 col-sm-offset-6 col-md-offset-7 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href=""><img src="./img/个人页2.png" ></a>-->
-			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;"   id="login"href="">退出</a>	
+			<div class="col-sm-1 col-sm-offset-6 col-md-offset-8 sol-md-1 col-xs-3" style="padding-right: 5px;">
+				<img src="./img/个人页2.png"  id="person" >
+				<a>Hi,xxx  |</a>
+			</div>			
+			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;padding-left: 0px;"   id="login"href="">退出</a>	
 		</div>
 	</div>
 
@@ -194,10 +193,10 @@
 			<img class="portrait" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"  id="portrait">
 		</div>
 		<div class="row" style="margin-top:2px;">
-			<span id="name">昵称</span>
+			<span id="name" >昵称</span>
 
-			<img  style="margin-left=5%"   src="./img/男.png" border="2" width="10px" id="gender">
-			<a style="background-color: #FFF8DC;" href="">编辑资料</a>
+			<img  style="margin-left=5%;" src="./img/男.png"  id="gender">
+			<img  src="./img/编辑资料.png" id="mar">
 		</div>
 	
 		
@@ -225,7 +224,7 @@
 		</div>
 	
 
-	<div class="showblock">
+<div class="showblock"><!--我的收藏-->
 	<div class="container-fluid hfunction" style="padding-top: 1%;">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
 			<li class="media moments ">
@@ -323,20 +322,9 @@
 			<div class="row icon3">
 				<img src="./img/person.png" width=20%>
 			</div>
-		</div>
-
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		</div>
+		</div>		
 	</div>
+</div><!--我的收藏-->
 
 	<div ><!--我的关注-->
 		<div class="row media" style="margin-bottom: 10px; margin-top: 10px;">
@@ -464,13 +452,7 @@
 		</div>
 		
 
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
+		
 </div><!--我的关注-->
 
 <div class="row">
@@ -515,7 +497,7 @@
 					<p style="color:#DCDCDC;">我要回复。。。。。。。</p>
 				</div>
 				<div class="pull-right">
-					<button style="background-image:url(./img/发表框.png) ;margin-top: 8px;color:#fff;border-radius: 5px;">发表</button>
+					<button style="background-color:#ff6666;margin-top: 8px;color:#fff;border-radius: 5px;">发表</button>
 				</div>
 				<br/>
 				<br/>
@@ -618,7 +600,9 @@
 	var w = 70;
     img.css({height:h},{width:w});  
     $("#logo").css("width",$("#login").outerHeight());
-    $("#gender").css("width",$("#name").outerHeight());
+    $("#person").css("width",$("#login").outerHeight());
+    $("#mar").css("height",$("#login").outerHeight());
+    $("#gender").css("height",$("#name").outerHeight());
     $("#null").css("width",$("#word").outerHeight());
     });
 </script>
