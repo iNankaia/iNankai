@@ -155,17 +155,25 @@
 	.headimg{
 		width:100%;
 	}
-    @media (min-width: 768px) {	
-		.modal-dialog{width: 50% !important;}
+	.sideimg{width:45%;}
+	
+
+    @media (min-width: 768px) {
+		.sideimg{width:55% !important;}
+		.modal-dialog{width: 70% !important;}
 		.headimg{width:80%;}
     }
     @media (min-width: 992px) {
-		.modal-dialog{width: 40% !important;}
+		.sideimg{width:20% !important;}
+		.modal-dialog{width: 50% !important;}
 		.headimg{width:60%;}
     }
     @media (min-width: 1500px){
-    	.modal-dialog{width: 25% !important;}
+    	.modal-dialog{width: 30% !important;}
     }
+    .icon3{
+		margin-bottom: 10%;
+	}
 
     .form-group {
     	margin-bottom: 20px !important;
@@ -177,6 +185,9 @@
 	}
 	#wenan{
 		background-image: url(./img/NKU.png);
+	}
+	.navbar-fixed-top > a:focus {
+    	outline: 0px;
 	}
 </style>
 
@@ -426,15 +437,17 @@
 			</li>
 
 		</ul>
-		<div class="row col-md-2 col-sm-4" id="box_bar">
-			<a herf=""><img src="./img/动态圈.png" border="0" width="30%"/></a>
+	<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="row icon3">
+			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
 		</div>
-		<div class="row col-md-2 col-sm-4" id="box_bar">
-			<a herf=""><img src="./img/爱南开.png" border="0" width="30%"/></a>
+		<div class="row icon3">
+			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
 		</div>
-		<div class="row col-md-2 col-sm-4" id="box_bar">
-			<a herf=""><img src="./img/个人页.png" border="0" width="30%"/></a>
+		<div class="row icon3">
+			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
 		</div>
+	</div>
 		
 	
 	

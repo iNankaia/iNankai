@@ -10,6 +10,8 @@
         min-height:100%;
         position:relative;
         font-family: Helvetica,"PingFang SC";
+        background: url(./img/自定义底图.png)top center no-repeat;
+        background-size:cover;
     }
 	#head_bar{
 		background: -webkit-linear-gradient(left top, rgba(254,73,66,0.6) , rgba(254,26,103,0.6)); 
@@ -171,7 +173,12 @@
     @media (min-width: 992px) {
 		.sideimg{width:20% !important;}
     }
-
+	.icon1{
+		color:rgb(253,57,57);
+	}
+	.navbar-fixed-top > a:focus {
+    	outline: 0px;
+	}
 </style>
 <html lang="zh-Hans">
 <head>
@@ -189,7 +196,7 @@
 				<img src="./img/logo.png" id="logo">
 				<a>我的南开inankai</a></div>
 				
-			<div class="col-sm-1 col-sm-offset-6 col-md-offset-8 sol-md-1 col-xs-3" style="padding-right: 5px;">
+			<div class="col-sm-2 col-sm-offset-5 col-md-offset-8 sol-md-1 col-xs-3" style="padding-right: 5px;">
 				<img src="./img/个人页2.png"  id="person">
 				<span id="nickname" style="color:white">Hi, xxx  |</span>
 			</div>			
@@ -197,14 +204,14 @@
 		</div>
 	</div>
 
-	<div class="container-fluid" style="background-color:#DCDCDC; margin-bottom: 2%">
+	<div class="container-fluid" style=" margin-bottom: 2%">
 		<div align="center">
 			<img class="portrait" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"  id="portrait">
 			<p id="name">昵称</p>
 		</div>
 		<div class="row" style="margin-top:2px;">
 			
-
+			
 			<img  style="margin-left=5%;" src="./img/男.png"  id="gender">
 			<span style="color: rgb(61,50,53)">编辑资料</span>
 		</div>
@@ -234,8 +241,8 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1 col-xs-12">
-			<ul id="myTab" class="nav nav-tabs">
+		<div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-10 col-sm-offset-1">
+			<ul id="myTab" class="nav nav-tabs nav-justified">
     			<li class="active inter on"><a href="#collection" data-toggle="tab">我的收藏</a></li>
    				<li  class="inter off" ><a href="#subscribe" data-toggle="tab">我的关注</a></li>
     			<li  class="inter off" ><a href="#message" data-toggle="tab">我的消息</a></li>
@@ -248,7 +255,6 @@
 
 <div id="myTabContent" class="tab-content">
 	<div class="tab-pane fade in active" id="collection">
-	<div class="showblock">
 	<div class="container-fluid hfunction" style="padding-top: 1%;">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;"><!--我的收藏-->
 			<li class="media moments ">
@@ -271,9 +277,12 @@
 					<span class="view_more"><a href="">展开全文</a></span>
 				</div> 	
 				<div class="media detail">
-					<div class="media-body"  style="padding-bottom: 2%">
-						<div class="row"><span class="col-md-1 col-xs-3"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
-						<div class="row"><span class="col-md-1 col-xs-3"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-time icon1"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-map-marker icon1"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
@@ -299,13 +308,17 @@
 					<span class="view_more"><a href="">展开全文</a></span>
 				</div> 	
 				<div class="media detail">
-					<div class="media-body"  style="padding-bottom: 2%">
-						<div class="row"><span class="col-md-1 col-xs-3"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
-						<div class="row"><span class="col-md-1 col-xs-3"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-time icon1"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-map-marker icon1"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
 			</li>	
+
 
 
 			<li class="media moments ">
@@ -327,28 +340,32 @@
 					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
 					<span class="view_more"><a href="">展开全文</a></span>
 				</div> 	
-				<div class="media detail" >
-					<div class="media-body"  style="padding-bottom: 2%">
-						<div class="row"><span class="col-md-1 col-xs-3"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
-						<div class="row"><span class="col-md-1 col-xs-3"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-time icon1"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-map-marker icon1"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
 			</li>	
+
 		</ul>
 		<div class="col-md-2 col-xs-2 col-sm-1">
-			<div class="row icon3">
-				<img class="sideimg" src="./img/动态圈圆.png" >
-			</div>
-			<div class="row icon3">
-				<img class="sideimg" src="./img/nk.png" >
-			</div>
-			<div class="row icon3">
-				<img class="sideimg" src="./img/person.png" >
-			</div>
-		</div>		
+		<div class="row icon3">
+			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
+		</div>
+	</div>		
 	</div>
-	</div><!--我的收藏-->
+
 	</div>
 
 	<div class="tab-pane fade" id="subscribe">
@@ -467,16 +484,16 @@
 
 		</div>
 		<div class="col-md-2 col-xs-2 col-sm-1">
-			<div class="row icon3">
-				<img src="./img/动态圈圆.png"  class="sideimg">
-			</div>
-			<div class="row icon3">
-				<img src="./img/nk.png"  class="sideimg">
-			</div>
-			<div class="row icon3">
-				<img src="./img/person.png" class="sideimg">
-			</div>
-		</div>		
+		<div class="row icon3">
+			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
+		</div>
+	</div>		
 	</div><!--我的关注-->
 	</div>
 
@@ -583,23 +600,23 @@
 			</div>	
 		</ul>
 
-		<div class="col-md-2 col-xs-2 col-sm-1">
-			<div class="row icon3">
-				<img src="./img/动态圈圆.png" class="sideimg">
-			</div>
-			<div class="row icon3">
-				<img src="./img/nk.png" class="sideimg">
-			</div>
-			<div class="row icon3">
-				<img src="./img/person.png" class="sideimg">
-			</div>
+	<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="row icon3">
+			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
 		</div>
+		<div class="row icon3">
+			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
+		</div>
+	</div>
 	</div>
 	</div><!--我的消息-->
 	</div>
 
 	<div class="tab-pane fade" id="schedule"><!--我的日程-->
-
+		
 	</div>
 
 </div>

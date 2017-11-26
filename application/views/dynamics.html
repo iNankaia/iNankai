@@ -131,18 +131,22 @@
 
     @media (min-width: 768px) {
 		.sideimg{width:55% !important;}
-		.modal-dialog{width: 40% !important;}
+		.modal-dialog{width: 70% !important;}
     }
     @media (min-width: 992px) {
 		.sideimg{width:20% !important;}
-		.modal-dialog{width: 35% !important;}
+		.modal-dialog{width: 50% !important;}
     }
     @media (min-width: 1500px){
-    	.modal-dialog{width: 25% !important;}
+    	.modal-dialog{width: 30% !important;}
     }
 	.icon1{
 		color:rgb(253,57,57);
 	}
+	.navbar-fixed-top > a:focus {
+    	outline: 0px;
+	}
+} 
 </style>
 
 
@@ -304,7 +308,7 @@
 
 
 		<!--热门-->
-<div class="container-fluid" style="margin-top: 2%;">
+<div class="container-fluid" style="padding-top: 2%; background-color: #efefef;">
 	<div class="tab-content">
 		<div class="tab-pane fade in active col-md-8 col-md-offset-2 col-xs-10 col-sm-8 col-sm-offset-1" id="hot">
 		<ul class="media-list ">
@@ -607,13 +611,13 @@
 
 	<div class="col-md-2 col-xs-2 col-sm-1">
 		<div class="row icon3">
-			<img src="./img/动态圈圆.png" class="sideimg">
+			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<img src="./img/nk.png" class="sideimg">
+			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<img src="./img/person.png" class="sideimg">
+			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
 		</div>
 	</div>
 
