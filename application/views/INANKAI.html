@@ -7,8 +7,9 @@
 
         position:relative;
 
-        font-family: Helvetica,"PingFang SC";
+		font-family: microsoft yahei;
 
+		text-align: center;
     }
 
 	#head_bar{
@@ -70,26 +71,12 @@
 
 		padding-bottom: 0%;
 
-		background-image: url(C:\Users\yang_ymL\Desktop\views\图片\recentWork.png);
-
 		background-repeat:no-repeat !important;
 
 		background-color: #efefef;
 
 	}
-	.recentWork{
 
-		padding-top:5%;
-
-		padding-bottom: 5%;
-
-		background-image: url(C:\Users\yang_ymL\Desktop\views\图片\recentWork.png);
-
-		background-repeat:no-repeat !important;
-
-		background-color: #efefef;
-
-	}
     .ainankai{
 
 		margin-bottom: 2%;
@@ -104,6 +91,7 @@
 		padding-top:2%;
 
 		padding-bottom: 5%;
+
 
 	}
 	.moments{
@@ -132,10 +120,12 @@
 		padding-top: 3%;
 		padding-bottom: 3%;
 
+		text-align: left;
+
 	}
 	.priority
 	{
-		text-align: center;
+		text-align: center !important;
 	}
 	.psxels
 	{
@@ -161,6 +151,33 @@
 
 
     }
+
+	.headimg{
+		width:100%;
+	}
+    @media (min-width: 768px) {	
+		.modal-dialog{width: 50% !important;}
+		.headimg{width:80%;}
+    }
+    @media (min-width: 992px) {
+		.modal-dialog{width: 40% !important;}
+		.headimg{width:60%;}
+    }
+    @media (min-width: 1500px){
+    	.modal-dialog{width: 25% !important;}
+    }
+
+    .form-group {
+    	margin-bottom: 20px !important;
+	}
+	.list-group-item{
+	 	border:0px !important;
+	 	background-color: transparent;
+	 	color:#fff;
+	}
+	#wenan{
+		background-image: url(./img/NKU.png);
+	}
 </style>
 
 <html lang="zh-Hans">
@@ -183,18 +200,13 @@
 
 	<div class="container-fluid ">
 
-		<div class="navbar-fixed-top row" id="head_bar">
-
+		<div class=" navbar-fixed-top row" id="head_bar">
 			<div class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">
-
-				<img src="C:\Users\yang_ymL\Desktop\views\图片\logo.png" id="logo">
-
+				<img src="./img/logo.png" id="logo">
 				<a>我的南开inankai</a></div>	
-
-			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" id="login" href="">登录</a>	
-
-			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>	
-
+			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="" id="login">登录</a>	
+			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>
+			
 		</div>
 
 	</div>
@@ -245,85 +257,48 @@
 	<!-- 登录框（Modal） -->
 
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-	<div class="modal-dialog" >
-
-		<div class="modal-content">
-
+	<div class="modal-dialog">
+		<div class="modal-content"  >
 			<div class="modal-header">
-
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-
 					&times;
-
 				</button>
-
 				<h3 class="modal-title" id="myModalLabel">
-
 					登录
-
 				</h3>
-
 			</div>
-
-			<div class="modal-body">
-
+			<div class="modal-body" style="width:72.6%; margin:auto">
 				<form class="form" role="form" action="">
-
 					<div class="form-group">
-
 						<input class="form-control input-lg" type="text" placeholder="用户名" id="username"></input>
-
 					</div>
-
 					<div class="form-group">
-
 						<input class="form-control input-lg" type="password" placeholder="密码" id="password"></input>
-
 					</div>
-
 					<div class="form-group pull-left">
-
 						<div class="checkbox">
-
 							<label><input type="checkbox" id="remeberme">请记住我</label>
-
 						</div>
-
 					</div>
-
 					<div class="form-group">
-
-						<input type="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" value="登录" id="submit" style="text-align: center !important;">
-
+						<input type="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" value="登录" id="submit" style="text-align: center !important; background-color: #6d323b; border:0px">
 						<div style="padding: 2%;">
-
 							<span class="pull-left"><a href="">找回密码</a></span>
-
 							<a id="regist_jump" class="pull-right" href="">注册</a>
-
 						</div>
-
 					</div>
-
 					
-
 				</form>
-
 			</div>
-
 			
-
 		</div>
-
 	</div>
-
 	</div>
 
 	<div class="container-fluid firstfigure">
 		<div class="row " style="text-align: center">
 
-			<img src="./img/inankai.png" width="60%">
+			<img src="./img/inankai.png" class="headimg">
 
 		</div>
 	</div>

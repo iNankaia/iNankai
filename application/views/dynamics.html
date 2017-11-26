@@ -219,8 +219,8 @@
 	
 	<!-- 登录框（Modal） -->
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" >
-		<div class="modal-content">
+	<div class="modal-dialog">
+		<div class="modal-content"  >
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
@@ -229,7 +229,7 @@
 					登录
 				</h3>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" style="width:72.6%; margin:auto">
 				<form class="form" role="form" action="">
 					<div class="form-group">
 						<input class="form-control input-lg" type="text" placeholder="用户名" id="username"></input>
@@ -239,11 +239,11 @@
 					</div>
 					<div class="form-group pull-left">
 						<div class="checkbox">
-							<label><input type="checkbox">请记住我</label>
+							<label><input type="checkbox" id="remeberme">请记住我</label>
 						</div>
 					</div>
 					<div class="form-group">
-						<button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">登录</button>
+						<input type="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" value="登录" id="submit" style="text-align: center !important; background-color: #6d323b; border:0px">
 						<div style="padding: 2%;">
 							<span class="pull-left"><a href="">找回密码</a></span>
 							<a id="regist_jump" class="pull-right" href="">注册</a>
