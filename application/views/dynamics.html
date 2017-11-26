@@ -3,7 +3,7 @@
 	*{
 		text-align: center;
 		align: center;
-		font-family: Helvetica,"PingFang SC";
+		font-family: microsoft yahei;
 	}
 	input{
 		text-align: left !important;
@@ -80,54 +80,36 @@
 	.user_type{
 		margin:2%;
 	}
-	@media(min-width: @screen-sm-min){
-		.modal-dialog{width: 40% !important;}
+
+
+	#myTab > li{
+		border-bottom:2px!important;
 	}
-	@media(min-width: @screen-md-min)
-	{
-		.modal-dialog{width: 30% !important;}
+
+	.nav-pills{
+		border:0px;
 	}
-	@media(min-width: @screen-lg-min)
-	{
-		.modal-dialog{width:20% !important;}
+	.nav-pills > li{
+		border-bottom: 2px !important;
+		border-color: rgb(248,88,135) !important;		
+		margin-bottom: 0px!important;
 	}
-	.navbar{
-		border: 0px !important;
+	.nav-pills > li > a{
+		color:#000;
+		border-left, border-right, border-top: 0px !important;
+		border-bottom: 2px !important;
+		border-color: #000;
+		font-size: 1.3em;
+
+
 	}
-	.navbar-default{
-		background-color: #333333 !important;
-	}
-	.navbar-nav>li>a{
-		color:white !important;
-	}
-	.active_bar{
-		background-image: url(./img/主页设计_16.jpg) !important;
-	}
-	#myTab{
-		background-color: rgb(59,48,52);
-		border-bottom: 0px;
-	}
-	#myTab a{
-		color: #FFFFFF;
-	}
-	.nav-tabs > li.active > a,
-	.nav-tabs > li.active > a:focus{
-		color: #fff !important;
-    	background-image: url(./img/主页设计_16.jpg) !important;
-  		border: 0px !important;
-	}
-	.nav-tabs > li > a:hover{
-		color: #fff;
-		background-color: rgb(59,48,52)!important; 
-	}
-	.nav-tabs > li {
- 		margin-bottom: 0px !important;
-	}
-	.nav-tabs > li > a {
-  		margin-right: 0px !important;
-  		border: 0px !important;
-  		border-radius: 10000px !important;
-  		border-radius: 0 !important;
+	.nav-pills > li.active > a,
+	.nav-pills > li.active > a:focus,
+	.nav-pills > li > a:hover{  	
+    	color:#000!important;
+    	font-weight:bold !important;
+    	background-color: #fff !important;
+    	border-bottom: 2px !important;
 	}
 	.btn{
 		border-radius: 0.8em !important;
@@ -140,6 +122,24 @@
 		margin-top: 0px !important;
 		padding-bottom: 1%;
 	}
+	.icon3{
+		margin-bottom: 10%;
+	}
+	.sideimg{width:45%;}
+	
+
+    @media (min-width: 768px) {
+		.sideimg{width:55% !important;}
+		.modal-dialog{width: 40% !important;}
+    }
+    @media (min-width: 992px) {
+		.sideimg{width:20% !important;}
+		.modal-dialog{width: 35% !important;}
+    }
+    @media (min-width: 1500px){
+    	.modal-dialog{width: 25% !important;}
+    }
+
 </style>
 
 
@@ -254,7 +254,7 @@
 	</div>
 	</div>
 
-	<div class="container">
+	<!--div class="container">
 		<div class=" row" id="box_bar">
 			<div class="col-md-2 col-md-offset-3 col-xs-4">
 				<img src="./img/动态圈2.png" width="30%">
@@ -276,22 +276,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-xs-12">
-				<!--nav class="navbar navbar-default" role="navigation"> 
- 					<ul class="nav navbar-nav"> 
-  						<li class="active_bar"><a href="">热门动态</a></li> 
-  						<li><a href="">最新动态</a></li> 
-  						<li><a href="">我的订阅</a></li>
- 					</ul> 
- 	 
- 				<div> 
- 					<form class="navbar-form navbar-left" role="search"> 
-						<div class="form-group"> 
-  							<input type="text" class="form-control" placeholder="INANKAI"> 
-  						</div> 
-  					<button type="submit" class="btn btn-default">搜索</button> 
- 					</form> 
- 				</div>
- 				</nav-->
+
  				<ul id="myTab" class="nav nav-tabs">
     				<li class="active"><a href="" data-toggle="tab">热门动态</a></li>
    					<li><a href="" data-toggle="tab">最新动态</a></li>
@@ -299,13 +284,27 @@
 				</ul>
 			</div>
 		</div>
+	</div-->
+
+
+<div class="container-fluid">
+	<hr width="80%" size="2px" style="margin-top:10%">
+	<div class="row">
+		<ul id="myTab" class="nav nav-pills">
+    		<li class="col-md-2 col-md-offset-3 col-xs-3 active"><a href="#hot" data-toggle="tab">热门动态</a></li>
+   			<li class="col-md-2 col-xs-6" ><a href="#new" data-toggle="tab">最新动态</a></li>
+    		<li class="col-md-2 col-xs-3" ><a href="#subscribe" data-toggle="tab">我的订阅</a></li>
+		</ul>
 	</div>
+</div>
+
 
 
 		<!--热门-->
-	<div class="container-fluid">
-		<div class="row">
-		<ul class="media-list col-md-8 col-md-offset-2 col-xs-12 col-sm-10 col-sm-offset-1">
+<div class="container-fluid" style="margin-top: 2%;">
+	<div class="tab-content">
+		<div class="tab-pane fade in active col-md-8 col-md-offset-2 col-xs-10 col-sm-8 col-sm-offset-1" id="hot">
+		<ul class="media-list ">
 			<li class="media moments ">
 				<a class="media-left">
 				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
@@ -401,9 +400,226 @@
 			</li>	
 		</ul>
 	</div>
+
+<div class="tab-pane fade in col-md-8 col-md-offset-2 col-xs-10 col-sm-8 col-sm-offset-1" id="new">
+		<ul class="media-list ">
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南ankai</h4>
+					<div>
+						<span class="time_before">x分钟前</span> 
+						<span class="moments_tag">活动通知</span>
+						<span class="moments_tag">文娱活动</span>
+						<button class="follow btn btn-default-xs" style="float: right;" >关注</button>
+					</div>
+				
+				<div class="contents">			
+					<div class="moments_title">inankai产品发布会，掌握我的南开</div>
+					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
+					<span class="view_more"><a href="">展开全文</a></span>
+				</div> 	
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					</div>			
+				</div>
+				</div>
+			</li>	
+
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>
+					<div>
+						<span class="time_before">x分钟前</span> 
+						<span class="moments_tag">活动通知</span>
+						<span class="moments_tag">文娱活动</span>
+						<button class="follow btn btn-default-xs" style="float: right;" >关注</button>
+					</div>
+				
+				<div class="contents">			
+					<div class="moments_title">inankai产品发布会，掌握我的南开</div>
+					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
+					<span class="view_more"><a href="">展开全文</a></span>
+				</div> 	
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					</div>			
+				</div>
+				</div>
+			</li>	
+
+
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>
+					<div>
+						<span class="time_before">x分钟前</span> 
+						<span class="moments_tag">活动通知</span>
+						<span class="moments_tag">文娱活动</span>
+						<button class="follow btn btn-default-xs" style="float: right;" >关注</button>
+					</div>
+				
+				<div class="contents">			
+					<div class="moments_title">inankai产品发布会，掌握我的南开</div>
+					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
+					<span class="view_more"><a href="">展开全文</a></span>
+				</div> 	
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					</div>			
+				</div>
+				</div>
+			</li>	
+		</ul>
 	</div>
 
 
+<div class="tab-pane fade in col-md-8 col-md-offset-2 col-xs-10 col-sm-8 col-sm-offset-1" id="subscribe">
+		<ul class="media-list ">
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>
+					<div>
+						<span class="time_before">x分钟前</span> 
+						<span class="moments_tag">活动通知</span>
+						<span class="moments_tag">文娱活动</span>
+						<button class="follow btn btn-default-xs" style="float: right;" >关注</button>
+					</div>
+				
+				<div class="contents">			
+					<div class="moments_title">inankai产品发布会，掌握我的南开</div>
+					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
+					<span class="view_more"><a href="">展开全文</a></span>
+				</div> 	
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					</div>			
+				</div>
+				</div>
+			</li>	
+
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>
+					<div>
+						<span class="time_before">x分钟前</span> 
+						<span class="moments_tag">活动通知</span>
+						<span class="moments_tag">文娱活动</span>
+						<button class="follow btn btn-default-xs" style="float: right;" >关注</button>
+					</div>
+				
+				<div class="contents">			
+					<div class="moments_title">inankai产品发布会，掌握我的南开</div>
+					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
+					<span class="view_more"><a href="">展开全文</a></span>
+				</div> 	
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					</div>			
+				</div>
+				</div>
+			</li>	
+
+
+			<li class="media moments ">
+				<a class="media-left">
+				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
+                 alt="头像" width="60px">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">我的南开inankai</h4>
+					<div>
+						<span class="time_before">x分钟前</span> 
+						<span class="moments_tag">活动通知</span>
+						<span class="moments_tag">文娱活动</span>
+						<button class="follow btn btn-default-xs" style="float: right;" >关注</button>
+					</div>
+				
+				<div class="contents">			
+					<div class="moments_title">inankai产品发布会，掌握我的南开</div>
+					<div class="moments_content">这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍，这里是活动介绍这里是活动介绍，这里是活动介绍，这里是活动介绍</div>
+					<span class="view_more"><a href="">展开全文</a></span>
+				</div> 	
+				<div class="media detail">
+					<a class="media-left media-middle" href="">
+						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
+					</a>
+					<div class="media-body container">
+						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+					</div>			
+				</div>
+				</div>
+			</li>	
+		</ul>
+	</div>
+
+
+	</div>
+
+
+	<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="row icon3">
+			<img src="./img/动态圈圆.png" class="sideimg">
+		</div>
+		<div class="row icon3">
+			<img src="./img/nk.png" class="sideimg">
+		</div>
+		<div class="row icon3">
+			<img src="./img/person.png" class="sideimg">
+		</div>
+	</div>
+
+</div>
+
+<ul class="pager">
+  <li><a href="#">上一页</a></li>
+  <li><a href="#">下一页</a></li>
+</ul>
 
 
 

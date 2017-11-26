@@ -27,7 +27,7 @@
 	}
 
 	.portrait{
-		margin-top:100px;
+		margin-top:8%;
 		border-radius: 50%;
 		width:150px;
 		border-style: solid;
@@ -35,7 +35,7 @@
 		border-color: #F5F5F5 ;
 	}
 	#name{
-		font-size: 20px;
+		font-size: 1.5em;
 		text-align: center;
 	}
 	.position{
@@ -190,22 +190,23 @@
 				<a>我的南开inankai</a></div>
 				
 			<div class="col-sm-1 col-sm-offset-6 col-md-offset-8 sol-md-1 col-xs-3" style="padding-right: 5px;">
-				<img src="./img/个人页2.png"  id="person" >
-				<span>Hi, </span><a id="nickname">xxx  |</a>
+				<img src="./img/个人页2.png"  id="person">
+				<span id="nickname" style="color:white">Hi, xxx  |</span>
 			</div>			
-			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;padding-left: 0px;"   id="login"href="">退出</a>	
+			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;padding-left: 0px;"   id="login" href="">退出</a>	
 		</div>
 	</div>
 
 	<div class="container-fluid" style="background-color:#DCDCDC; margin-bottom: 2%">
 		<div align="center">
 			<img class="portrait" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"  id="portrait">
+			<p id="name">昵称</p>
 		</div>
 		<div class="row" style="margin-top:2px;">
-			<span id="name" >昵称</span>
+			
 
 			<img  style="margin-left=5%;" src="./img/男.png"  id="gender">
-			<img  src="./img/编辑资料.png" id="mar">
+			<span style="color: rgb(61,50,53)">编辑资料</span>
 		</div>
 	
 		
@@ -247,9 +248,9 @@
 
 <div id="myTabContent" class="tab-content">
 	<div class="tab-pane fade in active" id="collection">
-	<div class="showblock"><!--我的收藏-->
+	<div class="showblock">
 	<div class="container-fluid hfunction" style="padding-top: 1%;">
-		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
+		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;"><!--我的收藏-->
 			<li class="media moments ">
 				<a class="media-left">
 				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
@@ -467,13 +468,13 @@
 		</div>
 		<div class="col-md-2 col-xs-2 col-sm-1">
 			<div class="row icon3">
-				<img src="./img/动态圈圆.png" width=20%>
+				<img src="./img/动态圈圆.png"  class="sideimg">
 			</div>
 			<div class="row icon3">
-				<img src="./img/nk.png" width=20%>
+				<img src="./img/nk.png"  class="sideimg">
 			</div>
 			<div class="row icon3">
-				<img src="./img/person.png" width=20%>
+				<img src="./img/person.png" class="sideimg">
 			</div>
 		</div>		
 	</div><!--我的关注-->
@@ -584,13 +585,13 @@
 
 		<div class="col-md-2 col-xs-2 col-sm-1">
 			<div class="row icon3">
-				<img src="./img/动态圈圆.png" width=20%;>
+				<img src="./img/动态圈圆.png" class="sideimg">
 			</div>
 			<div class="row icon3">
-				<img src="./img/nk.png" width=20%;>
+				<img src="./img/nk.png" class="sideimg">
 			</div>
 			<div class="row icon3">
-				<img src="./img/person.png" width=20%;>
+				<img src="./img/person.png" class="sideimg">
 			</div>
 		</div>
 	</div>
@@ -638,9 +639,7 @@
     $("#gender").css("height",$("#name").outerHeight());
     $("#null").css("width",$("#word").outerHeight());
     });
-	$(function () {
-		$('#myTab li:eq(1) a').tab('show');
-	});
+
 </script>
 <!--
 <script type="text/javascript">
