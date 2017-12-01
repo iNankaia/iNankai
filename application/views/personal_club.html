@@ -190,6 +190,8 @@
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="./scripts/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+	<script src="./scripts/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
 </head>
 <body>
@@ -211,22 +213,21 @@
 	<div class="container-fluid" style=" margin-bottom: 2%">
 		<div align="center">
 			<img class="portrait" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"  id="portrait">
-			<p id="name">昵称</p>
+			<p id="name">社团名称</p>
 		</div>
-		<div class="row" style="margin-top:2px;">
-			
-			
-			<img  style="margin-left:5%;" src="./img/男.png"  id="gender">
-			<span style="color: rgb(61,50,53)">编辑资料</span>
-		</div>
+		<!--div class="row" style="margin-top:2px;">
+			<a href="" id="edit_info"> 编辑资料</a>
+		</div-->
 	
 		
 		<div id="intro">
-			<div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-2 row">
-				<p style="text-align: left!important">个人介绍：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+			<div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-2" style="text-align: left!important">
+				<span>社团简介：</span>
+				<a id="club_info" href="">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a>
 			</div>
-			<div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-2 row">
-				<p style="text-align: left!important">所在院系：xxxxxxxxxxxxxxxxxx</p>
+			<div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-2" style="text-align: left!important">
+				<span>社团邮箱：</span>
+				<a id="club_email" href="">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a>
 			</div>
 		</div>
 	</div>
@@ -247,10 +248,8 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-10 col-sm-offset-1">
 			<ul id="myTab" class="nav nav-tabs">
-    			<li class="active inter on"><a href="#collection" data-toggle="tab">我的收藏</a></li>
-   				<li  class="inter off" ><a href="#subscribe" data-toggle="tab">我的关注</a></li>
-    			<li  class="inter off" ><a href="#message" data-toggle="tab">我的消息</a></li>
-    			<li  class="inter off" ><a href="#schedule" data-toggle="tab">我的日程</a></li>
+    			<li class="active inter on"><a href="#collection" data-toggle="tab">我的发布</a></li>
+    			<li class="inter off" ><a href="#message" data-toggle="tab">我的消息</a></li>
 			</ul>
 		</div>
 	</div>
@@ -372,134 +371,6 @@
 
 	</div>
 
-	<div class="tab-pane fade" id="subscribe">
-
-		<div class="container-fluid"><!--我的关注-->
-		<div class="row media" style="margin-bottom: 10px; margin-top: 10px;">
-			<div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
-				<img  src="./img/粉色竖条.png" style="height:20px;">
-				<span id="word">近期访问</span>
-			</div>
-		</div>
-
-		<div>
-		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
-
-			<li class="media moments ">
-				<a class="media-left">
-				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
-                 alt="头像" width="60px">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading">我的南开inankai</h4>											
-					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
-					<div class="contents">							
-						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
-					</div> 	
-				
-				</div>
-			</li>	
-
-
-			<li class="media moments ">
-				<a class="media-left">
-				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
-                 alt="头像" width="60px">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading">我的南开inankai</h4>											
-					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
-					<div class="contents">							
-						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
-					</div> 	
-				
-				</div>
-			</li>
-			<li class="media moments ">
-				<a class="media-left">
-				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
-                 alt="头像" width="60px">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading">我的南开inankai</h4>											
-					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
-					<div class="contents">							
-						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
-					</div> 					
-				</div>
-			</li>
-			<div class="row " style="margin-bottom: 10px;margin-top: 10px;">
-				<div class="col-md-2 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
-					<img  src="./img/粉色竖条.png" style="height:20px;">
-					<span id="word">全部关注</span>
-				</div>
-			</div>
-			<li class="media moments ">
-				<a class="media-left">
-				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
-                 alt="头像" width="60px">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading">我的南开inankai</h4>											
-					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
-					<div class="contents">							
-						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
-					</div> 					
-				</div>
-			</li>
-			<li class="media moments ">
-				<a class="media-left">
-				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
-                 alt="头像" width="60px">
-				</a>
-				<div class="media-body">
-					<h4 class="media-heading">我的南开inankai</h4>											
-					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
-					<div class="contents">							
-						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
-					</div> 					
-				</div>
-			</li>
-			<li class="media moments ">
-				<a class="media-left">
-				<img class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"
-                 alt="头像" width="60px">
-				</a>
-				<div  class="media-body">
-					<h4 class="media-heading">我的南开inankai</h4>											
-					<button class="follow btn btn-default-xs" style="float: right;" >关注</button>					
-					<div class="contents">							
-						<div class="moments_content">这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，这里是社团简介，</div>					
-					</div> 					
-				</div>
-			</li>
-
-			<div class="page" style="margin-top: 10px;font-color:#FF6347;">
-				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">首页</u></a>
-				<a href="" style="padding-right: 5px;color:#FF6347;">1</a>
-				<a href="" style="padding-right: 5px;color:#FF6347;">2</a>
-				<a href="" style="padding-right: 5px;color:#FF6347;">...</a>
-				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">下一页</u></a>
-				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">尾页</u></a>
-			</div>		
-		</ul>
-		
-
-
-		</div>
-		<div class="col-md-2 col-xs-2 col-sm-1">
-		<div class="row icon3">
-			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
-		</div>
-		<div class="row icon3">
-			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
-		</div>
-		<div class="row icon3">
-			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
-		</div>
-	</div>		
-	</div><!--我的关注-->
-	</div>
 
 	<div class="tab-pane fade" id="message">
 
@@ -619,10 +490,6 @@
 	</div><!--我的消息-->
 	</div>
 
-	<div class="tab-pane fade" id="schedule"><!--我的日程-->
-		
-	</div>
-
 </div>
 
 
@@ -660,6 +527,32 @@
     $("#gender").css("height",$("#name").outerHeight());
     $("#null").css("width",$("#word").outerHeight());
     });
+
+   var regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+
+    $('#club_info').editable({
+    	type: 'textarea',
+    	//pk: 1,
+    	url: '/post',
+    	title: '请输入社团简介',
+    	mode: 'inline',
+    	rows: 3,
+    	validate: function (value) { //字段验证
+            if (!($.trim(value).length>=20))
+                return '简介不能少于20字！';
+        }
+	});
+	$('#club_email').editable({
+    	type: 'text',
+    	//pk: 1,
+    	url: '/post',
+    	title: '请输入社团邮箱',
+    	mode: 'inline',
+    	validate: function (value){
+    		if(!regEmail.test(value))
+    			return '请输入正确的邮箱！';
+    	}
+	});
 
 </script>
 <!--
