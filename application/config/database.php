@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '222.30.60.34',
+	'hostname' => '120.25.87.171',
 	'username' => 'root',
-	'password' => 'root',
+	'password' => '123456',
 	'database' => 'inankai_circle',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
