@@ -57,8 +57,13 @@
 		color:#000000;
 		font-weight: bold!important;
 	}
+	ul li .active{
+		background-image: url(./img/粉色横杠.png);
+		font-weight: bold;
+	}	
+	
 	.inter{
-		margin-right:5%; 
+		margin-right:0px; 
 	}
 
 	.moments{
@@ -171,7 +176,71 @@
     @media (min-width: 992px) {
 		.sideimg{width:20% !important;}
     }
+ 
+    ul.timeline {
+        list-style-type: none;
+        background: url("./img/粉色竖条.png") repeat-y scroll 120px 0 transparent;
+        margin: 50px 0;
+        padding: 0;
+    }
+    ul.timeline li {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    ul.timeline li .time {
+        position: absolute;
+        width: 90px;
+        text-align: right;
+        left: 0;
+        top: 10px;
+        color: #999;
+    }
+    ul.timeline li .version {
+         position: absolute;
+          width: 290px;
+         text-align: right;
+          left: -200px;
+          top: 30px;
+         font-size: 40px;
+          line-height: 50px;
+          color: #3594cb;
+          overflow: hidden;
+    }
+    ul.timeline li .number {
+        position: absolute;
+        background: url("./img/页码圆.png	") no-repeat scroll 0 0 transparent;
+        background-size: 20px;
+        width: 56px;
+        height: 56px;
+        left: 97px;
+        line-height: 56px;
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+    }
+    ul.timeline li.alt .number {
+           background-image: url("./img/页码圆.png");
+    }
+    ul.timeline li .content {
+            margin-left: 180px;
+            text-align:left;
+           
+    }
+    ul.timeline li .content pre {
+            background-color: #3594cb;
+            padding: 20px;
+          color: #fff;
+            font-size: 13px;
+            line-height: 20px;
+    }
+    ul.timeline li.alt .content pre {
+        background-color: #43B1F1;
+    }
+    .sitestyle{
+    	color:#696969;
+    	font-size: 11px;
 
+    }
 </style>
 <html lang="zh-Hans">
 <head>
@@ -190,14 +259,14 @@
 				<a>我的南开inankai</a></div>
 				
 			<div class="col-sm-1 col-sm-offset-6 col-md-offset-8 sol-md-1 col-xs-3" style="padding-right: 5px;">
-				<img src="./img/个人页2.png"  id="person" >
-				<span>Hi, </span><a id="nickname">xxx  |</a>
+				<img src="./img/个人.png"  id="person" >
+				<span style="color: #fff;">Hi, </span><a id="nickname">xxx  |</a>
 			</div>			
 			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;padding-left: 0px;"   id="login"href="">退出</a>	
 		</div>
 	</div>
 
-	<div class="container-fluid" style="background-color:#DCDCDC; margin-bottom: 2%">
+	<div class="container-fluid" style="margin-bottom: 2%">
 		<div align="center">
 			<img class="portrait" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510508361521&di=4d5d34039bc73e253504481146e6640d&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb2de9c82d158ccbf6c691e0612d8bc3eb1354130.jpg"  id="portrait">
 		</div>
@@ -233,7 +302,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1 col-xs-12">
+		<div class="col-md-10 col-md-offset-1 col-xs-12" style="padding: 0px;">
 			<ul id="myTab" class="nav nav-tabs">
     			<li class="active inter on"><a href="#collection" data-toggle="tab">我的收藏</a></li>
    				<li  class="inter off" ><a href="#subscribe" data-toggle="tab">我的关注</a></li>
@@ -246,9 +315,10 @@
 
 
 <div id="myTabContent" class="tab-content">
+
 	<div class="tab-pane fade in active" id="collection">
 	<div class="showblock"><!--我的收藏-->
-	<div class="container-fluid hfunction" style="padding-top: 1%;">
+	<div class="container-fluid hfunction" style="padding-top: 1%;padding-bottom: 10px;">
 		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
 			<li class="media moments ">
 				<a class="media-left">
@@ -333,9 +403,17 @@
 					</div>			
 				</div>
 				</div>
-			</li>	
+			</li>
+			<div class="page" style="margin-top: 50px;font-color:#FF6347;">
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">首页</u></a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">1</a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">2</a>
+				<a href="" style="padding-right: 5px;color:#FF6347;">...</a>
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">下一页</u></a>
+				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">尾页</u></a>
+			</div>		
 		</ul>
-		<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="col-md-2 col-xs-1 col-sm-1">
 			<div class="row icon3">
 				<img class="sideimg" src="./img/动态圈圆.png" >
 			</div>
@@ -352,16 +430,16 @@
 
 	<div class="tab-pane fade" id="subscribe">
 
-		<div class="container-fluid"><!--我的关注-->
+	<div class="container-fluid"><!--我的关注-->
 		<div class="row media" style="margin-bottom: 10px; margin-top: 10px;">
-			<div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
+			<div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
 				<img  src="./img/粉色竖条.png" style="height:20px;">
 				<span id="word">近期访问</span>
 			</div>
 		</div>
 
 		<div>
-		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1" style="padding:0px;">
+		<ul class="media-list col-md-8 col-md-offset-2 col-xs-10 col-sm-10 col-sm-offset-1 ">
 
 			<li class="media moments ">
 				<a class="media-left">
@@ -407,7 +485,7 @@
 				</div>
 			</li>
 			<div class="row " style="margin-bottom: 10px;margin-top: 10px;">
-				<div class="col-md-2 col-xs-3 col-xs-offset-2" style="padding-left: 0px;">
+				<div class="col-md-2 col-xs-3 col-xs-offset-1 col-md-offset-1" style="padding-left: 0px;">
 					<img  src="./img/粉色竖条.png" style="height:20px;">
 					<span id="word">全部关注</span>
 				</div>
@@ -452,7 +530,7 @@
 				</div>
 			</li>
 
-			<div class="page" style="margin-top: 10px;font-color:#FF6347;">
+			<div class="page" style="margin-top: 50px;font-color:#FF6347;">
 				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">首页</u></a>
 				<a href="" style="padding-right: 5px;color:#FF6347;">1</a>
 				<a href="" style="padding-right: 5px;color:#FF6347;">2</a>
@@ -465,7 +543,7 @@
 
 
 		</div>
-		<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="col-md-2 col-xs-1 col-sm-1">
 			<div class="row icon3">
 				<img src="./img/动态圈圆.png" width=20%>
 			</div>
@@ -481,8 +559,8 @@
 
 	<div class="tab-pane fade" id="message">
 
-	<div class="container-fluid" style="padding-top: 1%"><!--我的消息-->
-	<div class="col-md-2 col-xs-3">
+<div class="container-fluid" style="padding-top: 1%"><!--我的消息-->
+	<div class="col-md-2 col-xs-1">
 		<div class="row icon3 " >
 			<img src="./img/信封圆浅粉.png" width=20%;>
 		</div>
@@ -506,7 +584,7 @@
 				<br/>
 				<div>
 					<span class="at2 pull-left">@提到的主题 ：</span>
-					<u class="at2">"inankai产品发布会。   ‘掌’握我南开"</u>
+					<a href=""><u class="at2" >"inankai产品发布会。   ‘掌’握我南开"</u></a>
 				</div>
 				<div class="pull-right">
 					<img src="./img/图片标.png" width="20px;" style="margin-right: 6px;">
@@ -527,6 +605,7 @@
 
 				<br/>
 				<br/>
+				<div class="row"></div>
 				<div>
 					<a href=""><u class="pull-right at2" style="margin-top: 5px;margin-bottom: 5px;">收起回复</u></a>
 				</div>
@@ -545,7 +624,7 @@
 				<br/>
 				<div>
 					<span class="at2 pull-left">@提到的主题 ：</span>
-					<u class="at2">"inankai产品发布会。   ‘掌’握我南开"</u>
+					<a href=""><u class="at2" >"inankai产品发布会。   ‘掌’握我南开"</u></a>
 				</div>
 				<div>
 					<a href=""><u class="pull-right at2" style="margin-top: 5px;margin-bottom: 5px;">展开回复</u></a>
@@ -565,24 +644,24 @@
 				<br/>
 				<div>
 					<span class="at2 pull-left">@提到的主题 ：</span>
-					<u class="at2">"inankai产品发布会。   ‘掌’握我南开"</u>
+					<a href=""><u class="at2" >"inankai产品发布会。   ‘掌’握我南开"</u></a>
 				</div>											
 				<div>
 					<a href=""><u class="pull-right at2" style="margin-top: 5px;margin-bottom: 5px;">展开回复</u></a>
 				</div>
 			</div>
 		</li>
-		<div class="page" style="margin-top: 10px;font-color:#FF6347;">
+		<div class="page" style="margin-top: 50px;font-color:#FF6347;">
 				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">首页</u></a>
 				<a href="" style="padding-right: 5px;color:#FF6347;">1</a>
 				<a href="" style="padding-right: 5px;color:#FF6347;">2</a>
 				<a href="" style="padding-right: 5px;color:#FF6347;">...</a>
 				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">下一页</u></a>
 				<a href="" style="padding-right: 5px;"><u style="color:#ff6699;">尾页</u></a>
-			</div>	
+		</div>	
 		</ul>
 
-		<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="col-md-2 col-xs-1 col-sm-1 ">
 			<div class="row icon3">
 				<img src="./img/动态圈圆.png" width=20%;>
 			</div>
@@ -594,12 +673,86 @@
 			</div>
 		</div>
 	</div>
-	</div><!--我的消息-->
-	</div>
+</div><!--我的消息-->
+</div>
 
-	<div class="tab-pane fade" id="schedule"><!--我的日程-->
+<div class="tab-pane fade" id="schedule"><!--我的日程-->
+<div class="container-fluid">
+	<div class="col-md-10 col-md-offset-2">		
 
+		<div class="row pull-left" style="margin-top: 2%;">
+			<img  src="./img/粉色竖条.png" style="height:20px;"><strong>本月日程</strong>
+		</div>
+
+		<ul class="timeline">
+			<li>
+				<div class="time">2017/09/13 星期五</div>
+				<!--<div class="version">v6.1.0</div>-->
+				
+				<div class="number"></div>
+				<div class="content" style="margin-left: 160px; padding-top: 2%;">
+					<div style="text-align: left;">
+						<div class="pull-left">
+							<span>9:00-11:30</span>
+							
+							<img src="./img/粉色竖条.png" style="height:20px;">
+							<span>inankai新品发布会,"掌"握我南开</span>
+							<img src="./img/一键添加按钮.png"   class="pull-right" style="height:15px;">
+						</div>
+						<div class="row"></div>
+						<div class="row pull-left" style="margin-left: 74px;">
+							<img src="./img/粉色竖条.png" style="height:20px;">
+							<img src="./img/地点图标.png" style="width:12px;" >
+							<span id="sitew" class="sitestyle">八里台校区东方艺术</span>
+						</div>
+					
+					</div>
+					
+				</div>
+				
+			</li>
+			<li>
+				<div class="time">2017-09-13</div>			
+		
+				<div class="content">
+					
+						-修正未激活选项卡中表格的getStore().sorters为null导致的问题（甘桂-9373）（碌云-21311）。
+						-修正树控件水平滚动条丢失的问题（liushuhuan426-9504）。
+				
+				</div>
+			</li>
+			<li>
+				<div class="time">2017-09-13</div>				
+				
+				<div class="content">
+					
+						-修正未激活选项卡中表格的getStore().sorters为null导致的问题（甘桂-9373）（碌云-21311）。
+						-修正树控件水平滚动条丢失的问题（liushuhuan426-9504）。
+				
+				</div>
+			</li>
+			<li>
+				<div class="time">2017-09-13</div>
+		
+				<div class="content">
+				
+						-修正未激活选项卡中表格的getStore().sorters为null导致的问题（甘桂-9373）（碌云-21311）。
+						-修正树控件水平滚动条丢失的问题（liushuhuan426-9504）。
+				
+				</div>
+			</li>
+
+
+ 
+		<br/>
+		<br/>
+		<br/> 	
+		<br/>
 	</div>
+</div>
+</div>
+
+
 
 </div>
 
@@ -637,10 +790,54 @@
     $("#mar").css("height",$("#login").outerHeight());
     $("#gender").css("height",$("#name").outerHeight());
     $("#null").css("width",$("#word").outerHeight());
+    $("#site").css("height",$("#sitew").outerHeight());
     });
 	$(function () {
 		$('#myTab li:eq(1) a').tab('show');
-	});
+    });
+
+
+   $(function() {
+      
+           var nextDataNumber = 5;
+          
+          
+            var ulNode = $('ul.timeline');           
+            function initLiNodes() {
+               var liNodes = ulNode.find('li'), count = liNodes.length, i, liNode, leftCount = nextDataNumber * 20;
+              for(i=0; i<count; i++) {
+                   liNode = $(liNodes.get(i));
+                 if(i % 2 !== 0) {
+                      liNode.addClass('alt');
+                  } else {
+                     liNode.removeClass('alt');
+                  }
+                  liNode.find('.number').text(leftCount + count - i);
+              }
+            }
+            
+          
+            $('#fetchNextData').click(function() {
+                var $this = $(this);
+               $this.addClass('disabled').text('......');
+               
+              $.get('./version_data_' + nextDataNumber +'.txt', function(data) {
+              	  ulNode.append(data);
+                  $this.removeClass('disabled').text('后二十条数据');
+                  nextDataNumber--;
+                   
+                  if(nextDataNumber === 0) {
+                       $this.hide();
+                   }
+                  
+                  initLiNodes();
+              });              
+          });
+       
+           initLiNodes();
+          
+       });
+	
 </script>
 <!--
 <script type="text/javascript">
