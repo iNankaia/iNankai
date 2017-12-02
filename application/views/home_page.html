@@ -3,7 +3,6 @@
 	*{
 		text-align: center;
 		align: center;
-		font-family: microsoft yahei;
 	}
 	input{
 		text-align: left !important;
@@ -126,6 +125,26 @@
 		margin-top: 0px !important;
 		padding-bottom: 1%;
 	}
+	@media (min-width: 768px) {	
+		.modal-dialog{width: 70% !important;}
+    }
+    @media (min-width: 992px) {
+		.modal-dialog{width: 50% !important;}
+    }
+    @media (min-width: 1500px){
+    	.modal-dialog{width: 30% !important;}
+    }
+
+    .form-group {
+    	margin-bottom: 20px !important;
+	}
+	.icon1{
+		color:rgb(253,57,57);
+	}
+	.navbar-fixed-top > a:focus {
+    	outline: 0px;
+	}
+
 </style>
 
 
@@ -179,8 +198,8 @@
 	
 	<!-- 登录框（Modal） -->
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" >
-		<div class="modal-content">
+	<div class="modal-dialog">
+		<div class="modal-content"  >
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
@@ -189,7 +208,7 @@
 					登录
 				</h3>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" style="width:72.6%; margin:auto">
 				<form class="form" role="form" action="">
 					<div class="form-group">
 						<input class="form-control input-lg" type="text" placeholder="用户名" id="username"></input>
@@ -203,7 +222,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" value="登录" id="submit" style="text-align: center !important;">
+						<input type="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" value="登录" id="submit" style="text-align: center !important; background-color: #6d323b; border:0px">
 						<div style="padding: 2%;">
 							<span class="pull-left"><a href="">找回密码</a></span>
 							<a id="regist_jump" class="pull-right" href="">注册</a>
@@ -298,8 +317,8 @@
 						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
 					</a>
 					<div class="media-body container">
-						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
-						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-time icon1"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-map-marker icon1"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
@@ -329,12 +348,12 @@
 						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
 					</a>
 					<div class="media-body container">
-						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
-						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-time icon1"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-map-marker icon1"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
-			</li>	
+			</li>
 
 
 			<li class="media moments ">
@@ -361,12 +380,12 @@
 						<img class="media-object" src="./img/一键添加按钮.png" width="25px">
 					</a>
 					<div class="media-body container">
-						<div class="row"><span class="col-md-1"><img src="./img/时间图标.png" width="40%"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
-						<div class="row"><span class="col-md-1"><img src="./img/地点图标.png" width="40%"></span><span class="location">八里台校区东方艺术大量</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-time icon1"></span><span class="time">2018年4月25日 14:00-18:00</span></div>
+						<div class="row"><span class="col-md-1 glyphicon glyphicon-map-marker icon1"></span><span class="location">八里台校区东方艺术大量</span></div>
 					</div>			
 				</div>
 				</div>
-			</li>	
+			</li>
 		</ul>
 	
 	</div>
