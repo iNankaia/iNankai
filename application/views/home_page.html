@@ -163,7 +163,7 @@
 				<img src="./img/logo.png" id="logo">
 				<a>我的南开inankai</a></div>	
 			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="" id="login">登录</a>	
-			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>
+			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="" id="register">注册</a>
 			
 		</div>
 		<div class="row">
@@ -424,31 +424,7 @@ $(document).ready(function(){
 	$("#regist_jump").click(function(){
 		$("#loginModal").modal("hide");
 		$("#registerModal").modal("show");
-	})
-var username = '';
-var password = '';
-var remeberme = false;
+	});
 
-$('#submit').click(function(){
-	username = $('#username').val();
-	password = $('#password').val();
-	if($('input[type="checkbox"]:checked'))
-		remeberme = true;
-	$.post("<?php echo site_url('') ?>",
-            {
-                'username':username,
-                'password':password,
-                'remeberme': remeberme
-            },
-            function (data){
-                if(data == "fail")
-                    alert("登录失败");
-                if(data == "success"){
-                    alert("登录成功");
-                    window.location.href="<?php echo site_url('') ?>";
-                }
-            },
-            "json"
-            );
-});
 </script>
+<script src="./scripts/login.js" charset="utf-8"></script>

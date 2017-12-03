@@ -140,7 +140,7 @@ var email = '';
 var inviteCode = '';
 var clubIntro = '';
 var contact = '';
-var get_json = '';
+var get_json = {};
 var flag = -3;
 
 //提交表单
@@ -158,7 +158,7 @@ $('#submit').click(function(e) {
         	$('.container').find('textarea').eq(0).parent().parent().removeClass('has-success').addClass('has-error');
     }
     else{
-/*
+
         clubName = $('#clubName').val();
         password = $('#password').val();
         email = $('#email').val();
@@ -177,19 +177,19 @@ $('#submit').click(function(e) {
                 'contact': contact
             },
             function (data){
-                get_json = json_decode(data);
-                flag = get_json->flag;
+                get_json = JSON.parse(data);
+                flag = get_json['flag'];
                 if(flag == 100){
                     alert("注册成功，请到邮箱确认！");
                     window.location.href="<?php echo site_url('') ?>";  //homepage
                 }
                 else{
-                    alert(get_json->content);
+                    alert(get_json['content']);
                 }
             },
             "json"
             );
         
-*/
+
         }
 });

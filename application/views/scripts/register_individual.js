@@ -14,6 +14,8 @@ var regPasswordNum = /[0-9]/;
 var regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 var password;
 var check = [false, false, false, false];
+var check_username = {};
+var username_flag = -9;
 
 //校验成功函数
 function success(Obj, counter) {
@@ -35,9 +37,26 @@ function fail(Obj, counter, msg) {
 }
 
 
+
 $('.container').find('input').eq(0).change(function() {
     if (regUsername.test($(this).val())) {
-        success($(this), 0);
+        $.post(
+            "<?php echo site_url('user/checkname') ?>",
+            {
+                'username':username
+            },
+            function (data){
+                check_username = JSON.parse(data);
+                username_flag = check_username['flag'];
+                if(flag == 100){
+                    success($(this), 0);
+                }
+                else{
+                    fail($(this), 0, '用户名已存在');
+                }
+            },
+            "json"
+            );
     } else if ($(this).val().length < 5) {
         fail($(this), 0, '用户名太短，不能少于5个字符');
     } else {
@@ -105,7 +124,7 @@ $('#submit').click(function(e) {
         }
     }
     else{
-        /* //提交表单
+        //提交表单
         username = $('#username').val();
         password = $('#password').val();
         email = $('#email').val();
@@ -117,18 +136,18 @@ $('#submit').click(function(e) {
                 'email':email
             },
             function (data){
-                get_json = json_encode(data);
-                flag = get_json->flag;
+                get_json = JSON.parse(data);
+                flag = get_json['flag'];
                 if(flag == 100){
                     alert("注册成功，请到邮箱确认！");
                     window.location.href="<?php echo site_url('') ?>"; //返回主页
                 }
                 else{
-                    alert(get_json->content);
+                    alert(get_json['content']);
                 }
             },
             "json"
-            );*/
+            );
         }
 
 });
