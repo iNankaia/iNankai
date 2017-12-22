@@ -599,31 +599,28 @@
 	</div><!--我的关注-->
 	</div>
 
-	<div class="tab-pane fade" id="message">
 
-	<div class="container-fluid" style="padding-top: 1%"><!--我的消息-->
-
-
-
-
+<div class="tab-pane fade" id="message">
+<div class="container-fluid" style="padding-top: 1%"><!--我的消息-->
 
 	<div class="col-md-2 col-xs-1">
 		<ul id="myTab" class="nav nav-tabs">
-		<li class="active inter on">
-			<div class="row icon3 " >
-				<a href=""><img src="./img/信封圆浅粉.png" width=20%;></a>
-			</div>
-		</li>
-		<li class="inter off">
-			<div class="row icon3" >
-				<a href=""><img src="./img/@圆深粉.png" width=20%;></a>
-			</div>
-		</li>
+			<li class="active inter on" data-toggle="tab">
+				<div class="row icon3 " >
+					<a href="#personalmessage"><img src="./img/信封圆浅粉.png" width=20%;></a>
+				</div>
+			</li>
+			<li class="inter off" data-toggle="tab">
+				<div class="row icon3" >
+					<a href="#personalat"><img src="./img/@圆深粉.png" width=20%;></a>
+				</div>
+			</li>
 		</ul>
 	</div>
 <div id="myTabContent" class="tab-content">
-	<div class="tab-pane fade in acive" id="personalmessage">
-	<div class="showblock"><!--我的私信-->
+
+	<div class="tab-pane fade in active" id="personalmessage">
+	<!--我的私信-->
 		
 		<ul class="media-list col-md-8  col-xs-10 col-sm-10 " style="padding:0px;">
 		<!--<div id="commu" class="moments media">-->
@@ -729,10 +726,10 @@
 					<img src="./img/person.png" width=20%;>
 				</div>
 			</div>
-		</div>
+		
 	</div>
 
-	<div class="tab-pane fade" id="at">
+	<div class="tab-pane fade" id="personalat">
 		<ul class="media-list col-md-8  col-xs-10 col-sm-10 " style="padding:0px;">
 		<!--<div id="commu" class="moments media">-->
 		<li class="moments media">
@@ -825,6 +822,8 @@
 		</div>	
 		</ul>
 	</div>
+
+</div><!--选项卡内容-->
 </div><!--我的消息-->
 </div>
 
@@ -1000,7 +999,7 @@
 
 
 <!--
-<footer class="container-fluid" id="foot">
+<footer class="container-fluid " id="foot">
 		<div class="row" style="padding:2%;">
 			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
 				<p><a href="">关于我们</a></p>
@@ -1033,6 +1032,8 @@
 	$(function () {
 		$('#myTab li:eq(1) a').tab('show');
     });
+
+
 
 
    $(function() {
