@@ -1,0 +1,140 @@
+<?php
+
+class Comment_Model extends CI_Model{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->load->library('session');
+    }
+    public function index(){
+
+    }
+
+    /**
+     * @return array 1:查询成功； -1：查询失败
+     */
+    public function findAll(){
+        $sql = 'select * from comment';
+        $res = $this->db->query($sql);
+        if($res->num_rows()===0){
+            return array('flag'=>-1);
+        }
+        $counter = 0;
+        foreach ($res->result() as $row){
+            $result[$counter]=array(
+                'comment_id' => $row->comment_id,
+                'comment_by_user_id' => $row->comment_by_user_id,
+                'comment_commenting_post_id' =>$row->comment_commenting_post_id,
+                'comment_replying_comment_id' => $row->comment_replying_comment_id,
+                'comment_content' => $row->comment_content
+            );
+            $counter++;
+        }
+        $data = array('result'=>$result,'counter'=>$counter);
+        return array('flag'=>1,'data'=>$data);
+    }
+
+    /**
+     * @param $data
+     * @return array -1:未登录； -2:评论失败； 1:成功
+     */
+    public function publishComment($data){
+        if($this->session->has_userdata('uid')){
+            $comment_by_user_id = $this->session->uid;
+            $timestamp = date('Y-m-d H:i:s',time());
+            $comment_id = md5($comment_by_user_id.$timestamp);
+
+            $sql = 'insert into comment values ('
+                .$this->db->escape($comment_id).','
+                .$this->db->escape($comment_by_user_id).','
+                .$this->db->escape($data['comment_commenting_post_id']).','
+                .'NULL'.','//replying comment id
+                .$this->db->escape($data['comment_content']).')';
+            $res = $this->db->query($sql);
+            if($this->db->affected_rows() > 0){
+                return array('flag'=>1);
+            }
+            else{
+                return array('flag'=>-2);
+            }
+        }
+        else {
+            return array('flag'=>-1);
+        }
+    }
+
+    /**
+     * @param $comment_id
+     * @return array -1:未登录；-2：不存在该comment； -3：用户无权删除； -4：删除失败； 1：成功
+     */
+    public function deleteComment($comment_id){
+        if($this->session->has_userdata('uid')){
+            $sql = 'select from comment where comment_id='.$this->db->escape($comment_id);
+            $res=$this->db->query($sql);
+            if($res->num_rows()===0){
+                return array('flag'=>-2);
+            }
+            foreach ($res->result() as $row){
+                $comment_by_user_id = $row->comment_by_user_id;
+            }
+            if($this->session->uid === $comment_by_user_id){
+                return $this->doDelete($comment_id);
+            }
+            else{
+                $user_id = $this->session->uid;
+                $sql = 'select from login_info where user_id='.$this->db->escape($user_id);
+                $res = $this->db->query($sql);
+                foreach ($res->result() as $row){
+                    $user_authority = $row->user_authority;
+                }
+                if($user_authority >=2){
+                    return $this->doDelete($comment_id);
+                }
+                else{
+                    return array('flag'=>-3);
+                }
+            }
+        }
+        else{
+            return array('flag'=>-1);
+        }
+    }
+
+    private function doDelete($comment_id){
+        $sql = 'delete from comment where comment_id='.$this->db->escape($comment_id);
+        $res = $this->db->query($sql);
+        if($this->db->affected_rows() > 0){
+            return array('flag'=>1);
+        }
+        else{
+            return array('flag'=>-4);
+        }
+    }
+
+    public function publishReply($data){
+        if($this->session->has_userdata('uid')){
+            $comment_by_user_id = $this->session->uid;
+            $timestamp = date('Y-m-d H:i:s',time());
+            $comment_id = md5($comment_by_user_id.$timestamp);
+
+            $sql = 'insert into comment values ('
+                .$this->db->escape($comment_id).','
+                .$this->db->escape($comment_by_user_id).','
+                .$this->db->escape($data['comment_commenting_post_id']).','
+                .$this->db->escape($data['comment_replying_comment_id']).','//replying comment id
+                .$this->db->escape($data['comment_content']).')';
+            $res = $this->db->query($sql);
+            if($this->db->affected_rows() > 0){
+                return array('flag'=>1);
+            }
+            else{
+                return array('flag'=>-2);
+            }
+        }
+        else {
+            return array('flag'=>-1);
+        }
+    }
+}
+?>
