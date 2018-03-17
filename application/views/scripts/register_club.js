@@ -165,7 +165,7 @@ $('#submit').click(function(e) {
         inviteCode = $('#inviteCode').val();
         contact = $("#contact").val();
         clubIntro = $('#clubIntro').val();
-        
+        /*
         $.post(
             "<?php echo site_url('league/signup') ?>",
             {
@@ -189,6 +189,27 @@ $('#submit').click(function(e) {
             },
             "json"
             );
+            */
+        fetch('inankai/index.php/api/league/signup', {
+            method: 'post',
+            body: JSON.stringify({
+                'username':clubName,
+                'password':password,
+                'email':email,
+                'invite_code':inviteCode,            
+                'introduction':clubIntro,
+                'contact': contact
+            })
+        }).then((res) => res.json()).then((res)=> {
+            console.log(res);
+            if(res['flag'] != 100)
+            {
+                alert(res['content']);
+            }
+            else
+            {}
+
+        });
         
 
         }

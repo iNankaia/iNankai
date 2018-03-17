@@ -78,10 +78,12 @@ class User_model extends CI_Model {
         return array('flag' => -1);
       }
       // 获取用户账号信息，并检查密码是否正确
+      $type = 0; // 账号类型，0表示用户，1表示社团
       foreach ($res->result() as $row) {
         $correct_password = $row->user_password;
         $salt = $row->user_salt;
         $uid = $row->user_id;
+        $type = $row->user_authority;
       }
       $temp_password = hash('sha256', $password.$salt);
       if ($temp_password !== $correct_password) {
@@ -89,7 +91,8 @@ class User_model extends CI_Model {
         return array('flag' => -2);
       }
       // 设置session
-      $this->session->set_userdata('uid', $uid);
+      if ($type === 0) $this->session->set_userdata('uid', $uid);
+      else $this->session->set_userdata('club_user_id', $uid);
       return array('flag' => 1);
     }
     /**

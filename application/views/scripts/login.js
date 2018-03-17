@@ -7,6 +7,7 @@ var login_state = -6;
 $('form').submit(function(){
 	username = $('#username').val();
 	password = $('#password').val();
+	/*
 	$.post(
 		"<?php echo site_url('user/signin') ?>",
 		{
@@ -25,4 +26,22 @@ $('form').submit(function(){
 		},
 		'json'
 		); 
+		*/
+	fetch('inankai/index.php/api/user/signin', {
+        method: 'post',
+        body: JSON.stringify({
+            'account': username,
+            'password': password
+        })
+        }).then((res) => res.json()).then((res)=> {
+        	console.log(res);
+        	if(res['flag'] != 100)
+        	{
+        		alert(res['content']);
+        	}
+        	else
+        	{}
+
+        });
+	
 });
