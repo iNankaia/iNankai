@@ -7,7 +7,7 @@ $(document).ready(function(){
 });
 
 
-var regUsername = /^[a-zA-Z_][a-zA-Z0-9_]{4,19}$/;
+var regUsername = /^[a-zA-Z0-9_-]{4,16}$/;
 var regPasswordSpecial = /[~!@#%&=;':",./<>_\}\]\-\$\(\)\*\+\.\[\?\\\^\{\|]/;
 var regPasswordAlpha = /[a-zA-Z]/;
 var regPasswordNum = /[0-9]/;
@@ -60,7 +60,7 @@ $('.container').find('input').eq(0).change(function() {
     } else if ($(this).val().length < 5) {
         fail($(this), 0, '用户名太短，不能少于5个字符');
     } else {
-        fail($(this), 0, '用户名只能为英文数字和下划线,且不能以数字开头');
+        fail($(this), 0, '用户名只能为英文数字和下划线');
     }
 });
 
@@ -128,6 +128,7 @@ $('#submit').click(function(e) {
         username = $('#username').val();
         password = $('#password').val();
         email = $('#email').val();
+        /*
         $.post(
             "<?php echo site_url('user/signup') ?>",
             {
@@ -140,7 +141,7 @@ $('#submit').click(function(e) {
                 flag = get_json['flag'];
                 if(flag == 100){
                     alert("注册成功，请到邮箱确认！");
-                    window.location.href="<?php echo site_url('') ?>"; //返回主页
+                    window.location.href="<?php echo site_url('Homepage') ?>"; //返回主页
                 }
                 else{
                     alert(get_json['content']);
@@ -149,5 +150,15 @@ $('#submit').click(function(e) {
             "json"
             );
         }
+        */
+       fetch('inankai/index.php/api/user/signup', {
+        method: 'post',
+        body: JSON.stringify({
+            'username': username,
+            'password': password,
+            'email': email
+        })
+        }).then((res) => res.json()).then((res)=> {console.log(res)});
+      
 
 });
