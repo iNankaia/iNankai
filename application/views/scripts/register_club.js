@@ -1,9 +1,4 @@
-$(document).ready(function(){  
-    var img = $("#qr_code");  
-	var h = $("#foot_words").outerHeight(); 	
-	var w = 70;
-    img.css({height:h},{width:w});  
-});
+
 
 
 //var regUsername = /^[a-zA-Z_][a-zA-Z0-9_]{4,19}$/;

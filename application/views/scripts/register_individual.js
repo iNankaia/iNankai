@@ -1,11 +1,3 @@
-$(document).ready(function(){  
-    var img = $("#qr_code");  
-	var h = $("#foot_words").outerHeight(); 	
-	var w = 70;
-    img.css({height:h},{width:w}); 
-    var fh = $('#foot').outerHeight();
-});
-
 
 var regUsername = /^[a-zA-Z0-9_-]{4,16}$/;
 var regPasswordSpecial = /[~!@#%&=;':",./<>_\}\]\-\$\(\)\*\+\.\[\?\\\^\{\|]/;
