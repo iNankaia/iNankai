@@ -8,31 +8,12 @@
 	input{
 		text-align: left !important;
 	}
-	#foot{
-		background-color: rgb(59,48,52);
-		color: #ffffff;
-	}
-	#foot a{
-		color:#ffffff !important;
-	}
-	#head_bar{
-		background: -webkit-linear-gradient(left top, rgba(254,73,66,0.6) , rgba(254,26,103,0.6)); 
-        background: -o-linear-gradient(bottom right, rgba(254,73,66,0.6) , rgba(254,26,103,0.6)); 
-        background: -moz-linear-gradient(bottom right, rgba(254,73,66,0.6) , rgba(254,26,103,0.6)); 
-        background: linear-gradient(to bottom right, rgba(254,73,66,0.6) , rgba(254,26,103,0.6)); 
-		padding-bottom: 0.6%;
-		padding-top: 0.6%;
-		padding-left: 3%;
-	}
+
 	
 	.img_sidebar{
 		margin-bottom: 6%;
 	}
-	#head_bar a{
-		color: #ffffff !important;
-		font-size: 1em !important;
-		text-decoration: none;
-	}
+
 	#box_bar{
 		margin-top: 2%;
 		margin-bottom: 2%;
@@ -153,113 +134,9 @@
 <html lang="zh-Hans">
 <head>
 	<title>动态圈</title>
-	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
 </head>
 <body>
-	<div class="container-fluid">
-		<div class=" navbar-fixed-top row" id="head_bar">
-			<div class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">
-				<img src="./img/logo.png" id="logo">
-				<a>我的南开inankai</a></div>	
-			<a class="col-sm-1 col-sm-offset-6 col-md-offset-8 col-md-1 col-xs-3" data-toggle="modal" data-target="#loginModal" style="text-align: right;" href="" id="login">登录</a>	
-			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;" href="">注册</a>
-			
-		</div>
-		<div class="row">
-			<img src="./img/主页设计_02.jpg" width="100%">
-		</div>
-	</div>
 
-
-
-	<!-- 注册框（Modal） -->
-	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					注册
-				</h4>
-			</div>
-			
-
-			<!--div class="modal-body">
-				<form class="form" role="form" action="">
-					<div class="form-group">
-						<input class="form-control input-lg" type="text" placeholder="用户名" id="username"></input>
-					</div>
-					<div class="form-group">
-						<input class="form-control input-lg" type="password" placeholder="密码" id="password"></input>
-					</div>
-					<div class="form-group">
-						<input class="form-control input-lg" type="password" placeholder="重复密码" id="repassword"></input>
-					</div>
-					<div class="form-group">
-						<input class="form-control input-lg" type="password" placeholder="邮箱" id="email"></input>
-					</div>
-					<div class="form-group">
-						<button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">注册</button>
-						
-					</div>
-					
-				</form>
-			</div-->
-
-			<div class="modal-body ">
-				<a class="user_type" title="个人" href=""><img src="http://cdn.duitang.com/uploads/blog/201411/18/20141118153107_QuHGU.thumb.700_0.jpeg" width="40%"></a>
-				<a class="user_type" title="社团" href=""><img src="http://cdn.duitang.com/uploads/blog/201411/18/20141118153107_QuHGU.thumb.700_0.jpeg" width="40%"></a>
-			</div>
-		
-		</div>
-	</div>
-	</div>
-	
-	
-	<!-- 登录框（Modal） -->
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content"  >
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h3 class="modal-title" id="myModalLabel">
-					登录
-				</h3>
-			</div>
-			<div class="modal-body" style="width:72.6%; margin:auto">
-				<form class="form" role="form" action="">
-					<div class="form-group">
-						<input class="form-control input-lg" type="text" placeholder="用户名" id="username"></input>
-					</div>
-					<div class="form-group">
-						<input class="form-control input-lg" type="password" placeholder="密码" id="password"></input>
-					</div>
-					<div class="form-group pull-left">
-						<div class="checkbox">
-							<label><input type="checkbox" id="remeberme">请记住我</label>
-						</div>
-					</div>
-					<div class="form-group">
-						<input type="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" value="登录" id="submit" style="text-align: center !important; background-color: #6d323b; border:0px">
-						<div style="padding: 2%;">
-							<span class="pull-left"><a href="">找回密码</a></span>
-							<a id="regist_jump" class="pull-right" href="">注册</a>
-						</div>
-					</div>
-					
-				</form>
-			</div>
-			
-		</div>
-	</div>
-	</div>
 
 	<!--div class="container">
 		<div class=" row" id="box_bar">
@@ -292,10 +169,14 @@
 			</div>
 		</div>
 	</div-->
-
+	<div class="container-fluid">
+		<div class="row">
+			<img src="/inankai/assets/img/主页设计_02.jpg" width="100%">
+		</div>
+	</div>
 
 <div class="container-fluid">
-	<hr width="80%" size="2px" style="margin-top:10%">
+	<hr width="80%" size="2px" style="margin-top:5%">
 	<div class="row">
 		<ul id="myTab" class="nav nav-pills">
     		<li class="col-md-2 col-md-offset-3 col-xs-3 active"><a href="#hot" data-toggle="tab">热门动态</a></li>
@@ -611,13 +492,13 @@
 
 	<div class="col-md-2 col-xs-2 col-sm-1">
 		<div class="row icon3">
-			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
+			<a href="Dynamics"><img src="/inankai/assets/img/动态圈2.png" title="动态圈" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
+			<a href="Inankai"><img src="/inankai/assets/img/爱南开2.png" title="爱南开" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
+			<a href="Personal"><img src="/inankai/assets/img/个人页2.png" title="个人页" class="sideimg"></a>
 		</div>
 	</div>
 
@@ -630,30 +511,11 @@
 
 
 
-	<footer class="container-fluid" id="foot">
-		<div class="row" style="padding:2%;">
-			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
-				<p><a href="">关于我们</a></p>
-				<p><a href="">联系我们</a></p>
-				<p><a href="">开发团队</a></p>
-				<p><a href="">其他作品</a></p>
-			</div>
-			<div  class="col-md-2 col-xs-6">
-				<img id="qr_code" src="./img/qr_code.jpg" > 
-			<div>
-		</div>
-	</footer>
+
 	
 
 </body>
 <script type="text/javascript">
-	$(document).ready(function(){  
-    var img = $("#qr_code");  
-	var h = $("#foot_words").outerHeight(); 	
-	var w = 70;
-    img.css({height:h},{width:w});  
-    $("#logo").css("width",$("#login").outerHeight());
-    });
 	$(".follow").click(function(){
 		//$("button.follow").css("background-color","#AAAAAA");
 		$(".follow").toggleClass("unfollow");

@@ -1,23 +1,3 @@
-<style type="text/css">
-    body{
-        min-height:100%;
-        position:relative;
-    }
-	#foot{
-		background-color: rgb(59,48,52);
-		color: #ffffff;
-        height: 170px;
-        position:absolute;
-        bottom: 0;
-        width:100%;
-	}
-	#foot a{
-		color:#ffffff !important;
-	}
-    .container{
-        padding-bottom: 170px;
-    }
-</style>
 <head>
 	<title>社团用户注册</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="margin-top: 30px">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 col-xs-12">
 				<form class="form-horizontal" role="form" >
@@ -136,19 +116,6 @@
 	</div>
 
 
-	<footer class="container-fluid" id="foot">
-		<div class="row" style="padding:2%;">
-			<div class="col-md-2 col-md-offset-7 col-xs-6" id="foot_words">
-				<p><a href="">关于我们</a></p>
-				<p><a href="">联系我们</a></p>
-				<p><a href="">开发团队</a></p>
-				<p><a href="">其他作品</a></p>
-			</div>
-			<div  class="col-md-2 col-xs-6">
-				<img id="qr_code" src="./img/qr_code.jpg" > 
-			<div>
-		</div>
-	</footer>
 </body>
 
 <script src="./scripts/register_club.js" charset="utf-8"></script>

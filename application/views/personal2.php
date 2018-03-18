@@ -10,7 +10,7 @@
         min-height:100%;
         position:relative;
         font-family: Helvetica,"PingFang SC";
-        background: url(./img/自定义底图.png)top center no-repeat;
+        background: url(/inankai/assets/img/自定义底图.png)top center no-repeat;
         background-size:cover;
     }
 	#head_bar{
@@ -55,7 +55,7 @@
 	}
 	.active-bar{
 		background:none;
-		background-image: url(./img/粉色横杠.png) !important;
+		background-image: url(/inankai/assets/img/粉色横杠.png) !important;
 		color:#000000;
 		font-weight: bold!important;
 	}
@@ -121,7 +121,7 @@
 		
 	}
 	.on{
-		background-image: url(./img/粉色横杠.png) !important;
+		background-image: url(/inankai/assets/img/粉色横杠.png) !important;
 		color:#000000;
 		font-weight: bold!important;
 	}
@@ -182,7 +182,7 @@
  
     ul.timeline {
         list-style-type: none;
-        background: url("./img/竖轴.png") repeat-y scroll 100px 0 transparent;
+        background: url("/inankai/assets/img/竖轴.png") repeat-y scroll 100px 0 transparent;
         margin: 50px 0;
         padding: 0;
     }
@@ -211,7 +211,7 @@
     }
     ul.timeline li .number {
         position: absolute;
-        background: url("./img/竖轴下的小圆圈.png") no-repeat scroll 0 0 transparent;
+        background: url("/inankai/assets/img/竖轴下的小圆圈.png") no-repeat scroll 0 0 transparent;
         background-size: 20px;
         width: 56px;
         height: 56px;
@@ -222,7 +222,7 @@
         font-size: 18px;
     }
     ul.timeline li.alt .number {
-           background-image: url("./img/竖轴下的小圆圈.png");
+           background-image: url("/inankai/assets/img/竖轴下的小圆圈.png");
     }
     ul.timeline li .content {
             margin-left: 180px;
@@ -260,31 +260,10 @@
 <html lang="zh-Hans">
 <head>
 	<title>个人主页</title>
-	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
+
 </head>
 <body>
 	
-
-	<div class="container-fluid ">
-		<div class="navbar-fixed-top row" id="head_bar">
-			
-			<div class="col-sm-4 col-md-2 col-xs-6" href=""  style="text-align: left;">
-				<img src="./img/logo.png" id="logo">
-				<a>我的南开inankai</a></div>
-				
-			<div class="col-sm-2 col-sm-offset-5 col-md-offset-8 col-md-1 col-xs-3" style="padding-right: 5px;">
-				<img src="./img/个人.png"  id="person">
-				<span id="nickname" style="color:white">Hi, xxx  |</span>
-			</div>			
-			<a class="col-sm-1 col-md-1  col-xs-3" data-toggle="modal" data-target="#registerModal" style="text-align: left;padding-left: 0px;"   id="login" href="">退出</a>	
-		</div>
-	</div>
-
-
-
 
 	<div class="container-fluid" style="margin-bottom: 2%">
 		<div align="center">
@@ -450,17 +429,17 @@
 			</div>		
 		</ul>
 
-		<div class="col-md-2 col-xs-2 col-sm-1">
-			<div class="row icon3">
-				<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
-			</div>
-			<div class="row icon3">
-				<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
-			</div>
-			<div class="row icon3">
-				<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
-			</div>
-		</div>					
+	<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="row icon3">
+			<a href="Dynamics"><img src="/inankai/assets/img/动态圈圆.png" title="动态圈" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a href="Inankai"><img src="/inankai/assets/img/nk.png" title="爱南开" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a><img src="/inankai/assets/img/person.png" title="个人页" class="sideimg"></a>
+		</div>
+	</div>					
 		</div>		
 		</div>
 	</div>
@@ -580,13 +559,13 @@
 
 	<div class="col-md-2 col-xs-2 col-sm-1">
 		<div class="row icon3">
-			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
+			<a href="Dynamics"><img src="/inankai/assets/img/动态圈圆.png" title="动态圈" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
+			<a href="Inankai"><img src="/inankai/assets/img/nk.png" title="爱南开" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
+			<a><img src="/inankai/assets/img/person.png" title="个人页" class="sideimg"></a>
 		</div>
 	</div>		
 
@@ -802,17 +781,17 @@
 		</div>
 	</div><!--选项卡内容-->
 
-		<div class="col-md-2 col-xs-1 col-sm-1 ">
-			<div class="row icon3">
-				<img src="./img/动态圈圆.png" width=20%;>
-			</div>
-			<div class="row icon3">
-				<img src="./img/nk.png" width=20%;>
-			</div>
-			<div class="row icon3">
-				<img src="./img/person.png" width=20%;>
-			</div>
+	<div class="col-md-2 col-xs-2 col-sm-1">
+		<div class="row icon3">
+			<a href="Dynamics"><img src="/inankai/assets/img/动态圈圆.png" title="动态圈" class="sideimg"></a>
 		</div>
+		<div class="row icon3">
+			<a href="Inankai"><img src="/inankai/assets/img/nk.png" title="爱南开" class="sideimg"></a>
+		</div>
+		<div class="row icon3">
+			<a><img src="/inankai/assets/img/person.png" title="个人页" class="sideimg"></a>
+		</div>
+	</div>
 
 	
 	</div><!--我的消息-->
@@ -968,13 +947,13 @@
 	</div>
 	<div class="col-md-2 col-xs-2 col-sm-1">
 		<div class="row icon3">
-			<a href=""><img src="./img/动态圈圆.png" title="动态圈" class="sideimg"></a>
+			<a href="Dynamics"><img src="/inankai/assets/img/动态圈圆.png" title="动态圈" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<a href=""><img src="./img/nk.png" title="爱南开" class="sideimg"></a>
+			<a href="Inankai"><img src="/inankai/assets/img/nk.png" title="爱南开" class="sideimg"></a>
 		</div>
 		<div class="row icon3">
-			<a href=""><img src="./img/person.png" title="个人页" class="sideimg"></a>
+			<a><img src="/inankai/assets/img/person.png" title="个人页" class="sideimg"></a>
 		</div>
 	</div>
 	</div>
@@ -1008,11 +987,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){  
-    var img = $("#qr_code");  
-	var h = $("#foot_words").outerHeight(); 	
-	var w = 70;
-    img.css({height:h},{width:w});  
-    $("#logo").css("width",$("#login").outerHeight());
     $("#person").css("width",$("#nickname").outerHeight());
     $("#mar").css("height",$("#login").outerHeight());
     $("#gender").css("height",$("#name").outerHeight());
