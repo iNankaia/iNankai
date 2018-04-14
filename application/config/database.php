@@ -75,11 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-<<<<<<< HEAD
 	'hostname' => 'localhost',,
-=======
-	'hostname' => 'localhost',
->>>>>>> 2070bbc59f496003952d596076bbc6e9c3fe9ab1
 	'username' => 'root',
 	'password' => '',
 	'database' => 'inankai',
