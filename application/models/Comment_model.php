@@ -47,14 +47,14 @@ class Comment_model extends CI_Model
 //
 //            }
 
-//            Sort($resdata,intval($sortBy));
-//            $respage=array_slice($resdata,intval($currentPage*$pageSize),intval($pageSize),true);
+            Sort($resdata,intval($sortBy));
+            $respage=array_slice($resdata,intval(($currentPage-1)*$pageSize),intval($pageSize),true);
             $totalCount=$res->num_rows();
             $totalPage=$totalCount%$pageSize==0?intval($totalCount/$pageSize):intval($totalCount/$pageSize+1);
             $rtn=array(
                 'flag'=>0,
                 'data'=>array(
-                'page'=>$resdata,
+                'page'=>$respage,
                 'totalCount'=>$totalCount,
                 'totalPage'=>$totalPage,
                 'currentPage'=>$currentPage
