@@ -1,54 +1,61 @@
 <?php
-<<<<<<< HEAD
+
 /**
  * Created by PhpStorm.
  * User: hp
  * Date: 2018/4/7
  * Time: 18:00
  */
-class Course_model extends CI_Model {
-=======
 
-/**
- * Created by PhpStorm.
- * User: a
- * Date: 2018/4/10
- * Time: 12:04
- */
 class Comment_model extends CI_Model
 {
->>>>>>> 2070bbc59f496003952d596076bbc6e9c3fe9ab1
+
     public function __construct(){
         parent::__construct();
         $this->load->database();
         $this->load->library('session');
     }
-<<<<<<< HEAD
+
     public function index() {
 
     }
+
+
+
+    /**
+     * @param $courseid
+     * @param $currentPage
+     * @param $pageSize
+     * @param $sortmethod
+     * @return array
+     */
     public function getCommentListByCourseId($courseid,$currentPage,$pageSize,$sortmethod){
         $sql='select * from comment where courseid='.$this->db->escape($courseid);;
         $result=$this->db->query($sql);
 
-     if($result->num_rows()>0){
+        if($result->num_rows()>0){
 
-         $res=$this->result_array();
-         $respage=array_slice($res,intval( $currentPage*$pageSize),intval($pageSize),true);
-         $totalcount=$result->num_rows();
-         $totalPage = $totalcount % $pageSize ==0?$totalcount/$pageSize:$totalcount/$pageSize+1;
-         $res=array(
-            'pageSize'=>$pageSize,
-            'currentPage'=>$currentPage,
-            'totalCount'=>$totalcount,
-            'totalPage'=>$totalPage,
-            'page'=>$respage
+            $res=$result->result_array();
+             $respage=array_slice($res,intval( ($currentPage-1)*$pageSize),intval($pageSize),true);
+            $totalcount=$result->num_rows();
+            $totalPage = $totalcount % $pageSize ==0?$totalcount/$pageSize:$totalcount/$pageSize+1;
+            $res=array(
+                'pageSize'=>$pageSize,
+                'currentPage'=>$currentPage,
+                 'totalCount'=>$totalcount,
+                 'totalPage'=>$totalPage,
+                 'page'=>$respage
         );
      }
         return $res;
     }
+
+    /**
+     * @param $commentid
+     * @return array
+     */
     public function findCommentByCommentID($commentid){
-        $sql='select * from comment where commentid='.$this->db->escape($commentid);
+        $sql='select  from comment where commentid='.$this->db->escape($commentid);
         $result=$this->db->query($sql);
 
         if($result->num_rows()>0){
@@ -60,6 +67,14 @@ class Comment_model extends CI_Model
         return $res;
     }
 
+    /**
+     * @param $commentId
+     */
+    public function deleteCommentByCommentID($commentId){
+        $sql='delete * from comment where commentid='.$this->db->escape($commentId);
+        $result=$this->db->query($sql);
+        return ;
+    }
     public function findCommentByUserID( $userid,$currentPage,$pageSize,$sortmethod){
         $sql='select * from comment where courseid='.$this->db->escape($userid);
         $result=$this->db->query($sql);
@@ -67,8 +82,8 @@ class Comment_model extends CI_Model
 
         if($result->num_rows()>0){
 
-            $res=$this->result_array();
-            $respage=array_slice($res,intval( $currentPage*$pageSize),intval($pageSize),true);
+            $res=$result->result_array();
+            $respage=array_slice($res,intval(($currentPage-1)*$pageSize),intval($pageSize),true);
             $totalcount=$result->num_rows();
             $totalPage = $totalcount % $pageSize ==0?$totalcount/$pageSize:$totalcount/$pageSize+1;
             $res=array(
@@ -81,15 +96,6 @@ class Comment_model extends CI_Model
         }
         return $res;
     }
-
-
-}
-?>
-=======
-    public function index(){
-
-    }
-
     /**
      * @param int $teacherId
      * @param int $currentPage
@@ -127,10 +133,10 @@ class Comment_model extends CI_Model
             $rtn=array(
                 'flag'=>0,
                 'data'=>array(
-                'page'=>$resdata,
-                'totalCount'=>$totalCount,
-                'totalPage'=>$totalPage,
-                'currentPage'=>$currentPage
+                    'page'=>$resdata,
+                    'totalCount'=>$totalCount,
+                    'totalPage'=>$totalPage,
+                    'currentPage'=>$currentPage
                 )
             );
             return $rtn;
@@ -151,5 +157,64 @@ class Comment_model extends CI_Model
 //            array_multisort($unsorted['likeCount'],SORT_DESC,$unsorted);
 //        }
     }
+
+    /**
+     * @return mixed
+     */
+    public  function  getTotalCount(){
+        $sql='select count(*) from comment ';
+        $result=$this->db->query($sql);
+
+        return  $result;
+    }
+
+    public function getCommentList($commentPage){
+        
+    }
+
+    /**
+     * @param $commentId
+     * @return int
+     */
+    public function addLikeCount($commentId){
+        $sql='select likeCount from comment where commentId='.$this->db->escape($commentId);
+        $result=$this->db->query($sql);
+        $res=$result->return_array();
+        $likeCount=$res['likeCount'];
+        $likeCount+=1;
+        $sql2='update comment set likeCount='.$this->db->escape($likeCount).'where commentId='.$this->db->escape($commentId);
+        $resu=$this->db->query($sql2);
+        return $likeCount;
+    }
+
+    /**
+     * @param array $comment
+     */
+    public function addCommnet($comment=array()){
+        $sql='insert into comment values('.
+            $this->db->escape($comment['commentid']).
+            $this->db->escape($comment['courseid']).
+            $this->db->escape($comment['teacherid']).
+            $this->db->escape($comment['userid']).
+            $this->db->escape($comment['rating_usefulness']).
+            $this->db->escape($comment['rating_vividness']).
+            $this->db->escape($comment['rating_spareTimeOccupation']).
+            $this->db->escape($comment['rating_scoring']).
+            $this->db->escape($comment['rating_rollCall']).
+            $this->db->escape($comment['recommandScore']).
+            $this->db->escape($comment['critics']).
+            $this->db->escape($comment['likeCount'])
+            . ')';
+        $result=$this->db->query($sql);
+
+        return ;
+    }
+
 }
->>>>>>> 2070bbc59f496003952d596076bbc6e9c3fe9ab1
+
+
+?>
+
+
+
+

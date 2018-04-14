@@ -32,6 +32,7 @@ class Comment extends CI_Controller{
         $courseId = $this->input->post('courseId');
         $currentPage = $this->input->post('currentPage');
         $pageSize=10;
+        $sortBy=0;
         if(!isset($courseId)){
             echo $this->myecho(-1, '查询失败');
             return ;
@@ -39,13 +40,13 @@ class Comment extends CI_Controller{
         if(!isset($currentPage)){
           $currentPage=1;
         }
-        $result = $this->comment->getCommentListByCourseId();
+        $result = $this->comment->getCommentListByCourseId($courseId,$currentPage,$pageSize,$sortBy);
         $res=array(
             'pageSize'=>$pageSize,
             'currentPage'=>$currentPage,
-            'totalCount'=>$result['data']['totalCount'],
-            'totalPage'=>$result['data']['totalPage'],
-            'page'=>$result['data']['page']
+            'totalCount'=>$result['totalCount'],
+            'totalPage'=>$result['totalPage'],
+            'page'=>$result['page']
         );
         echo $this->myecho(100, '查询成功', $res);
     }
@@ -57,7 +58,7 @@ class Comment extends CI_Controller{
         $currentPage=$this->input->post('currentPage');
         $userId = $this->input->post('userId');
         $pageSize=10;
-        $
+        $sortBy=0;
         if(!isset($userId)){
             echo $this->myecho(-1,'查询失败');
             return ;
@@ -65,10 +66,92 @@ class Comment extends CI_Controller{
         if(!isset($currentPage)){
             $currentPage=1;
         }
-        $result=$this->comment->findCommentByUserID($userId,$currentPage,$pageSize,);
+        $result=$this->comment->findCommentByUserID($userId,$currentPage,$pageSize,$sortBy);
+        $res=array(
+            'pageSize'=>$pageSize,
+            'currentPage'=>$currentPage,
+            'totalCount'=>$result['totalCount'],
+            'totalPage'=>$result['totalPage'],
+            'page'=>$result['page']
+        );
+        echo $this->myecho(100, '查询成功', $res);
+    }
+
+    public function addLikeCount(){
+        $commentId=$this->input->post('commentId');
+        if(!isset($commentId)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        $result=$this->comment->addLikeCount($commentId);
+        $res=array(
+            'likeCount'=>$result
+        );
+        echo $this->myecho(100,'查询成功',$res);
+    }
+    public function deleteComment(){
+        $commentId=$this->input->post('commentId');
+        if(!isset($commentID)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        $result=$this->comment->findCommentByCommentID($commentId);
+        if($result->num_rows()>0){
+            $res=$this->comment->deleteCommentByCommentID($commentId);
+            echo $this->myecho(100,'查询成功');
+        }
+        return ;
+    }
+
+    public function addComment(){
+      //  $commentid = $this->input->post('commentid');
+        //  $courseid = $this->input->post('courseid');
+      //  $teacherid = $this->input->post('teacherid');
+      //  $userid = $this->input->post('userid');
+        $rating_usefulness = $this->input->post('rating_usefulness');
+        $rating_vividness = $this->input->post('rating_vividness');
+        $rating_spareTimeOccupation = $this->input->post('rating_spareTimeOccupation');
+        $rating_scoring = $this->input->post('rating_scoring');
+        $rating_rollCall = $this->input->post('rating_rollCall');
+        $recommandScore = $this->input->post('recommandScore');
+        $critics= $this->input->post('critics');
+        $likeCount = 0;
+        if(!isset($rating_usefulness)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset( $rating_vividness)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset($rating_spareTimeOccupation)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset( $rating_scoring)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset($rating_rollCall)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset( $recommandScore)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset( $critics)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+      //  $result=$this->comment->addComment($);
 
 
 
     }
+
+
+
+
 }
 ?>
