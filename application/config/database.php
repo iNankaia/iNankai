@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '120.25.87.171',
+	'hostname' => 'localhost',,
 	'username' => 'root',
-	'password' => 'mysql930',
-	'database' => 'inankai_circle',
+	'password' => '',
+	'database' => 'inankai',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
