@@ -1,13 +1,4 @@
 <?php
-<<<<<<< HEAD
-/**
- * Created by PhpStorm.
- * User: hp
- * Date: 2018/4/7
- * Time: 18:00
- */
-class Course_model extends CI_Model {
-=======
 
 /**
  * Created by PhpStorm.
@@ -17,13 +8,12 @@ class Course_model extends CI_Model {
  */
 class Comment_model extends CI_Model
 {
->>>>>>> 2070bbc59f496003952d596076bbc6e9c3fe9ab1
     public function __construct(){
         parent::__construct();
         $this->load->database();
         $this->load->library('session');
     }
-<<<<<<< HEAD
+
     public function index() {
 
     }
@@ -83,12 +73,8 @@ class Comment_model extends CI_Model
     }
 
 
-}
-?>
-=======
-    public function index(){
 
-    }
+
 
     /**
      * @param int $teacherId
@@ -152,4 +138,4 @@ class Comment_model extends CI_Model
 //        }
     }
 }
->>>>>>> 2070bbc59f496003952d596076bbc6e9c3fe9ab1
+?>
