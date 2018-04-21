@@ -50,9 +50,9 @@ class Comment extends CI_Controller{
         );
         echo $this->myecho(100, '查询成功', $res);
     }
+
     /**
      * 通过用户id来查询评论
-     *
      */
     public function getCommentListByUserId(){
         $currentPage=$this->input->post('currentPage');

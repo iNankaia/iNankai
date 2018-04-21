@@ -24,6 +24,7 @@ class Teacher_model extends CI_Model
         $sql='select teachername from teacher where teacherId='.$this->db->escape($teacherId);
         $res=$this->db->query($sql);
 
+//        $data=$res->result()[0]['teachername'];
         foreach($res->result() as $row){
             $data=$row->teachername;
         }

@@ -29,16 +29,17 @@ class Comment_model extends CI_Model
      * @param $sortmethod
      * @return array
      */
-    public function getCommentListByCourseId($courseid,$currentPage,$pageSize,$sortmethod){
+    public function getCommentListByCourseId($courseid=0,$currentPage=1,$pageSize=10,$sortmethod=0){
         $sql='select * from comment where courseid='.$this->db->escape($courseid);;
         $result=$this->db->query($sql);
 
         if($result->num_rows()>0){
 
             $res=$result->result_array();
-             $respage=array_slice($res,intval( ($currentPage-1)*$pageSize),intval($pageSize),true);
+            Sort($res,$sortmethod);
+            $respage=array_slice($res,intval( ($currentPage-1)*$pageSize),intval($pageSize),false);
             $totalcount=$result->num_rows();
-            $totalPage = $totalcount % $pageSize ==0?$totalcount/$pageSize:$totalcount/$pageSize+1;
+            $totalPage = $totalcount % $pageSize ==0?intval($totalcount/$pageSize):intval($totalcount/$pageSize+1);
             $res=array(
                 'pageSize'=>$pageSize,
                 'currentPage'=>$currentPage,
@@ -68,24 +69,33 @@ class Comment_model extends CI_Model
     }
 
     /**
-     * @param $commentId
+     * @param int $commentId
      */
-    public function deleteCommentByCommentID($commentId){
+    public function deleteCommentByCommentID($commentId=0){
         $sql='delete * from comment where commentid='.$this->db->escape($commentId);
         $result=$this->db->query($sql);
         return ;
     }
-    public function findCommentByUserID( $userid,$currentPage,$pageSize,$sortmethod){
-        $sql='select * from comment where courseid='.$this->db->escape($userid);
+
+    /**
+     * @param int $userid
+     * @param int $currentPage
+     * @param int $pageSize
+     * @param int $sortmethod
+     * @return array
+     */
+    public function findCommentByUserID( $userid=0,$currentPage=1,$pageSize=10,$sortmethod=0){
+        $sql='select * from comment where userid='.$this->db->escape($userid);
         $result=$this->db->query($sql);
 
 
         if($result->num_rows()>0){
 
             $res=$result->result_array();
-            $respage=array_slice($res,intval(($currentPage-1)*$pageSize),intval($pageSize),true);
+            Sort($res,$sortmethod);
+            $respage=array_slice($res,intval(($currentPage-1)*$pageSize),intval($pageSize),false);
             $totalcount=$result->num_rows();
-            $totalPage = $totalcount % $pageSize ==0?$totalcount/$pageSize:$totalcount/$pageSize+1;
+            $totalPage = $totalcount % $pageSize ==0?intval($totalcount/$pageSize):intval($totalcount/$pageSize+1);
             $res=array(
                 'pageSize'=>$pageSize,
                 'currentPage'=>$currentPage,
@@ -101,8 +111,9 @@ class Comment_model extends CI_Model
      * @param int $currentPage
      * @param int $pageSize
      * @param int $sortBy
+     * @return array
      */
-    public function findCommentByTeacherID($teacherId=0,$currentPage=0,$pageSize=0,$sortBy=0){
+    public function findCommentByTeacherID($teacherId=0,$currentPage=1,$pageSize=10,$sortBy=0){
         $sql='SELECT comment.*,course.coursename FROM comment left join  course on COMMENT.courseid=course.courseid where teacherid='.$this->db->escape($teacherId);
         $res=$this->db->query($sql);
         if($res->num_rows()>0){
@@ -126,14 +137,14 @@ class Comment_model extends CI_Model
 //
 //            }
 
-//            Sort($resdata,intval($sortBy));
-//            $respage=array_slice($resdata,intval($currentPage*$pageSize),intval($pageSize),true);
+            Sort($resdata,intval($sortBy));
+            $respage=array_slice($resdata,intval(($currentPage-1)*$pageSize),intval($pageSize),false);
             $totalCount=$res->num_rows();
-            $totalPage=$totalCount%$pageSize==0?intval($totalCount/$pageSize):intval($totalCount/$pageSize+1);
+            $totalPage = $totalCount % $pageSize ==0?intval($totalCount/$pageSize):intval($totalCount/$pageSize+1);
             $rtn=array(
                 'flag'=>0,
                 'data'=>array(
-                    'page'=>$resdata,
+                    'page'=>$respage,
                     'totalCount'=>$totalCount,
                     'totalPage'=>$totalPage,
                     'currentPage'=>$currentPage
@@ -153,9 +164,9 @@ class Comment_model extends CI_Model
      * 1 - Sort by time
      */
     public function Sort($unsorted=array(),$sortBy=0){
-//        if($sortBy===0){
-//            array_multisort($unsorted['likeCount'],SORT_DESC,$unsorted);
-//        }
+        if($sortBy==0){
+            array_multisort($unsorted['likeCount'],SORT_DESC,$unsorted);
+        }
     }
 
     /**
@@ -179,18 +190,23 @@ class Comment_model extends CI_Model
     public function addLikeCount($commentId){
         $sql='select likeCount from comment where commentId='.$this->db->escape($commentId);
         $result=$this->db->query($sql);
-        $res=$result->return_array();
-        $likeCount=$res['likeCount'];
+
+        foreach($result->result() as $row){
+            $likeCount=$row->likeCount;
+        }
+
+//        $res=$result->return_array();
+//        $likeCount=$res['likeCount'];
         $likeCount+=1;
-        $sql2='update comment set likeCount='.$this->db->escape($likeCount).'where commentId='.$this->db->escape($commentId);
+        $sql2='update comment set likeCount='.$likeCount.' where commentId='.$commentId;
         $resu=$this->db->query($sql2);
-        return $likeCount;
+            return $likeCount;
     }
 
     /**
      * @param array $comment
      */
-    public function addCommnet($comment=array()){
+    public function addComment($comment=array()){
         $sql='insert into comment values('.
             $this->db->escape($comment['commentid']).
             $this->db->escape($comment['courseid']).

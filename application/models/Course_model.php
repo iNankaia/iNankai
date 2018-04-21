@@ -32,6 +32,7 @@ class Course_model extends CI_Model {
             return array('flag' => -1);
         }
     }
+
     public function findCourseByTeacherId($teacherId=0){
         $sql='SELECT
 	course.coursename,
