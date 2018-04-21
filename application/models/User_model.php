@@ -221,7 +221,7 @@ class User_model extends CI_Model {
       $sql = 'delete from subscribe where subscriber_user_id = '.$this->db->escape($uid).' and subscribed_user_id = '.$this->db->escape($lid).')';
       $this->db->query($sql);
       if ($this->db->affected_rows() === 0) {
-        $sql = 'update club_user_info set club_sub_count = club_sub_count ＋ 1 where user_id = '.$this->db->escape($lid);
+        $sql = 'update club_user_info set club_sub_count = club_sub_count + 1 where user_id = '.$this->db->escape($lid);
         $this->db->query($sql);
         return array('flag' => -4);
       }

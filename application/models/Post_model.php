@@ -15,8 +15,27 @@ class Post_model extends CI_Model{
      * flag = -1    :搜索失败
      * flag = 1     :搜索成功
      */
-    public function findAll(){
+    public function findPost(){
+        $findby = $this->input->post('findby');
+        $orderby = $this->input->post('orderby');
         $sql = 'select * from post';
+
+        switch ($findby)
+        {
+            case 'club_user_name':
+                $sql = 'select * from post,club_user_info where club_user_name='.$this->db->escape($this->input->post('search_str'));
+                break;
+            case 'tag_name':
+                $sql = 'select * from post,tagged,tag where tag_name='.$this->db->escape($this->input->post('search_str'));
+                break;
+            case 'favorite_user_id':
+                $sql = 'select * from post,favorite where favorite_user_id='.$this->db->escape($this->input->post('search_str'));
+                break;
+            default:
+                break;
+        }
+
+        $sql = $sql.' order by '.$orderby;
         $res = $this->db->query($sql);
         if($res->num_rows()===0){
             return array('flag'=>-1);
