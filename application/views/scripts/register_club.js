@@ -1,9 +1,4 @@
-$(document).ready(function(){  
-    var img = $("#qr_code");  
-	var h = $("#foot_words").outerHeight(); 	
-	var w = 70;
-    img.css({height:h},{width:w});  
-});
+
 
 
 //var regUsername = /^[a-zA-Z_][a-zA-Z0-9_]{4,19}$/;
@@ -165,7 +160,7 @@ $('#submit').click(function(e) {
         inviteCode = $('#inviteCode').val();
         contact = $("#contact").val();
         clubIntro = $('#clubIntro').val();
-        
+        /*
         $.post(
             "<?php echo site_url('league/signup') ?>",
             {
@@ -189,6 +184,27 @@ $('#submit').click(function(e) {
             },
             "json"
             );
+            */
+        fetch('inankai/index.php/api/league/signup', {
+            method: 'post',
+            body: JSON.stringify({
+                'username':clubName,
+                'password':password,
+                'email':email,
+                'invite_code':inviteCode,            
+                'introduction':clubIntro,
+                'contact': contact
+            })
+        }).then((res) => res.json()).then((res)=> {
+            console.log(res);
+            if(res['flag'] != 100)
+            {
+                alert(res['content']);
+            }
+            else
+            {}
+
+        });
         
 
         }

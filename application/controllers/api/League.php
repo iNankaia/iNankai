@@ -86,6 +86,18 @@ class League extends CI_Controller {
         echo $this->myecho(100, '信息修改成功', '');
       }
     }
+    /**
+     * 社团获取关注数和点赞数
+     */
+    public function getfocusnum() {
+      $res = $this->league->getfocusnum();
+      if ($res['flag'] === -1) {
+        echo $this->myecho(-6, "账号未登录", "");
+        return;
+      } else if ($res['flag'] === 1) {
+        echo $this->myecho(100, "", $res['data']);
+      }
+    }
   }
 
 ?>

@@ -43,6 +43,10 @@ class User extends CI_Controller {
     }
     /**
      * 注册
+     * @param username 用户名
+     * @param password 用户设定的密码
+     * @param email 用户注册用的邮箱
+     * @return -1缺少参数 -2账号已存在 -3注册失败 -9 用户名已存在 100注册成功
      */
     public function signup() {
       $username = $this->input->post('username');
@@ -66,6 +70,9 @@ class User extends CI_Controller {
     }
     /**
      * 登录
+     * @param account 登录账号(可以是邮箱或者用户名)
+     * @param password 密码
+     * @return -1缺少参数 -4账号不存在 -5密码错误 100登录成功
      */
     public function signin() {
       // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!这里应该要根据帐号类型返回不同状态码给前端
