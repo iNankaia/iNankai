@@ -77,6 +77,9 @@ class Comment extends CI_Controller{
         echo $this->myecho(100, '查询成功', $res);
     }
 
+    /**
+     * 点赞
+     */
     public function addLikeCount(){
         $commentId=$this->input->post('commentId');
         if(!isset($commentId)){
@@ -87,27 +90,35 @@ class Comment extends CI_Controller{
         $res=array(
             'likeCount'=>$result
         );
-        echo $this->myecho(100,'查询成功',$res);
+        echo $this->myecho(100,'查询成功',$result);
     }
+
+    /**
+     * 删除评论
+     */
     public function deleteComment(){
         $commentId=$this->input->post('commentId');
-        if(!isset($commentID)){
+        if(!isset($commentId)){
             echo $this->myecho(-1,'查询失败');
             return ;
         }
+
         $result=$this->comment->findCommentByCommentID($commentId);
-        if($result->num_rows()>0){
+        if($result['flag']==1){
             $res=$this->comment->deleteCommentByCommentID($commentId);
             echo $this->myecho(100,'查询成功');
         }
         return ;
     }
 
+    /**
+     * 添加评论
+     */
     public function addComment(){
       //  $commentid = $this->input->post('commentid');
-        //  $courseid = $this->input->post('courseid');
-      //  $teacherid = $this->input->post('teacherid');
-      //  $userid = $this->input->post('userid');
+        $courseid = $this->input->post('courseid');
+        $teacherid = $this->input->post('teacherid');
+        $userid = $this->input->post('userid');
         $rating_usefulness = $this->input->post('rating_usefulness');
         $rating_vividness = $this->input->post('rating_vividness');
         $rating_spareTimeOccupation = $this->input->post('rating_spareTimeOccupation');
@@ -116,6 +127,19 @@ class Comment extends CI_Controller{
         $recommandScore = $this->input->post('recommandScore');
         $critics= $this->input->post('critics');
         $likeCount = 0;
+
+        if(!isset($courseid)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset($teacherid)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
+        if(!isset($userid)){
+            echo $this->myecho(-1,'查询失败');
+            return ;
+        }
         if(!isset($rating_usefulness)){
             echo $this->myecho(-1,'查询失败');
             return ;
@@ -144,14 +168,43 @@ class Comment extends CI_Controller{
             echo $this->myecho(-1,'查询失败');
             return ;
         }
-      //  $result=$this->comment->addComment($);
 
+        $comment=array(
+            'courseid'=>intval($courseid),
+            'teacherid'=>intval($teacherid),
+            'userid'=>intval($userid),
+            'rating_usefulness'=>intval($rating_usefulness),
+            'rating_vividness'=>intval($rating_vividness),
+            'rating_spareTimeOccupation'=>intval($rating_spareTimeOccupation),
+            'rating_scoring'=>intval($rating_scoring),
+            'rating_rollCall'=>intval($rating_rollCall),
+            'recommandScore'=>intval($recommandScore),
+            'critics'=>$critics,
+            'likeCount'=>intval($likeCount)
+        );
 
+        $result=$this->comment->addComment($comment);
 
+        if($result['flag']==1){
+            $res=array(
+                'commentid'=>$result['commentid'],
+                'data'=>$comment
+             );
+            echo $this->myecho(100,'查询成功',$res);
+            return ;
+        }
+        echo $this->myecho(-1,'查询失败');
     }
 
+    public function findTopComments(){
+        $currentPage = $this->input->post('currentPage');
+        $pageSize=10;
+        if(!isset($currentPage)){
+            $currentPage=1;
+        }
 
-
-
+        $result=$this->comment->findTopTwentyComments($currentPage,$pageSize);
+        echo $this->myecho(100, '查询成功', $result);
+    }
 }
 ?>
