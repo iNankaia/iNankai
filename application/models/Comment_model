@@ -43,7 +43,7 @@ class Comment_Model extends CI_Model{
         if($this->session->has_userdata('uid')){
             $comment_by_user_id = $this->session->uid;
             $timestamp = date('Y-m-d H:i:s',time());
-            $comment_id = md5($comment_by_user_id.$timestamp);
+            $comment_id = 0;
 
             $sql = 'insert into comment values ('
                 .$this->db->escape($comment_id).','
@@ -52,6 +52,7 @@ class Comment_Model extends CI_Model{
                 .'NULL'.','//replying comment id
                 .$this->db->escape($data['comment_content']).')';
             $res = $this->db->query($sql);
+            $comment_id = $this->db->insert_id();
             if($this->db->affected_rows() > 0){
                 return array('flag'=>1);
             }

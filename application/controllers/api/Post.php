@@ -17,8 +17,11 @@ class Post extends CI_Controller{
         return urldecode(json_encode($this->getInfo($flag, $content, $extra)));
     }
 
-    public function findAll(){
-        $res= $this->post->findAll();
+    public function findPost(){
+        $findby = $this->input->post('findby');
+        $orderby = $this->input->post('orderby');
+        $search_str = $this->input->post('search_str');
+        $res= $this->post->findPost($findby, $orderby, $search_str);
         if($res['flag'] === -1){
             echo $this->myecho(-29,'搜索失败','');
         }
@@ -31,9 +34,10 @@ class Post extends CI_Controller{
         $data['post_title'] = $this->input->post('post_title');
         $data['post_content'] = $this->input->post('post_content');
         $data['post_detail_ref'] = $this->input->post('post_detail_ref');
-        $data['post_image_count'] = $this->input->post('post_image_count');
         $data['post_activity_location'] = $this->input->post('post_activity_location');
         $data['post_activity_time'] = $this->input->post('post_activity_time');
+        $data['post_image_quickview'] = $this->input->post('post_image_quickview');
+        $data['tag_ids'] = $this->input->post('tag_ids');
         $res = $this->post->publishPost($data);
         if($res['flag'] === -1){
             echo $this->myecho(-6,'未登录','');
@@ -72,9 +76,9 @@ class Post extends CI_Controller{
         $data['post_title'] = $this->input->post('post_title');
         $data['post_content'] = $this->input->post('post_content');
         $data['post_detail_ref'] = $this->input->post('post_detail_ref');
-        $data['post_image_count'] = $this->input->post('post_image_count');
         $data['post_activity_location'] = $this->input->post('post_activity_location');
         $data['post_activity_time'] = $this->input->post('post_activity_time');
+        $data['post_image_quickview'] = $this->input->post('post_image_quickview');
         $res = $this->post->modifyPost($post_id,$data);
         if($res['flag']===-4){
             echo $this->myecho(-24,'该post不存在','');
@@ -108,7 +112,9 @@ class Post extends CI_Controller{
         else if($res['flag']===1){
             echo $this->myecho(100,'点赞成功','');
         }
-
+        else if($res['flag']===-6){
+            echo $this->myecho(-6,'未登录','');
+        }
     }
     public  function favoritePost(){
         $post_id = $this->input->post('post_id');
@@ -124,6 +130,9 @@ class Post extends CI_Controller{
         }
         else if($res['flag']===1){
             echo $this->myecho(100,'收藏成功','');
+        }
+        else if($res['flag']===-6){
+            echo $this->myecho(-6,'未登录','');
         }
     }
 }
