@@ -33,6 +33,9 @@ class Comment extends CI_Controller{
         $data['comment_content'] = $this->input->post('comment_content');
         $res = $this->comment->publishComment($data);
         if($res['flag']===-1){
+            echo $this->myecho(-6,'未登录','');
+        }
+        if($res['flag']===-2){
             echo $this->myecho(31,'评论发布失败','');
         }
         if($res['flag']===1){
@@ -64,9 +67,12 @@ class Comment extends CI_Controller{
         $data['comment_commenting_post_id'] = $this->input->post('comment_commenting_post_id');
         $data['comment_content'] = $this->input->post('comment_content');
         $data['comment_replying_comment_id'] = $this->input->post('comment_replying_comment_id');
-        $res = $this->comment->publishComment($data);
+        $res = $this->comment->publishReply($data);
         if($res['flag']===-1){
-            echo $this->myecho(31,'回复失败','');
+            echo $this->myecho(-6,'未登录','');
+        }
+        if($res['flag']===-2){
+            echo $this->myecho(-6,'回复失败','');
         }
         if($res['flag']===1){
             echo $this->myecho(100,'回复成功','');
