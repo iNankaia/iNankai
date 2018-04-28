@@ -18,8 +18,11 @@ class Comment extends CI_Controller{
         return urldecode(json_encode($this->getInfo($flag, $content, $extra)));
     }
 
-    public function findAll(){
-        $res= $this->post->findAll();
+    public function findComment(){
+        $findby = $this->input->post('findby');
+        $orderby = $this->input->post('orderby');
+        $search_str = $this->input->post('search_str');
+        $res= $this->comment->findComment($findby,$orderby,$search_str);
         if($res['flag'] === -1){
             echo $this->myecho(-29,'搜索失败','');
         }
